@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#132a67">
+  <meta name="description" content="AlAndalus Private Schools Grade 4 English learning portal">
+  <title>Grade 4 English Learning Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260715-1">
+</head>
+<body>
+  <main class="portal-shell">
+    <div class="scene-shade"></div>
+    <div class="spark spark-one"></div>
+    <div class="spark spark-two"></div>
+    <div class="spark spark-three"></div>
+
+    <header class="school-brand" aria-label="AlAndalus Private Schools">
+      <div class="logo-frame"><img src="alandalus-school-logo.webp" alt="AlAndalus Private Schools, Egyptian Section"></div>
+      <div class="brand-copy">
+        <span>ALANDALUS PRIVATE SCHOOLS</span>
+        <strong>Grade 4 English Portal</strong>
+      </div>
+    </header>
+
+    <section class="portal-content">
+      <div class="welcome-copy" aria-hidden="true">
+        <span class="welcome-kicker">ONE ACCOUNT · TWO ADVENTURES</span>
+        <h1>Learn. Play.<br><em>Shine.</em></h1>
+        <p>Your English journey starts here.</p>
+      </div>
+
+      <section id="authPanel" class="glass-panel auth-panel" aria-labelledby="portalTitle">
+        <div class="panel-glow"></div>
+        <div class="panel-head">
+          <span class="mini-badge">GRADE 4</span>
+          <h2 id="portalTitle">Welcome, English Star!</h2>
+          <p>Sign in once, then choose your course.</p>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="Account access">
+          <button id="signInTab" class="auth-tab active" type="button" role="tab" aria-selected="true">Sign In</button>
+          <button id="createTab" class="auth-tab" type="button" role="tab" aria-selected="false">Create Account</button>
+        </div>
+
+        <form id="signInForm" class="auth-form" novalidate>
+          <label class="input-field" for="signInUsername">
+            <span>USERNAME</span>
+            <span class="input-box"><i class="field-icon">✦</i><input id="signInUsername" name="username" maxlength="30" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="Enter your username" required></span>
+          </label>
+          <label class="input-field" for="signInPin">
+            <span>6-DIGIT PIN</span>
+            <span class="input-box"><i class="field-icon">●</i><input id="signInPin" name="pin" type="password" maxlength="6" inputmode="numeric" autocomplete="current-password" placeholder="••••••" required><button class="show-pin" type="button" data-toggle-pin="signInPin" aria-label="Show PIN">Show</button></span>
+          </label>
+          <button id="signInButton" class="primary-action" type="submit"><span>Open My Learning Portal</span><b>→</b></button>
+        </form>
+
+        <form id="createForm" class="auth-form hidden" novalidate>
+          <div class="form-pair">
+            <label class="input-field" for="fullName"><span>FULL NAME</span><span class="input-box"><i class="field-icon">★</i><input id="fullName" maxlength="70" autocomplete="name" placeholder="Your full name" required></span></label>
+            <label class="input-field" for="className"><span>CLASS</span><span class="input-box"><i class="field-icon">4</i><select id="className" required><option value="">Choose class</option><option>4A</option><option>4B</option><option>4C</option><option>4D</option><option>Other</option></select></span></label>
+          </div>
+          <label class="input-field" for="newUsername"><span>NEW USERNAME</span><span class="input-box"><i class="field-icon">✦</i><input id="newUsername" maxlength="30" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="Example: AHMED4A15" required></span></label>
+          <div class="form-pair">
+            <label class="input-field" for="newPin"><span>CREATE PIN</span><span class="input-box"><i class="field-icon">●</i><input id="newPin" type="password" maxlength="6" inputmode="numeric" autocomplete="new-password" placeholder="6 numbers" required></span></label>
+            <label class="input-field" for="confirmPin"><span>CONFIRM PIN</span><span class="input-box"><i class="field-icon">✓</i><input id="confirmPin" type="password" maxlength="6" inputmode="numeric" autocomplete="new-password" placeholder="Repeat PIN" required></span></label>
+          </div>
+          <button id="createButton" class="primary-action create-action" type="submit"><span>Create My Account</span><b>→</b></button>
+        </form>
+
+        <div id="authMessage" class="message hidden" role="alert"></div>
+        <p class="privacy-note"><span>◆</span> Your progress is saved securely and stays connected to your account.</p>
+      </section>
+
+      <section id="coursePanel" class="glass-panel course-panel hidden" aria-labelledby="courseTitle">
+        <div class="panel-glow"></div>
+        <div class="student-welcome">
+          <div id="studentInitials" class="student-avatar">ST</div>
+          <div><span>WELCOME BACK</span><h2 id="courseTitle">Choose Your Course</h2><p id="studentLine">Your learning adventures are ready.</p></div>
+          <button id="signOutButton" class="sign-out" type="button">Sign Out</button>
+        </div>
+
+        <div class="course-grid">
+          <button class="course-card connect-card" type="button" data-course="connectPlus4">
+            <div class="course-art"><span>C+</span><i>4</i></div>
+            <div class="course-copy"><small>COURSE 01</small><h3>Connect Plus 4</h3><p>First Term</p><div class="course-tags"><span>Interactive Lessons</span><span>XP & Rewards</span></div></div>
+            <b class="course-arrow">→</b>
+          </button>
+          <button class="course-card english-card" type="button" data-course="english4">
+            <div class="course-art"><span>E</span><i>4</i></div>
+            <div class="course-copy"><small>COURSE 02</small><h3>English 4</h3><p>First Term</p><div class="course-tags"><span>English Adventure</span><span>Quizzes & Stars</span></div></div>
+            <b class="course-arrow">→</b>
+          </button>
+        </div>
+        <p class="choice-note">Choose a course to continue. You can return here at any time.</p>
+      </section>
+    </section>
+
+    <footer class="creator-credit"><span>Prepared &amp; Designed by</span><strong>Mr.Mohamed Farid</strong></footer>
+    <div id="loadingLayer" class="loading-layer hidden"><div class="loader-card"><span class="spinner"></span><strong id="loadingText">Opening your portal…</strong></div></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="portal-config.js?v=20260715-1" defer></script>
+  <script src="portal.js?v=20260715-1" defer></script>
+</body>
+</html>
