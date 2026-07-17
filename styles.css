@@ -24,7 +24,7 @@ button{cursor:pointer}
 .brand-copy{display:grid;gap:1px;text-align:left}
 .brand-copy span{font-size:.68rem;font-weight:900;letter-spacing:1.7px;color:#50608a}
 .brand-copy strong{font-family:"Baloo 2",sans-serif;font-size:1.25rem;line-height:1;color:#152b67}
-.portal-content{position:relative;z-index:3;min-height:calc(100svh - 128px);display:grid;grid-template-columns:minmax(360px,520px) minmax(0,1fr);align-items:center;gap:clamp(22px,5vw,80px);padding:clamp(18px,3vw,42px) clamp(22px,5vw,90px) 88px}.auth-panel{transform:translateY(54px);justify-self:start}
+.portal-content{position:relative;z-index:3;min-height:calc(100svh - 128px);display:grid;grid-template-columns:minmax(360px,520px) minmax(0,1fr);align-items:center;gap:clamp(22px,5vw,80px);padding:clamp(18px,3vw,42px) clamp(22px,5vw,90px) 88px}.auth-panel{transform:translateY(104px);justify-self:start}
 .welcome-copy{display:none;align-self:center;padding-left:clamp(4px,2vw,30px);filter:drop-shadow(0 16px 24px rgba(5,19,56,.28))}
 .welcome-kicker{display:inline-flex;padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.34);font-size:.72rem;font-weight:900;letter-spacing:1.7px;backdrop-filter:blur(10px)}
 .welcome-copy h1{margin:14px 0 0;font-family:"Baloo 2",sans-serif;font-size:clamp(3.2rem,6.2vw,6.7rem);line-height:.82;letter-spacing:-3px;text-shadow:0 16px 34px rgba(3,17,52,.26)}
@@ -42,12 +42,12 @@ button{cursor:pointer}
 .auth-tab.active{color:#fff;background:linear-gradient(135deg,#173f9d,#5968ff);box-shadow:0 9px 22px rgba(40,75,180,.25)}
 .auth-form{display:grid;gap:13px;animation:panelIn .3s ease}
 .form-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;min-width:0}
-.input-field{display:grid;gap:6px}
+.input-field{display:grid;gap:6px;min-width:0}
 .input-field>span:first-child{font-size:.67rem;font-weight:900;letter-spacing:1.25px;color:#46567f}
-.input-box{display:flex;align-items:center;min-height:52px;padding:0 12px;border:1px solid rgba(255,255,255,.8);border-radius:16px;background:rgba(255,255,255,.54);box-shadow:inset 0 1px rgba(255,255,255,.94),0 8px 20px rgba(23,47,108,.07);transition:.2s}
+.input-box{display:flex;align-items:center;width:100%;min-width:0;min-height:52px;padding:0 12px;border:1px solid rgba(255,255,255,.8);border-radius:16px;background:rgba(255,255,255,.54);box-shadow:inset 0 1px rgba(255,255,255,.94),0 8px 20px rgba(23,47,108,.07);transition:.2s}
 .input-box:focus-within{background:rgba(255,255,255,.76);border-color:#6f85ff;box-shadow:0 0 0 4px rgba(75,102,255,.14),0 12px 24px rgba(23,47,108,.1)}
 .field-icon{flex:0 0 25px;font-style:normal;color:#3159c8;font-weight:900}
-.input-box input,.input-box select{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#10204d;font-weight:800}
+.input-box input,.input-box select{width:0;min-width:0;flex:1;border:0;outline:0;background:transparent;color:#10204d;font-weight:800}
 .input-box input::placeholder{color:#7d88a6;font-weight:700}
 .show-pin{border:0;background:transparent;color:#244cb5;font-size:.72rem;font-weight:900}
 .primary-action{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:3px;padding:15px 18px;border:0;border-radius:17px;color:#fff;background:linear-gradient(135deg,#153b96,#475fff 58%,#6d5cff);box-shadow:0 15px 28px rgba(42,72,193,.28),inset 0 1px rgba(255,255,255,.3);font-weight:900;overflow:hidden;transition:.22s}
