@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#5b42f3">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Connect Plus Primary 4 - Term 1</title>
+  <link rel="stylesheet" href="styles.css?v=20260721-v5grouped">
+</head>
+<body data-app-build="20260721-v5grouped">
+  <section id="splash" class="splash hidden" aria-hidden="true">
+    <div class="hero">
+      <div class="splash-horizontal-layout">
+        <div class="splash-intro">
+          <div class="creator-banner"><span>Prepared and Designed by</span><strong>Mr.Mohamed Farid</strong></div>
+          <div class="eyebrow">Interactive Learning Journey</div>
+          <h1>Connect Plus<br>Primary 4</h1>
+          <p>Explore six exciting units, master English step by step, collect rewards, and continue exactly where you stopped.</p>
+        </div>
+        <div class="splash-login-card">
+          <div id="resumeNote" class="resume-note hidden"></div>
+          <div class="student-access-row">
+            <div class="field"><label for="studentClass">CLASS</label><select id="studentClass"><option value="">Choose your class</option><option>4A</option><option>4B</option><option>4C</option><option>4D</option><option>Other</option></select></div>
+          <div class="field"><label for="studentCode">USERNAME</label><input id="studentCode" maxlength="30" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="Example: AHMED4A15"></div>
+          <div class="field"><label for="studentPin">6-DIGIT PIN</label><input id="studentPin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="current-password" placeholder="••••••"></div>
+          </div>
+          <div class="cloud-login-note"><span>☁</span><span><strong>New student?</strong> Choose Create New Account. Already registered? Choose Sign In to continue your progress on any device.</span></div>
+          <div class="entry-actions"><button id="startBtn" class="primary-btn">Sign In →</button><button id="createAccountBtn" class="create-account-btn">Create New Account</button><button id="offlineBtn" class="offline-btn">This Device Only</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="app" class="app hidden">
+    <header class="topbar">
+      <div class="brand"><button id="menuBtn" class="mobile-menu">☰</button><span class="brand-badge">C+</span><span>CONNECT PLUS PRIMARY 4</span></div>
+      <div class="stat-strip"><div class="stat"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="m13 2-9 12h7l-1 8 10-13h-7V2Z"/></svg><span id="xpStat">0</span> XP</div><div class="stat"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M9 9h6M9 12h6M9 15h6"/></svg><span id="coinStat">0</span></div><div class="stat"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="m12 2 3 6 7 .9-5 4.8 1.3 6.8L12 17l-6.3 3.5L7 13.7 2 9l7-.9 3-6Z"/></svg><span id="starStat">0</span></div></div>
+      <div class="teacher-area"><span id="cloudStatus" class="cloud-status local"><i></i><b>Saved on this device</b></span><div class="developer-card" aria-label="Developer contact"><div class="developer-copy"><small>Developer</small><strong>Mr.Mohamed Farid</strong></div><div class="developer-socials"><a class="developer-social facebook" href="https://www.facebook.com/mr.mahmmd" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Open Mr. Mohamed Farid on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a><a class="developer-social whatsapp" href="https://wa.me/966552019074" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="Contact Mr. Mohamed Farid on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6A8 8 0 0 1 8.2 18.7L4 20l1.4-4A8 8 0 1 1 20 11.6Z"/><path d="M9 8.4c.3-.7.6-.7.9-.7h.4c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.8c-.2.2-.1.4 0 .6.6 1.1 1.5 2 2.7 2.6.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.8.8c.3.1.4.3.4.5 0 .4-.2 1.3-.8 1.8-.6.5-1.5.7-2.4.5-1.3-.3-2.9-1.1-4.5-2.5-1.3-1.2-2.3-2.8-2.7-4.1-.3-.8-.2-1.3.1-1.9Z"/></svg></a></div></div><button id="courseSwitchBtn" class="course-switch-btn" title="Choose another course">↔ COURSES</button><span>Mr.Mohamed Farid</span><button id="whoBtn" class="who-btn">WHO AM I?</button></div>
+    </header>
+    <div class="layout"><aside id="sidebar" class="sidebar"></aside><main id="main" class="main"></main></div>
+  </section>
+  <div id="accountModal" class="modal hidden account-modal"><form id="createAccountForm" class="modal-card account-modal-card"><button type="button" class="close-modal" data-close="accountModal" aria-label="Close">×</button><div class="account-modal-icon">☁</div><div class="eyebrow">My New Cloud Account</div><h2>Create New Account</h2><p class="lead">Choose a unique Username and a private 6-digit PIN. You will use them to continue your progress on any device.</p><div class="account-form-grid"><div class="field account-wide"><label for="newStudentCode">NEW USERNAME</label><input id="newStudentCode" maxlength="30" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="Example: AHMED4A15"></div><div class="field"><label for="newStudentClass">CLASS</label><select id="newStudentClass"><option value="">Choose your class</option><option>4A</option><option>4B</option><option>4C</option><option>4D</option><option>Other</option></select></div><div class="field"><label for="newStudentPin">CREATE 6-DIGIT PIN</label><input id="newStudentPin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="new-password" placeholder="••••••"></div><div class="field"><label for="confirmStudentPin">CONFIRM PIN</label><input id="confirmStudentPin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="new-password" placeholder="••••••"></div></div><div class="pin-safety-note">🔒 Keep your Username and PIN safe. Do not share your PIN with another student.</div><div class="account-modal-actions"><button id="cancelCreateAccount" type="button" class="ghost-btn">Cancel</button><button id="createAccountSubmit" type="submit" class="create-account-btn">Create My Account →</button></div></form></div>
+  <div id="profileModal" class="modal hidden"><div class="modal-card teacher-profile"><button class="close-modal" data-close="profileModal" aria-label="Close">×</button><div class="teacher-photo-panel"><div class="teacher-photo-glow"></div><img src="mr-mohamed-farid.webp" alt="Mr. Mohamed Farid, Senior English Instructor" class="teacher-photo"><div class="teacher-photo-caption"><span>MEET YOUR TEACHER</span><strong>Mr.Mohamed Farid</strong></div></div><div class="teacher-bio"><div class="eyebrow">Meet Your Teacher</div><h2>Mr.Mohamed Farid</h2><p class="teacher-role">Senior English Instructor<br><span>English Teacher & Educational Content Designer</span></p><div class="profile-list"><div class="profile-item">🎓 <strong>Education:</strong> Bachelor of Arts and Education, Faculty of Education, Mansoura University — 2007.</div><div class="profile-item">🏫 <strong>Current Position:</strong> English Teacher at AlAndalus Private Schools — Egyptian Section, Al-Hamdaniyah, Jeddah.</div><div class="profile-item">💡 <strong>Educational Technology:</strong> Designs interactive educational applications, digital learning experiences, worksheets, games, and AI-powered learning content.</div><div class="profile-item">👨‍🏫 <strong>Teacher Development:</strong> Supports and trains teachers in using artificial intelligence for lesson planning and educational content creation.</div><div class="profile-item">✍️ <strong>Mission:</strong> To make English clear, enjoyable, practical, and memorable for every learner.</div></div></div></div></div>
+  <div id="confirmModal" class="modal hidden"><div class="modal-card" style="max-width:470px"><button class="close-modal" data-close="confirmModal">×</button><h2>Reset all progress?</h2><p class="lead">This will remove the student's answers, XP, coins, badges, and saved position from this device and the connected cloud account. This action cannot be undone.</p><div style="display:flex;gap:10px"><button id="cancelReset" class="ghost-btn" style="flex:1">Cancel</button><button id="confirmReset" class="primary-btn" style="flex:1;background:var(--danger)">Reset</button></div></div></div>
+  <input id="avatarInput" type="file" accept="image/jpeg,image/png,image/webp" class="hidden" aria-hidden="true">
+  <div id="toast" class="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="cloud.js?v=20260716-1" defer></script>
+  <script src="questions-v6-word-correction.js?v=20260721-v6word" defer></script>
+  <script src="app.js?v=20260721-v5grouped" defer></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111a43">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Teacher Command Center | Grade 4 English Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="teacher.css?v=20260716-1">
+</head>
+<body>
+  <div id="loginView" class="teacher-login">
+    <section class="login-visual" aria-hidden="true">
+      <div class="visual-orb orb-one"></div><div class="visual-orb orb-two"></div>
+      <div class="login-brand"><span class="brand-mark">G4</span><span><b>GRADE 4 ENGLISH</b><small>TWO COURSES · ONE PORTAL</small></span></div>
+      <div class="visual-copy">
+        <span class="glass-label">TEACHER COMMAND CENTER</span>
+        <h1>Every learner.<br><em>Clearly in view.</em></h1>
+        <p>Securely manage student accounts, monitor progress, celebrate achievement, and guide every learning journey.</p>
+        <div class="visual-pills"><span>Live progress</span><span>Secure controls</span><span>Smart insights</span></div>
+      </div>
+      <div class="teacher-signature-card">
+        <img src="mr-mohamed-farid.webp" alt="">
+        <div><small>PREPARED & DESIGNED BY</small><strong>Mr.Mohamed Farid</strong><span>Senior English Instructor</span></div>
+      </div>
+    </section>
+    <main class="login-panel">
+      <form id="teacherLoginForm" class="login-card">
+        <div class="mobile-login-brand"><span class="brand-mark">G4</span><b>GRADE 4 ENGLISH</b></div>
+        <span class="eyebrow">SECURE TEACHER ACCESS</span>
+        <h2>Welcome back</h2>
+        <p>Sign in with the teacher email and password created in Supabase.</p>
+        <label class="form-field"><span>Teacher email</span><div class="input-wrap"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 7l9 7 9-7"/></svg><input id="teacherEmail" type="email" autocomplete="username" required placeholder="teacher@example.com"></div></label>
+        <label class="form-field"><span>Password</span><div class="input-wrap"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><input id="teacherPassword" type="password" autocomplete="current-password" required placeholder="Your secure password"><button id="toggleTeacherPassword" class="input-action" type="button" aria-label="Show password">Show</button></div></label>
+        <div id="loginError" class="form-error hidden" role="alert"></div>
+        <button id="teacherLoginBtn" class="primary-button" type="submit"><span>Open Command Center</span><svg viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></svg></button>
+        <div class="security-note"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3 8 8 10 5-2 8-5 8-10V6zM8 12l3 3 5-6"/></svg><span>Your teacher session is separate from student accounts and securely verified by Supabase.</span></div>
+      </form>
+    </main>
+  </div>
+
+  <div id="dashboardView" class="teacher-app hidden">
+    <aside id="teacherSidebar" class="teacher-sidebar">
+      <div class="sidebar-brand"><span class="brand-mark">G4</span><span><b>GRADE 4 ENGLISH</b><small>TEACHER CENTER</small></span><button id="closeTeacherMenu" class="icon-button sidebar-close" aria-label="Close menu">×</button></div>
+      <div class="teacher-mini-card"><img src="mr-mohamed-farid.webp" alt="Mr.Mohamed Farid"><div><small>WELCOME BACK</small><strong id="sidebarTeacherName">Mr.Mohamed Farid</strong><span>Senior English Instructor</span></div></div>
+      <nav class="teacher-nav" aria-label="Teacher dashboard">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon" data-icon="dashboard"></span><span><b>Overview</b><small>Performance at a glance</small></span></button>
+        <button class="nav-item" data-view="students"><span class="nav-icon" data-icon="students"></span><span><b>Students</b><small>Accounts and progress</small></span><em id="studentNavCount">0</em></button>
+        <button class="nav-item" data-view="access"><span class="nav-icon" data-icon="unlock"></span><span><b>Lesson Access</b><small>Class learning controls</small></span></button>
+        <button class="nav-item" data-view="activity"><span class="nav-icon" data-icon="activity"></span><span><b>Activity Log</b><small>Teacher action history</small></span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="student-app-link" href="index.html" target="_blank"><span class="nav-icon" data-icon="external"></span><span><b>Open Student App</b><small>Preview the learning view</small></span></a>
+        <button id="teacherSignOut" class="signout-button"><span class="nav-icon" data-icon="logout"></span>Sign Out</button>
+      </div>
+    </aside>
+    <div id="teacherBackdrop" class="sidebar-backdrop"></div>
+
+    <section class="teacher-workspace">
+      <header class="teacher-topbar">
+        <button id="openTeacherMenu" class="icon-button mobile-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <div class="topbar-copy"><span id="viewEyebrow">TEACHER COMMAND CENTER</span><h1 id="viewTitle">Overview</h1></div>
+        <div class="topbar-actions"><label class="course-scope"><span>COURSE VIEW</span><select id="teacherCourseScope"><option value="all">All Courses</option><option value="connect-plus-4">Connect Plus 4</option><option value="english4-term1">English 4</option></select></label><span id="cloudConnection" class="connection-pill"><i></i><b>Cloud connected</b></span><button id="refreshTeacherData" class="secondary-button"><span class="button-icon" data-icon="refresh"></span><span>Refresh</span></button><button id="newStudentTop" class="primary-button compact"><span class="button-icon" data-icon="plus"></span><span>New Student</span></button></div>
+      </header>
+      <main class="teacher-main">
+        <section id="overviewSection" class="dashboard-section"></section>
+        <section id="studentsSection" class="dashboard-section hidden"></section>
+        <section id="accessSection" class="dashboard-section hidden"></section>
+        <section id="activitySection" class="dashboard-section hidden"></section>
+      </main>
+    </section>
+  </div>
+
+  <div id="teacherModal" class="modal-shell hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div id="modalCard" class="modal-card"><button id="closeTeacherModal" class="modal-close" type="button" aria-label="Close">×</button><div id="modalBody"></div></div>
+  </div>
+  <div id="confirmActionModal" class="modal-shell hidden" role="dialog" aria-modal="true" aria-labelledby="confirmActionTitle">
+    <div class="modal-card confirm-card"><div id="confirmActionIcon" class="confirm-icon">!</div><span class="eyebrow">PLEASE CONFIRM</span><h2 id="confirmActionTitle">Confirm action</h2><p id="confirmActionText"></p><label id="confirmInputWrap" class="form-field hidden"><span id="confirmInputLabel">Type to confirm</span><input id="confirmActionInput" autocomplete="off"></label><div class="modal-actions"><button id="cancelTeacherAction" class="secondary-button" type="button">Cancel</button><button id="runTeacherAction" class="danger-button" type="button">Confirm</button></div></div>
+  </div>
+  <div id="teacherLoading" class="loading-layer hidden" aria-live="polite"><div class="loading-card"><span class="loader"></span><strong id="loadingText">Loading student data…</strong><small>Please keep this page open.</small></div></div>
+  <div id="teacherToast" class="teacher-toast" role="status"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="teacher.js?v=20260716-1" defer></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+CONNECT PLUS PRIMARY 4 - GITHUB FLAT UPLOAD
+
+1. Extract this ZIP file.
+2. Open the extracted folder.
+3. Select ALL files inside it.
+4. On GitHub choose: Add file > Upload files.
+5. Drag all selected files into the upload box.
+6. Click Commit changes.
+
+Important: upload index.html, app.js, cloud.js, styles.css, teacher.html, teacher.js, teacher.css, and ALL image files together.
+Do not delete or rename cloud.js. It connects student accounts, cloud progress, and teacher lesson controls.
+
+Student app: open your normal GitHub Pages link.
+Teacher dashboard: add /teacher.html to the same link.
+Example: https://YOUR-NAME.github.io/YOUR-REPOSITORY/teacher.html
+
+The Supabase SQL and Edge Function are installed separately and are NOT GitHub upload files.
