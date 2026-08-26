@@ -55,8 +55,8 @@
             <span class="input-box"><i class="field-icon">✦</i><input id="signInUsername" name="username" maxlength="30" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="Enter your username" required></span>
           </label>
           <label class="input-field" for="signInPin">
-            <span>6-DIGIT PIN</span>
-            <span class="input-box"><i class="field-icon">●</i><input id="signInPin" name="pin" type="password" maxlength="6" inputmode="numeric" autocomplete="current-password" placeholder="••••••" required><button class="show-pin" type="button" data-toggle-pin="signInPin" aria-label="Show PIN">Show</button></span>
+            <span>PIN / PASSWORD</span>
+            <span class="input-box"><i class="field-icon">●</i><input id="signInPin" name="pin" type="password" maxlength="72" autocomplete="current-password" placeholder="Enter your PIN or password" required><button class="show-pin" type="button" data-toggle-pin="signInPin" aria-label="Show PIN or password">Show</button></span>
           </label>
           <button id="signInButton" class="primary-action" type="submit"><span>Open My Learning Portal</span><b>→</b></button>
         </form>
@@ -121,6 +121,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="portal-config.js?v=20260715-2" defer></script>
-  <script src="portal.js?v=20260826-2" defer></script>
+  <script src="portal.js?v=20260826-3" defer></script>
 </body>
 </html>

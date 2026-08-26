@@ -107,6 +107,11 @@
     if(!/^\d{6}$/.test(pin))throw new Error('Your PIN must contain exactly 6 numbers.');
   }
 
+  function validateLoginPassword(password){
+    if(!password)throw new Error('Please enter your PIN or password.');
+    if(password.length>72)throw new Error('Your password is too long.');
+  }
+
   function selectedGrade(){
     return normalizeGrade(document.querySelector('input[name="gradeLevel"]:checked')?.value);
   }
@@ -129,7 +134,7 @@
     const pin=$('#signInPin').value;
     try{
       validateUsername(studentCode);
-      validatePin(pin);
+      validateLoginPassword(pin);
       clearMessage();
       setLoading(true,'Checking your account…');
       const result=await client.auth.signInWithPassword({email:emailForCode(studentCode),password:pin});
