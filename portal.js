@@ -12,6 +12,7 @@
 
   const $=selector=>document.querySelector(selector);
   const normalizeCode=value=>String(value||'').trim().toUpperCase().replace(/\s+/g,'');
+  const normalizeGrade=value=>String(value)==='5'?'5':'4';
   const emailForCode=code=>`cp4.${code.toLowerCase()}@students.connectplus.app`;
   const safeText=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   let profile=null;
@@ -46,7 +47,7 @@
   }
 
   async function readProfile(user){
-    const result=await client.from('profiles').select('student_code,full_name,class_name,avatar_path').eq('id',user.id).maybeSingle();
+    const result=await client.from('profiles').select('student_code,full_name,class_name,grade_level,avatar_path').eq('id',user.id).maybeSingle();
     if(result.error)throw result.error;
     return result.data;
   }
@@ -54,7 +55,7 @@
   async function ensureProfile(user,identity){
     let row=await readProfile(user);
     if(!row){
-      const created=await client.from('profiles').insert({id:user.id,student_code:identity.studentCode,full_name:identity.fullName,class_name:identity.className}).select('student_code,full_name,class_name,avatar_path').single();
+      const created=await client.from('profiles').insert({id:user.id,student_code:identity.studentCode,full_name:identity.fullName,class_name:identity.className,grade_level:identity.gradeLevel}).select('student_code,full_name,class_name,grade_level,avatar_path').single();
       if(created.error)throw created.error;
       row=created.data;
     }
@@ -67,6 +68,7 @@
       studentCode:normalizeCode(row.student_code||user.user_metadata?.student_code),
       fullName:row.full_name||user.user_metadata?.full_name||'Student',
       className:row.class_name||user.user_metadata?.class_name||'Primary 4',
+      gradeLevel:normalizeGrade(row.grade_level||user.user_metadata?.grade_level),
       savedAt:Date.now()
     };
     localStorage.setItem(PORTAL_IDENTITY_KEY,JSON.stringify(identity));
@@ -81,8 +83,12 @@
     const identity=saveIdentity(user,row);
     profile=row;
     $('#studentInitials').textContent=initials(identity.fullName);
-    $('#courseTitle').textContent=`Choose Your Course, ${identity.fullName.split(/\s+/)[0]}`;
-    $('#studentLine').innerHTML=`Class <strong>${safeText(identity.className)}</strong> · Username <strong>${safeText(identity.studentCode)}</strong>`;
+    $('#courseTitle').textContent=identity.gradeLevel==='5' ? `Welcome, ${identity.fullName.split(/\s+/)[0]}` : `Choose Your Course, ${identity.fullName.split(/\s+/)[0]}`;
+    $('#studentLine').innerHTML=`Grade <strong>${safeText(identity.gradeLevel)}</strong> · Class <strong>${safeText(identity.className)}</strong> · Username <strong>${safeText(identity.studentCode)}</strong>`;
+    $('#courseBrandTitle').textContent=`Grade ${identity.gradeLevel} English Portal`;
+    $('#grade4Courses').classList.toggle('hidden',identity.gradeLevel==='5');
+    $('#grade5ComingSoon').classList.toggle('hidden',identity.gradeLevel!=='5');
+    $('#choiceNote').classList.toggle('hidden',identity.gradeLevel==='5');
     $('#authPanel').classList.add('hidden');
     $('#coursePanel').classList.remove('hidden');
   }
@@ -99,6 +105,21 @@
 
   function validatePin(pin){
     if(!/^\d{6}$/.test(pin))throw new Error('Your PIN must contain exactly 6 numbers.');
+  }
+
+  function selectedGrade(){
+    return normalizeGrade(document.querySelector('input[name="gradeLevel"]:checked')?.value);
+  }
+
+  function refreshClassOptions(){
+    const grade=selectedGrade();
+    const select=$('#className');
+    const selected=select.value;
+    const classes=grade==='5'?['5A','5B','5C','5D','Other']:['4A','4B','4C','4D','Other'];
+    select.innerHTML=`<option value="">Choose class</option>${classes.map(value=>`<option value="${value}">${value}</option>`).join('')}`;
+    if(classes.includes(selected))select.value=selected;
+    $('#classGradeIcon').textContent=grade;
+    document.querySelectorAll('.grade-choice').forEach(label=>label.classList.toggle('selected',label.querySelector('input').value===grade));
   }
 
   async function signIn(event){
@@ -128,6 +149,7 @@
     event.preventDefault();
     if(!client){showMessage('Supabase could not load. Please check your internet connection.');return;}
     const fullName=$('#fullName').value.trim();
+    const gradeLevel=selectedGrade();
     const className=$('#className').value.trim();
     const studentCode=normalizeCode($('#newUsername').value);
     const pin=$('#newPin').value;
@@ -143,7 +165,7 @@
       const result=await client.auth.signUp({
         email:emailForCode(studentCode),
         password:pin,
-        options:{data:{student_code:studentCode,full_name:fullName,class_name:className}}
+        options:{data:{student_code:studentCode,full_name:fullName,class_name:className,grade_level:gradeLevel}}
       });
       if(result.error)throw result.error;
       if(!result.data.user)throw new Error('The account could not be created.');
@@ -152,7 +174,7 @@
         if(signed.error)throw signed.error;
         session=signed.data.session;
       }else session=result.data.session;
-      const row=await ensureProfile(result.data.user,{studentCode,fullName,className});
+      const row=await ensureProfile(result.data.user,{studentCode,fullName,className,gradeLevel});
       showCourses(result.data.user,row);
     }catch(error){
       const raw=String(error?.message||'Account creation failed.');
@@ -194,6 +216,7 @@
     $('#createTab').onclick=()=>switchAuth('create');
     $('#signInForm').onsubmit=signIn;
     $('#createForm').onsubmit=createAccount;
+    document.querySelectorAll('input[name="gradeLevel"]').forEach(input=>input.onchange=refreshClassOptions);
     $('#signOutButton').onclick=signOut;
     document.querySelectorAll('[data-toggle-pin]').forEach(button=>button.onclick=()=>{
       const input=document.getElementById(button.dataset.togglePin);
@@ -202,6 +225,7 @@
       button.textContent=show?'Hide':'Show';
     });
     document.querySelectorAll('[data-course]').forEach(button=>button.onclick=()=>openCourse(button.dataset.course));
+    refreshClassOptions();
     if(!client){showMessage('The secure account service could not load. Check the internet connection.');return;}
     setLoading(true,'Restoring your secure session…');
     try{
