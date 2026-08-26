@@ -4,7 +4,7 @@
   const QUESTION_SYSTEM_VERSION=(window.ConnectPlusQuestionsV6WordCorrection&&window.ConnectPlusQuestionsV6WordCorrection.version)||'2026.07-v6-word-correction';
   const ACCESS_CACHE_PREFIX=APP_KEY+'_lesson_access_';
   const PORTAL_URL_KEY='alandalus_g4_portal_url_v1';
-  const PORTAL_FALLBACK='https://grade4.mrfarid.net/';
+  const PORTAL_FALLBACK='https://as.mrfarid.net/';
   const C=(word,pos,def,example)=>({word,pos,def,example});
   const Q=(prompt,options,answer,explain,type='choice')=>({prompt,options,answer,explain,type});
   const L=(id,title,subtitle,vocab,definitions,notes,grammar,reading,manual)=>({id,title,subtitle,vocab,definitions,notes,grammar,reading,manual});
