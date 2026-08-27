@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260826-3">
+  <link rel="stylesheet" href="styles.css?v=20260827-1">
 </head>
 <body>
   <main class="portal-shell">
@@ -84,35 +84,87 @@
         <footer class="creator-credit"><span>Prepared &amp; Designed by</span><strong>Mr.Mohamed Farid</strong></footer>
       </section>
 
-      <section id="coursePanel" class="glass-panel course-panel hidden" aria-labelledby="courseTitle">
-        <div class="panel-glow"></div>
-        <div class="course-brand-lockup" aria-label="AlAndalus Private Schools English Portal">
+      <section id="coursePanel" class="course-dashboard hidden" aria-labelledby="courseTitle">
+        <header class="dashboard-brand" aria-label="AlAndalus Private Schools English Portal">
           <img src="alandalus-school-logo-transparent.png?v=20260826-3" alt="AlAndalus Private Schools, Egyptian Section">
-          <strong id="courseBrandTitle">AlAndalus English Portal</strong>
-        </div>
-        <div class="student-welcome">
+          <div>
+            <span id="courseBrandTitle">Grade 4 English Portal</span>
+            <strong id="courseTitle">Choose Your Courses</strong>
+          </div>
+        </header>
+
+        <div class="dashboard-student-row">
           <div id="studentInitials" class="student-avatar">ST</div>
-          <div><span>WELCOME BACK</span><h2 id="courseTitle">Choose Your Course</h2><p id="studentLine">Your learning adventures are ready.</p></div>
+          <p id="studentLine">Your learning adventures are ready.</p>
           <button id="signOutButton" class="sign-out" type="button">Sign Out</button>
         </div>
 
-        <div id="grade4Courses" class="course-grid">
-          <button class="course-card connect-card" type="button" data-course="connectPlus4">
-            <div class="course-art"><span>C+</span><i>4</i></div>
-            <div class="course-copy"><small>COURSE 01</small><h3>Connect Plus 4</h3><p>First Term</p><div class="course-tags"><span>Interactive Lessons</span><span>XP & Rewards</span></div></div>
-            <b class="course-arrow">→</b>
-          </button>
-          <button class="course-card english-card" type="button" data-course="english4">
-            <div class="course-art"><span>E</span><i>4</i></div>
-            <div class="course-copy"><small>COURSE 02</small><h3>English 4</h3><p>First Term</p><div class="course-tags"><span>English Adventure</span><span>Quizzes & Stars</span></div></div>
-            <b class="course-arrow">→</b>
-          </button>
+        <div class="dashboard-grid">
+          <section class="hero-week-panel" aria-labelledby="heroWeekTitle">
+            <div class="cinematic-panel-glow"></div>
+            <div class="panel-heading hero-heading">
+              <span class="heading-kicker">CELEBRATING EXCELLENCE</span>
+              <h2 id="heroWeekTitle">HERO OF THE WEEK</h2>
+              <span class="week-pill">WEEK NO. <b id="heroWeekNumber">___</b></span>
+            </div>
+            <div class="hero-card-grid">
+              <article class="hero-student-card" data-hero-slot="0">
+                <span class="hero-crown" aria-hidden="true">♛</span>
+                <div class="hero-photo">
+                  <img data-hero-photo alt="">
+                  <span data-hero-placeholder aria-hidden="true">★</span>
+                </div>
+                <span class="hero-class" data-hero-class>4A</span>
+                <strong class="hero-name" data-hero-name>STUDENT NAME</strong>
+              </article>
+              <article class="hero-student-card" data-hero-slot="1">
+                <span class="hero-crown" aria-hidden="true">♛</span>
+                <div class="hero-photo">
+                  <img data-hero-photo alt="">
+                  <span data-hero-placeholder aria-hidden="true">★</span>
+                </div>
+                <span class="hero-class" data-hero-class>4B</span>
+                <strong class="hero-name" data-hero-name>STUDENT NAME</strong>
+              </article>
+            </div>
+          </section>
+
+          <section class="course-choices-panel" aria-label="Course choices">
+            <div class="cinematic-panel-glow"></div>
+            <div class="panel-heading course-heading">
+              <span class="heading-kicker" id="gradeHeading">GRADE 4</span>
+              <h2>Choose Your Courses</h2>
+              <p id="choiceNote">Choose a course to continue. You can return here at any time.</p>
+            </div>
+
+            <div id="grade4Courses" class="course-orbit-grid">
+              <button class="course-orbit connect-orbit" type="button" data-course="connectPlus4">
+                <span class="orbit-ring"></span><span class="course-orbit-art">C+</span>
+                <span class="course-orbit-copy"><strong>Connect Plus 4</strong><small>Interactive English</small></span>
+                <b class="course-arrow">→</b>
+              </button>
+              <button class="course-orbit english-orbit" type="button" data-course="english4">
+                <span class="orbit-ring"></span><span class="course-orbit-art">ABC</span>
+                <span class="course-orbit-copy"><strong>English 4</strong><small>English Adventure</small></span>
+                <b class="course-arrow">→</b>
+              </button>
+            </div>
+
+            <section id="grade5Courses" class="grade5-course-grid hidden" aria-live="polite">
+              <article class="course-orbit coming-orbit">
+                <span class="orbit-ring"></span><span class="course-orbit-art">C+5</span>
+                <span class="course-orbit-copy"><strong>Connect Plus 5</strong><small>Coming soon</small></span>
+              </article>
+              <article class="course-orbit coming-orbit english-coming">
+                <span class="orbit-ring"></span><span class="course-orbit-art">E5</span>
+                <span class="course-orbit-copy"><strong>English 5</strong><small>Coming soon</small></span>
+              </article>
+              <p class="grade5-note">Your Grade 5 learning hub is ready. Your courses will appear here soon.</p>
+            </section>
+          </section>
         </div>
-        <section id="grade5ComingSoon" class="grade5-coming-soon hidden" aria-live="polite">
-          <span class="coming-icon">★</span>
-          <div><small>GRADE 5</small><h3>Your courses are coming soon!</h3><p>Your account is ready. We will open Connect Plus 5 and English 5 here soon.</p></div>
-        </section>
-        <p id="choiceNote" class="choice-note">Choose a course to continue. You can return here at any time.</p>
+
+        <footer class="dashboard-credit"><span>Prepared &amp; Designed by</span><strong>Mr. Mohamed Farid</strong></footer>
       </section>
     </section>
 
@@ -120,7 +172,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="portal-config.js?v=20260715-2" defer></script>
-  <script src="portal.js?v=20260826-3" defer></script>
+  <script src="portal-config.js?v=20260827-1" defer></script>
+  <script src="portal.js?v=20260827-1" defer></script>
 </body>
 </html>

@@ -79,16 +79,46 @@
     return String(name||'Student').trim().split(/\s+/).slice(0,2).map(part=>part[0]||'').join('').toUpperCase()||'ST';
   }
 
+  function renderHeroes(grade){
+    const weekly=config.heroOfWeek||{};
+    const entries=Array.isArray(weekly[`grade${grade}`])?weekly[`grade${grade}`]:[];
+    $('#heroWeekNumber').textContent=String(weekly.weekNumber||'___').trim()||'___';
+    document.querySelectorAll('[data-hero-slot]').forEach((card,index)=>{
+      const fallback={name:'STUDENT NAME',className:`${grade}${index===0?'A':'B'}`,photo:''};
+      const hero={...fallback,...(entries[index]||{})};
+      const name=String(hero.name||fallback.name).trim()||fallback.name;
+      const className=String(hero.className||fallback.className).trim()||fallback.className;
+      const photo=String(hero.photo||'').trim();
+      const image=card.querySelector('[data-hero-photo]');
+      const placeholder=card.querySelector('[data-hero-placeholder]');
+      card.querySelector('[data-hero-name]').textContent=name;
+      card.querySelector('[data-hero-class]').textContent=className;
+      image.alt=photo?`${name}, Hero of the Week`:'';
+      if(photo){
+        image.src=photo;
+        image.classList.remove('hidden');
+        placeholder.classList.add('hidden');
+      }else{
+        image.removeAttribute('src');
+        image.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+      }
+    });
+  }
+
   function showCourses(user,row){
     const identity=saveIdentity(user,row);
     profile=row;
     $('#studentInitials').textContent=initials(identity.fullName);
-    $('#courseTitle').textContent=identity.gradeLevel==='5' ? `Welcome, ${identity.fullName.split(/\s+/)[0]}` : `Choose Your Course, ${identity.fullName.split(/\s+/)[0]}`;
-    $('#studentLine').innerHTML=`Grade <strong>${safeText(identity.gradeLevel)}</strong> · Class <strong>${safeText(identity.className)}</strong> · Username <strong>${safeText(identity.studentCode)}</strong>`;
+    $('#courseTitle').textContent=`Grade ${identity.gradeLevel} Learning Hub`;
+    $('#studentLine').innerHTML=`Welcome back, <strong>${safeText(identity.fullName.split(/\s+/)[0])}</strong> · Grade <strong>${safeText(identity.gradeLevel)}</strong> · Class <strong>${safeText(identity.className)}</strong>`;
     $('#courseBrandTitle').textContent=`Grade ${identity.gradeLevel} English Portal`;
+    $('#gradeHeading').textContent=`GRADE ${identity.gradeLevel}`;
     $('#grade4Courses').classList.toggle('hidden',identity.gradeLevel==='5');
-    $('#grade5ComingSoon').classList.toggle('hidden',identity.gradeLevel!=='5');
+    $('#grade5Courses').classList.toggle('hidden',identity.gradeLevel!=='5');
     $('#choiceNote').classList.toggle('hidden',identity.gradeLevel==='5');
+    $('#coursePanel').dataset.grade=identity.gradeLevel;
+    renderHeroes(identity.gradeLevel);
     $('#authPanel').classList.add('hidden');
     $('#coursePanel').classList.remove('hidden');
   }
