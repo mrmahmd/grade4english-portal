@@ -143,3 +143,7 @@ button{cursor:pointer}
 .panel-heading h2{background:linear-gradient(90deg,#123c98,#0f9fca 48%,#6944ba);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(255,255,255,.78)}.hero-heading h2{background-image:linear-gradient(90deg,#1742a0,#0d9dd0 48%,#8d4ac8)}
 .heading-kicker{color:#174b97;border:1px solid rgba(255,255,255,.82);box-shadow:0 4px 10px rgba(12,46,110,.11)}.course-heading p{color:#133b7f;font-family:"Baloo 2",sans-serif;font-size:.84rem}.course-orbit-copy strong,.hero-name{filter:drop-shadow(0 1px 0 rgba(255,255,255,.78))}
 @media(max-width:900px){.dashboard-brand::before{flex-basis:50px;width:50px;height:50px;background-size:122px auto;background-position:center 3px}}
+
+/* The welcome screen keeps its student scene; the signed-in dashboard keeps the clear facade. */
+.portal-shell:has(#authPanel:not(.hidden)){background-image:url("portal-school-cinematic.webp")}
+@media(max-width:900px){.portal-shell:has(#authPanel:not(.hidden)){background-image:linear-gradient(180deg,rgba(7,27,72,.04),rgba(10,35,86,.12) 49%,#102752 82%),url("portal-school-cinematic.webp")}}
