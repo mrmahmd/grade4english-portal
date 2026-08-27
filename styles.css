@@ -136,3 +136,10 @@ button{cursor:pointer}
 
 /* Centre the compact portal lockup without restoring the opaque banner. */
 .dashboard-brand{margin:0 auto 7px;justify-content:center}
+
+/* A crisp emblem crop is clearer than shrinking the full wordmark inside the header. */
+.dashboard-brand img{display:none}.dashboard-brand::before{content:"";flex:0 0 58px;width:58px;height:58px;border:1px solid rgba(255,255,255,.9);border-radius:16px;background-color:rgba(255,255,255,.84);background-image:url("alandalus-school-logo-transparent.png");background-repeat:no-repeat;background-size:142px auto;background-position:center 4px;box-shadow:0 5px 12px rgba(7,30,79,.2),inset 0 1px rgba(255,255,255,.95)}
+.dashboard-brand span{color:#eff9ff;text-shadow:0 1px 4px rgba(7,31,82,.86)}.dashboard-brand strong{background:linear-gradient(90deg,#fff,#bcecff 45%,#ffe69a);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none}
+.panel-heading h2{background:linear-gradient(90deg,#123c98,#0f9fca 48%,#6944ba);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(255,255,255,.78)}.hero-heading h2{background-image:linear-gradient(90deg,#1742a0,#0d9dd0 48%,#8d4ac8)}
+.heading-kicker{color:#174b97;border:1px solid rgba(255,255,255,.82);box-shadow:0 4px 10px rgba(12,46,110,.11)}.course-heading p{color:#133b7f;font-family:"Baloo 2",sans-serif;font-size:.84rem}.course-orbit-copy strong,.hero-name{filter:drop-shadow(0 1px 0 rgba(255,255,255,.78))}
+@media(max-width:900px){.dashboard-brand::before{flex-basis:50px;width:50px;height:50px;background-size:122px auto;background-position:center 3px}}
