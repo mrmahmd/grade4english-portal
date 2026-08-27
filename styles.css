@@ -133,3 +133,6 @@ button{cursor:pointer}
 .dashboard-brand{justify-content:flex-start;gap:8px;width:min(390px,calc(100% - 32px));margin:0 18px 7px auto;padding:4px 10px;border-color:rgba(255,255,255,.58);border-radius:17px;background:rgba(238,248,255,.12);box-shadow:0 9px 22px rgba(11,33,83,.11),inset 0 1px rgba(255,255,255,.6);backdrop-filter:blur(6px) saturate(118%)}
 .dashboard-brand img{width:48px;height:43px}.dashboard-brand span{font-size:.52rem;letter-spacing:1.1px;color:#e7f3ff;text-shadow:0 1px 4px rgba(7,31,82,.82)}.dashboard-brand strong{font-size:clamp(1.08rem,1.85vw,1.48rem);color:#fff;text-shadow:0 2px 7px rgba(6,27,77,.84)}
 @media(max-width:900px){.dashboard-brand{margin:0 auto 8px;justify-content:center;width:min(360px,calc(100% - 24px));background:rgba(238,248,255,.18)}}
+
+/* Centre the compact portal lockup without restoring the opaque banner. */
+.dashboard-brand{margin:0 auto 7px;justify-content:center}
