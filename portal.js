@@ -17,6 +17,7 @@
   const safeText=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   let profile=null;
   let session=null;
+  let courseOpening=false;
 
   function setLoading(show,text='Opening your portal…'){
     $('#loadingText').textContent=text;
@@ -227,10 +228,20 @@
   function openCourse(key){
     const url=String(courseUrl(key)||'').trim();
     if(!url){showMessage('This course link has not been connected yet.');return;}
+    if(courseOpening)return;
+    courseOpening=true;
     localStorage.setItem('alandalus_g4_last_course_v1',key);
     localStorage.setItem(PORTAL_URL_KEY,new URL('index.html',window.location.href).href);
     const separator=url.includes('?')?'&':'?';
-    window.location.href=`${url}${separator}from=english-portal`;
+    const destination=`${url}${separator}from=english-portal`;
+    const door=$('#courseDoorTransition');
+    if(!door){window.location.href=destination;return;}
+    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':'English 4';
+    door.classList.remove('hidden');
+    door.classList.toggle('english-door',key==='english4');
+    door.setAttribute('aria-hidden','false');
+    requestAnimationFrame(()=>door.classList.add('is-opening'));
+    window.setTimeout(()=>{window.location.href=destination;},950);
   }
 
   async function signOut(){

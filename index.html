@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260829-5">
+  <link rel="stylesheet" href="styles.css?v=20260829-6">
 </head>
 <body>
   <main class="portal-shell">
@@ -168,6 +168,12 @@
       </section>
     </section>
 
+    <div id="courseDoorTransition" class="course-door-transition hidden" aria-hidden="true">
+      <div class="door-stage" role="status" aria-live="polite">
+        <div class="door door-left"></div><div class="door door-right"></div>
+        <div class="door-welcome"><span>YOUR LEARNING ADVENTURE</span><strong id="doorCourseName">Opening your course</strong><small>Let’s learn and shine!</small></div>
+      </div>
+    </div>
     <div id="loadingLayer" class="loading-layer hidden"><div class="loader-card"><span class="spinner"></span><strong id="loadingText">Opening your portal…</strong></div></div>
   </main>
 
