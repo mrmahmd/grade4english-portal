@@ -8,9 +8,9 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Connect Plus Primary 4 - Term 1</title>
-  <link rel="stylesheet" href="styles.css?v=20260721-v5grouped">
+  <link rel="stylesheet" href="styles.css?v=20260831-progress-cleanup">
 </head>
-<body data-app-build="20260721-v5grouped">
+<body data-app-build="20260831-progress-cleanup">
   <section id="splash" class="splash hidden" aria-hidden="true">
     <div class="hero">
       <div class="splash-horizontal-layout">
@@ -44,11 +44,10 @@
   <div id="accountModal" class="modal hidden account-modal"><form id="createAccountForm" class="modal-card account-modal-card"><button type="button" class="close-modal" data-close="accountModal" aria-label="Close">×</button><div class="account-modal-icon">☁</div><div class="eyebrow">My New Cloud Account</div><h2>Create New Account</h2><p class="lead">Choose a unique Username and a private 6-digit PIN. You will use them to continue your progress on any device.</p><div class="account-form-grid"><div class="field account-wide"><label for="newStudentCode">NEW USERNAME</label><input id="newStudentCode" maxlength="30" autocomplete="username" autocapitalize="characters" spellcheck="false" placeholder="Example: AHMED4A15"></div><div class="field"><label for="newStudentClass">CLASS</label><select id="newStudentClass"><option value="">Choose your class</option><option>4A</option><option>4B</option><option>4C</option><option>4D</option><option>Other</option></select></div><div class="field"><label for="newStudentPin">CREATE 6-DIGIT PIN</label><input id="newStudentPin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="new-password" placeholder="••••••"></div><div class="field"><label for="confirmStudentPin">CONFIRM PIN</label><input id="confirmStudentPin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="new-password" placeholder="••••••"></div></div><div class="pin-safety-note">🔒 Keep your Username and PIN safe. Do not share your PIN with another student.</div><div class="account-modal-actions"><button id="cancelCreateAccount" type="button" class="ghost-btn">Cancel</button><button id="createAccountSubmit" type="submit" class="create-account-btn">Create My Account →</button></div></form></div>
   <div id="profileModal" class="modal hidden"><div class="modal-card teacher-profile"><button class="close-modal" data-close="profileModal" aria-label="Close">×</button><div class="teacher-photo-panel"><div class="teacher-photo-glow"></div><img src="mr-mohamed-farid.webp" alt="Mr. Mohamed Farid, Senior English Instructor" class="teacher-photo"><div class="teacher-photo-caption"><span>MEET YOUR TEACHER</span><strong>Mr.Mohamed Farid</strong></div></div><div class="teacher-bio"><div class="eyebrow">Meet Your Teacher</div><h2>Mr.Mohamed Farid</h2><p class="teacher-role">Senior English Instructor<br><span>English Teacher & Educational Content Designer</span></p><div class="profile-list"><div class="profile-item">🎓 <strong>Education:</strong> Bachelor of Arts and Education, Faculty of Education, Mansoura University — 2007.</div><div class="profile-item">🏫 <strong>Current Position:</strong> English Teacher at AlAndalus Private Schools — Egyptian Section, Al-Hamdaniyah, Jeddah.</div><div class="profile-item">💡 <strong>Educational Technology:</strong> Designs interactive educational applications, digital learning experiences, worksheets, games, and AI-powered learning content.</div><div class="profile-item">👨‍🏫 <strong>Teacher Development:</strong> Supports and trains teachers in using artificial intelligence for lesson planning and educational content creation.</div><div class="profile-item">✍️ <strong>Mission:</strong> To make English clear, enjoyable, practical, and memorable for every learner.</div></div></div></div></div>
   <div id="confirmModal" class="modal hidden"><div class="modal-card" style="max-width:470px"><button class="close-modal" data-close="confirmModal">×</button><h2>Reset all progress?</h2><p class="lead">This will remove the student's answers, XP, coins, badges, and saved position from this device and the connected cloud account. This action cannot be undone.</p><div style="display:flex;gap:10px"><button id="cancelReset" class="ghost-btn" style="flex:1">Cancel</button><button id="confirmReset" class="primary-btn" style="flex:1;background:var(--danger)">Reset</button></div></div></div>
-  <input id="avatarInput" type="file" accept="image/jpeg,image/png,image/webp" class="hidden" aria-hidden="true">
   <div id="toast" class="toast"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="cloud.js?v=20260716-1" defer></script>
+  <script src="cloud.js?v=20260831-progress-cleanup" defer></script>
   <script src="questions-v6-word-correction.js?v=20260721-v6word" defer></script>
-  <script src="app.js?v=20260721-v5grouped" defer></script>
+  <script src="app.js?v=20260831-progress-cleanup" defer></script>
 </body>
 </html>

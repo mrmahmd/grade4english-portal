@@ -4,7 +4,6 @@
   const SUPABASE_URL='https://flntfunjlwxjfjpwdrmm.supabase.co';
   const SUPABASE_PUBLISHABLE_KEY='sb_publishable_0tDt8g40fK5lr7ybDGnWjQ_D5mEFHuR';
   const STATE_VERSION=2;
-  const HERO_REFRESH_MS=5*60*1000;
   const ACCESS_REFRESH_MS=60*1000;
   const client=window.supabase&&window.supabase.createClient
     ? window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}})
@@ -14,7 +13,6 @@
   let session=null;
   let profile=null;
   let syncTimer=null;
-  let heroTimer=null;
   let accessTimer=null;
   let syncBusy=false;
   let syncAgain=false;
@@ -120,7 +118,7 @@
   }
 
   async function readProfile(user){
-    const result=await client.from('profiles').select('student_code,full_name,class_name,avatar_path').eq('id',user.id).maybeSingle();
+    const result=await client.from('profiles').select('student_code,full_name,class_name').eq('id',user.id).maybeSingle();
     if(result.error)throw result.error;
     return result.data;
   }
@@ -128,7 +126,7 @@
   async function ensureProfile(user,identity){
     let row=await readProfile(user);
     if(!row){
-      const created=await client.from('profiles').insert({id:user.id,student_code:identity.studentCode,full_name:identity.name,class_name:identity.className}).select('student_code,full_name,class_name,avatar_path').single();
+      const created=await client.from('profiles').insert({id:user.id,student_code:identity.studentCode,full_name:identity.name,class_name:identity.className}).select('student_code,full_name,class_name').single();
       if(created.error)throw created.error;
       row=created.data;
     }
@@ -166,6 +164,7 @@
       emitStatus('synced','Cloud synced');
       return true;
     }catch(error){
+      console.warn('Connect Plus cloud save failed; progress remains saved on this device.',error);
       emitStatus('offline','Saved locally • cloud pending');
       return false;
     }finally{
@@ -178,38 +177,6 @@
     if(!session)return;
     clearTimeout(syncTimer);
     syncTimer=setTimeout(pushProgress,delay);
-  }
-
-  async function signedUrl(bucket,path,seconds=3600){
-    if(!path)return '';
-    const result=await client.storage.from(bucket).createSignedUrl(path,seconds);
-    return result.error?'':result.data.signedUrl;
-  }
-
-  async function refreshAvatar(){
-    if(!session||!profile){if(hooks.onAvatar)hooks.onAvatar('');return ''}
-    const url=await signedUrl('student-avatars',profile.avatar_path,3600);
-    if(hooks.onAvatar)hooks.onAvatar(url||'');
-    return url;
-  }
-
-  async function refreshHero(){
-    if(!session){if(hooks.onHero)hooks.onHero(null);return null}
-    try{
-      const result=await client.from('weekly_hero').select('week_label,student_name,class_name,message,image_path,published_at').eq('active',true).maybeSingle();
-      if(result.error)throw result.error;
-      if(!result.data){if(hooks.onHero)hooks.onHero(null);return null}
-      const hero={...result.data,imageUrl:await signedUrl('weekly-hero',result.data.image_path,3600)};
-      if(hooks.onHero)hooks.onHero(hero);
-      return hero;
-    }catch(error){
-      return null;
-    }
-  }
-
-  function startHeroRefresh(){
-    clearInterval(heroTimer);
-    heroTimer=setInterval(refreshHero,HERO_REFRESH_MS);
   }
 
   async function readStudentSettings(identity){
@@ -289,8 +256,6 @@
     const merged=stateForStudent(local,remoteState,identity);
     if(hooks.setState)hooks.setState(merged);
     emitAccess(settings);
-    await Promise.all([refreshAvatar(),refreshHero()]);
-    startHeroRefresh();
     startAccessRefresh();
     await pushProgress();
     if(hooks.onSession)hooks.onSession({signedIn:true,profile:clone(profile),studentCode:identity.studentCode});
@@ -382,56 +347,13 @@
     }
   }
 
-  async function optimizeAvatar(file){
-    if(file.size>12582912)throw new Error('Please choose an image smaller than 12 MB.');
-    const objectUrl=URL.createObjectURL(file);
-    try{
-      const image=new Image();
-      await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(new Error('This image could not be opened.'));image.src=objectUrl});
-      const maxSide=720,scale=Math.min(1,maxSide/Math.max(image.naturalWidth,image.naturalHeight));
-      const canvas=document.createElement('canvas');
-      canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));
-      canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
-      const context=canvas.getContext('2d');
-      context.imageSmoothingEnabled=true;
-      context.imageSmoothingQuality='high';
-      context.drawImage(image,0,0,canvas.width,canvas.height);
-      const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',.84));
-      if(!blob)throw new Error('This image could not be prepared.');
-      if(blob.size>2097152)throw new Error('Please choose a simpler or smaller image.');
-      return blob;
-    }finally{
-      URL.revokeObjectURL(objectUrl);
-    }
-  }
-
-  async function uploadAvatar(file){
-    if(!client||!session)throw new Error('Sign in before choosing a profile picture.');
-    if(!file||!/^image\/(jpeg|png|webp)$/.test(file.type))throw new Error('Choose a JPG, PNG, or WEBP image.');
-    const optimized=await optimizeAvatar(file);
-    emitStatus('syncing','Uploading picture…');
-    const path=`${session.user.id}/avatar.webp`;
-    if(profile&&profile.avatar_path&&profile.avatar_path!==path)await client.storage.from('student-avatars').remove([profile.avatar_path]);
-    const uploaded=await client.storage.from('student-avatars').upload(path,optimized,{upsert:true,contentType:'image/webp',cacheControl:'3600'});
-    if(uploaded.error)throw uploaded.error;
-    const updated=await client.from('profiles').update({avatar_path:path}).eq('id',session.user.id).select('student_code,full_name,class_name,avatar_path').single();
-    if(updated.error)throw updated.error;
-    profile=updated.data;
-    await refreshAvatar();
-    emitStatus('synced','Cloud synced');
-    return path;
-  }
-
   async function signOut(){
     clearTimeout(syncTimer);
-    clearInterval(heroTimer);
     clearInterval(accessTimer);
     if(session)await pushProgress();
     if(client)await client.auth.signOut();
     session=null;
     profile=null;
-    if(hooks.onAvatar)hooks.onAvatar('');
-    if(hooks.onHero)hooks.onHero(null);
     if(hooks.onAccess)hooks.onAccess({student:{},class:{},className:'',resetVersion:0});
     if(hooks.onSession)hooks.onSession({signedIn:false});
     emitStatus('local','Saved on this device');
@@ -448,9 +370,7 @@
     createStudent,
     scheduleSync,
     syncNow:pushProgress,
-    refreshHero,
     refreshAccess:refreshStudentSettings,
-    uploadAvatar,
     signOut
   };
 })();

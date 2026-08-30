@@ -676,7 +676,7 @@
   function wasAppOpen(){try{return localStorage.getItem(APP_OPEN_KEY)==='1'}catch(e){return false}}
   function loadAccessCache(studentCode){try{const code=String(studentCode||'').toUpperCase();if(!code)return {student:{},class:{},className:''};const raw=localStorage.getItem(ACCESS_CACHE_PREFIX+code);if(!raw)return {student:{},class:{},className:''};const saved=JSON.parse(raw);return {student:saved.student||{},class:saved.class||{},className:saved.className||''}}catch(error){return {student:{},class:{},className:''}}}
   function saveAccessCache(studentCode,access){try{const code=String(studentCode||'').toUpperCase();if(code)localStorage.setItem(ACCESS_CACHE_PREFIX+code,JSON.stringify(access))}catch(error){}}
-  let state=loadState(),advanceTimer=null,cloudUI={status:'local',statusLabel:'Saved on this device',signedIn:false,avatarUrl:'',hero:null,lessonAccess:loadAccessCache(state.account.studentCode)};
+  let state=loadState(),advanceTimer=null,cloudUI={status:'local',statusLabel:'Saved on this device',signedIn:false,lessonAccess:loadAccessCache(state.account.studentCode)};
   function save(){state.updatedAt=Date.now();localStorage.setItem(APP_KEY,JSON.stringify(state));updateStats();if(window.ConnectCloud)window.ConnectCloud.scheduleSync()}
   function appIsOpen(){return !!$('#app')&&!$('#app').classList.contains('hidden')}
   function studentInitials(){return (state.profile.name||'Student').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'S'}
@@ -691,8 +691,6 @@
     metrics:()=>({answeredCount:answeredQuestionCount()}),
     onStatus:info=>{cloudUI.status=info.type;cloudUI.statusLabel=info.label;cloudUI.signedIn=!!info.signedIn;updateCloudStatus()},
     onSession:info=>{cloudUI.signedIn=!!info.signedIn;if(info.signedIn&&info.profile){state.profile={name:info.profile.full_name,className:info.profile.class_name};state.account={...state.account,studentCode:info.studentCode,cloud:true};fillSplashProfile();showResumeMessage(`Welcome back, ${state.profile.name}! Your cloud progress is ready on this device.`)}if(appIsOpen())renderSidebar()},
-    onAvatar:url=>{cloudUI.avatarUrl=url||'';if(appIsOpen())renderSidebar()},
-    onHero:hero=>{cloudUI.hero=hero||null;if(appIsOpen())renderSidebar()},
     onAccess:info=>{cloudUI.lessonAccess={student:info.student||{},class:info.class||{},className:info.className||''};if(info.className)saveAccessCache(state.account.studentCode,cloudUI.lessonAccess);const current=moduleById(state.nav.module),lesson=current&&current.lessons[state.nav.lesson];if(state.view==='lesson'&&!state.nav.boss&&lesson&&lessonAccessStatus(lesson.id)!=='visible'){state.view='dashboard';localStorage.setItem(APP_KEY,JSON.stringify(state));toast('Your teacher updated the available lessons.')}if(appIsOpen())render()}
   })}
   function moduleById(id){return BOOK_DATA.find(m=>m.id===id)}
@@ -772,25 +770,21 @@
   }
   function bindDashboardVisuals(){if(!window.matchMedia||!window.matchMedia('(pointer:fine)').matches)return;const hero=document.querySelector('.dashboard-welcome');if(hero){hero.onpointermove=e=>{const r=hero.getBoundingClientRect(),x=Math.round((e.clientX-r.left)/r.width*100);hero.style.setProperty('--hero-x',`${Math.max(48,Math.min(72,x))}%`)};hero.onpointerleave=()=>hero.style.setProperty('--hero-x','60%')}document.querySelectorAll('.dashboard-module-card:not(:disabled)').forEach(card=>{card.onpointermove=e=>{const r=card.getBoundingClientRect(),rx=((e.clientY-r.top)/r.height-.5)*-5,ry=((e.clientX-r.left)/r.width-.5)*7;card.style.setProperty('--rx',`${rx.toFixed(2)}deg`);card.style.setProperty('--ry',`${ry.toFixed(2)}deg`)};card.onpointerleave=()=>{card.style.setProperty('--rx','0deg');card.style.setProperty('--ry','0deg')}})}
   function bindDashboardEvents(){const pageBtn=$('#resumePageBtn'),questionBtn=$('#resumeQuestionBtn');if(pageBtn)pageBtn.onclick=resumeLastPage;if(questionBtn)questionBtn.onclick=resumeLastQuestion;document.querySelectorAll('[data-dashboard-module]').forEach(b=>b.onclick=()=>setModule(b.dataset.dashboardModule));bindDashboardVisuals()}
-  function renderWeeklyHero(){const hero=cloudUI.hero;if(hero){return `<section class="weekly-hero-card"><div class="hero-week-label">★ HERO OF THE WEEK</div><div class="weekly-hero-portrait">${hero.imageUrl?`<img src="${esc(hero.imageUrl)}" alt="${esc(hero.student_name)}">`:'<span>★</span>'}</div><strong>${esc(hero.student_name)}</strong><small>${esc(hero.class_name||hero.week_label||'Our English Star')}</small>${hero.message?`<p>${esc(hero.message)}</p>`:''}</section>`}return `<section class="weekly-hero-card hero-coming"><div class="hero-week-label">★ HERO OF THE WEEK</div><div class="weekly-hero-placeholder">${cloudUI.signedIn?'★':'☁'}</div><strong>${cloudUI.signedIn?'A new hero is coming!':'Sign in to meet our hero'}</strong><small>${cloudUI.signedIn?'Watch this special space.':'Cloud account required'}</small></section>`}
   function portalUrl(){try{return localStorage.getItem(PORTAL_URL_KEY)||PORTAL_FALLBACK}catch(error){return PORTAL_FALLBACK}}
   function returnToPortal(reason='courses'){rememberAppOpen(false);const url=portalUrl(),separator=url.includes('?')?'&':'?';window.location.replace(`${url}${separator}from=connect-plus-4&reason=${encodeURIComponent(reason)}`)}
   function openCloudLogin(){returnToPortal('signin')}
   function renderSidebar(){
     const done=completedCount(),total=totalLessonCount(),pct=total?Math.round(done/total*100):0;
-    const avatar=cloudUI.avatarUrl?`<img src="${esc(cloudUI.avatarUrl)}" alt="${esc(state.profile.name)} profile picture">`:`<span>${esc(studentInitials())}</span>`;
-    let html=`<div class="student-chip"><div class="student-identity"><button id="avatarBtn" class="student-avatar" aria-label="Choose profile picture">${avatar}<i>✦</i></button><div><strong>${esc(state.profile.name)}</strong><small>Class ${esc(state.profile.className)}</small><em>${cloudUI.signedIn?`Username: ${esc(state.account.studentCode||'Connected')}`:'Device-only progress'}</em></div></div><div class="overall"><span style="width:${pct}%"></span></div><small>${done} of ${total} lessons completed</small><button id="photoHint" class="photo-hint">${cloudUI.signedIn?'Change profile picture':'Connect cloud account'}</button></div>${renderWeeklyHero()}<button id="dashboardBtn" class="unit-btn dashboard-btn ${state.view==='dashboard'?'active':''}"><span class="unit-icon">${uiIcon('dashboard')}</span><span class="unit-copy"><strong>Dashboard</strong><small>Progress & quick resume</small></span></button>`;
+    const avatar=`<span>${esc(studentInitials())}</span>`;
+    let html=`<div class="student-chip"><div class="student-identity"><div class="student-avatar" aria-hidden="true">${avatar}</div><div><strong>${esc(state.profile.name)}</strong><small>Class ${esc(state.profile.className)}</small><em>${cloudUI.signedIn?`Username: ${esc(state.account.studentCode||'Connected')}`:'Device-only progress'}</em></div></div><div class="overall"><span style="width:${pct}%"></span></div><small>${done} of ${total} lessons completed</small></div><button id="dashboardBtn" class="unit-btn dashboard-btn ${state.view==='dashboard'?'active':''}"><span class="unit-icon">${uiIcon('dashboard')}</span><span class="unit-copy"><strong>Dashboard</strong><small>Progress & quick resume</small></span></button>`;
     let lastTheme='';
     NAV_ORDER.filter(id=>{const m=moduleById(id);return m&&visibleLessons(m).length}).forEach(id=>{const m=moduleById(id);if(m.theme!==lastTheme){html+=`<div class="nav-label">${esc(m.theme)}</div>`;lastTheme=m.theme}const sequenceUnlocked=moduleUnlocked(id),unlocked=sequenceUnlocked&&firstAvailableLessonIndex(m)>=0,active=state.view==='lesson'&&state.nav.module===id;html+=`<button class="unit-btn ${active?'active':''}" data-module="${id}"><span class="unit-icon" style="background:${m.color}">${uiIcon(moduleIconName(m.id))}</span><span class="unit-copy"><strong>${m.number}. ${esc(m.title)}</strong><small>${moduleComplete(id)?'Completed':unlocked?'Ready to learn':sequenceUnlocked?'Teacher locked':'Locked'}</small></span><span class="lock">${moduleComplete(id)?uiIcon('check'):unlocked?'':uiIcon('lock')}</span></button>`});
     html+=`<div class="sidebar-footer">${cloudUI.signedIn?`<button id="syncBtn" class="unit-btn cloud-action"><span class="unit-icon">☁</span><span class="unit-copy"><strong>Sync Progress</strong><small>${esc(cloudUI.statusLabel)}</small></span></button><button id="signOutBtn" class="switch-student-btn">Sign Out / Switch Student</button>`:`<button id="connectCloudBtn" class="unit-btn cloud-action"><span class="unit-icon">☁</span><span class="unit-copy"><strong>Connect Cloud</strong><small>Use your code on every device</small></span></button>`}<button id="sidebarCoursesBtn" class="unit-btn course-nav-btn"><span class="unit-icon">↔</span><span class="unit-copy"><strong>Choose Another Course</strong><small>Switch to English 4</small></span></button><button id="soundBtn" class="unit-btn"><span class="unit-icon" style="background:#667085">${uiIcon(state.sound?'volume':'mute')}</span><span class="unit-copy"><strong>Sound ${state.sound?'On':'Off'}</strong><small>Tap to change</small></span></button><button id="resetBtn" class="reset-btn">Reset Student Progress</button></div>`;
     $('#sidebar').innerHTML=html;
     $('#dashboardBtn').onclick=goDashboard;
     document.querySelectorAll('[data-module]').forEach(b=>b.onclick=()=>setModule(b.dataset.module));
-    const choosePhoto=()=>{if(!cloudUI.signedIn){openCloudLogin();return}$('#avatarInput').click()};
-    $('#avatarBtn').onclick=choosePhoto;
-    $('#photoHint').onclick=choosePhoto;
     const connect=$('#connectCloudBtn');if(connect)connect.onclick=openCloudLogin;
-    const sync=$('#syncBtn');if(sync)sync.onclick=async()=>{await window.ConnectCloud.syncNow();toast('Progress synced safely.')};
+    const sync=$('#syncBtn');if(sync)sync.onclick=async()=>{const synced=await window.ConnectCloud.syncNow();toast(synced?'Progress synced safely.':'Saved on this device. Cloud sync will retry automatically.')};
     const signOut=$('#signOutBtn');if(signOut)signOut.onclick=signOutStudent;
     $('#sidebarCoursesBtn').onclick=()=>returnToPortal('courses');
     $('#soundBtn').onclick=()=>{state.sound=!state.sound;save();renderSidebar();toast(`Sound ${state.sound?'on':'off'}`)};
@@ -940,7 +934,6 @@
       setStartBusy(false,mode);
     }
   }
-  async function handleAvatarUpload(event){const file=event.target.files&&event.target.files[0];event.target.value='';if(!file)return;try{toast('Uploading your picture…');await window.ConnectCloud.uploadAvatar(file);toast('Profile picture updated!')}catch(error){toast(error&&error.message?error.message:'Could not upload this picture.')}}
   async function signOutStudent(){rememberAppOpen(false);try{toast('Saving before sign out…');await window.ConnectCloud.signOut()}catch(error){}cloudUI.signedIn=false;$('#studentPin').value='';returnToPortal('signed-out')}
   async function resetStudentProgress(){const profile={...state.profile},account={...state.account};state={...defaultState(),profile,account,view:'dashboard'};localStorage.setItem(APP_KEY,JSON.stringify(state));$('#confirmModal').classList.add('hidden');render();if(window.ConnectCloud&&window.ConnectCloud.isSignedIn())await window.ConnectCloud.syncNow();toast('Student progress has been reset.')}
   async function init(){
@@ -956,7 +949,6 @@
     document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('#'+b.dataset.close).classList.add('hidden'));
     $('#cancelReset').onclick=()=>$('#confirmModal').classList.add('hidden');
     $('#confirmReset').onclick=resetStudentProgress;
-    $('#avatarInput').onchange=handleAvatarUpload;
     $('#menuBtn').onclick=()=>$('#sidebar').classList.toggle('open');
     $('#courseSwitchBtn').onclick=()=>returnToPortal('courses');
     window.addEventListener('online',async()=>{if(window.ConnectCloud){await window.ConnectCloud.refreshAccess();await window.ConnectCloud.syncNow()}});
