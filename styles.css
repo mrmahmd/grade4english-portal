@@ -218,3 +218,223 @@ button{cursor:pointer}
 @media(min-width:981px){.course-dashboard-v3 .learning-gateways{padding-left:24px;padding-right:24px}.course-dashboard-v3 .course-orbit-grid{width:min(100%,640px);margin-top:17px;gap:13px}.course-dashboard-v3 .gateway-card{width:100%;height:138px;grid-template-columns:96px minmax(0,1fr) 136px;padding:13px 14px;gap:15px;border-radius:24px}.course-dashboard-v3 .gateway-card .course-orbit-art{width:92px}.course-dashboard-v3 .gateway-card .course-orbit-copy{gap:3px}.course-dashboard-v3 .gateway-card .course-orbit-copy strong{font-size:clamp(1.2rem,1.52vw,1.48rem)}.course-dashboard-v3 .gateway-card .course-orbit-copy small{padding:1px 0;font-size:.65rem}}
 @media(max-width:980px){.course-dashboard-v3 .gateway-card{grid-template-columns:92px minmax(0,1fr) 126px;min-height:136px;padding:13px 14px;gap:12px}.course-dashboard-v3 .gateway-card .course-orbit-art{width:88px}.course-dashboard-v3 .course-entry-cta{min-width:126px;min-height:44px;font-size:.66rem}}
 @media(max-width:560px){.course-dashboard-v3 .gateway-card{grid-template-columns:72px minmax(0,1fr);grid-template-areas:"art copy" "cta cta";min-height:168px;padding:13px;gap:8px 10px}.course-dashboard-v3 .gateway-card .course-orbit-art{grid-area:art;width:70px}.course-dashboard-v3 .gateway-card .course-orbit-copy{grid-area:copy}.course-dashboard-v3 .gateway-card .course-orbit-copy strong{font-size:1.06rem}.course-dashboard-v3 .course-number{font-size:.4rem;padding:2px 6px}.course-dashboard-v3 .course-entry-cta{grid-area:cta;width:100%;min-height:40px;justify-content:center;font-size:.68rem}.course-dashboard-v3 .course-entry-cta .course-arrow{width:25px;height:25px}.course-dashboard-v3 .learner-welcome p{color:#17345f;text-shadow:none}}
+
+/* Opening-screen background layer. The login UI stays still. */
+.portal-shell{isolation:isolate}
+.portal-shell:has(#authPanel:not(.hidden)) .scene-shade{z-index:1}
+.portal-shell:has(#authPanel:not(.hidden))::before{z-index:2}
+@media(prefers-reduced-motion:reduce){
+  .portal-shell:has(#authPanel:not(.hidden))::after{animation:none;transform:none}
+}
+
+/* 2026-08-30 opening screen: light cinematic scene and liquid-glass identity. */
+.portal-shell:has(#authPanel:not(.hidden)){
+  background-color:#e9f8ff;
+  background-image:url("portal-light-learning.png");
+  background-position:left center;
+  background-size:cover;
+}
+.portal-shell:has(#authPanel:not(.hidden))::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background:url("portal-light-learning.png") left center/cover no-repeat;
+  transform-origin:left center;
+  will-change:transform;
+  animation:openingSceneBreath 24s ease-in-out infinite alternate;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .scene-shade{
+  background:linear-gradient(90deg,rgba(231,250,255,.03) 0%,rgba(255,255,255,.015) 46%,rgba(241,252,255,.11) 67%,rgba(255,250,238,.2) 100%);
+}
+.portal-shell:has(#authPanel:not(.hidden)) .school-brand{
+  position:absolute;
+  z-index:5;
+  top:24px;
+  left:clamp(22px,4vw,66px);
+  display:flex;
+  align-items:center;
+  gap:11px;
+  width:min(635px,56vw);
+  filter:drop-shadow(0 18px 28px rgba(25,80,139,.13));
+}
+.portal-shell:has(#authPanel:not(.hidden)) .logo-frame{
+  position:relative;
+  display:block;
+  flex:0 0 104px;
+  width:104px;
+  height:104px;
+  overflow:hidden;
+  padding:0;
+  border:1px solid rgba(255,255,255,.86);
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 18%,rgba(255,255,255,.56),transparent 48%),linear-gradient(145deg,rgba(255,255,255,.23),rgba(201,240,255,.08));
+  box-shadow:0 10px 24px rgba(35,90,145,.13),inset 0 1px 1px rgba(255,255,255,.98),inset 0 -1px 1px rgba(97,190,229,.2);
+  backdrop-filter:blur(20px) saturate(180%);
+}
+.portal-shell:has(#authPanel:not(.hidden)) .logo-frame::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:5px;
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:50%;
+  pointer-events:none;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .logo-frame img{
+  position:absolute;
+  width:300px;
+  height:auto;
+  max-width:none;
+  left:-98px;
+  top:-4px;
+  object-fit:contain;
+  filter:drop-shadow(0 7px 10px rgba(20,55,112,.18));
+}
+.portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy{
+  position:relative;
+  display:grid;
+  flex:1;
+  place-items:center;
+  align-content:center;
+  gap:5px;
+  min-width:0;
+  height:84px;
+  padding:9px 24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:27px;
+  text-align:center;
+  background:radial-gradient(circle at 22% 0%,rgba(255,255,255,.38),transparent 45%),linear-gradient(125deg,rgba(255,255,255,.19),rgba(204,241,255,.065));
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.94),inset 0 -1px 1px rgba(120,202,232,.2);
+  backdrop-filter:blur(20px) saturate(185%);
+}
+.portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy::before{
+  content:"";
+  position:absolute;
+  left:9%;right:28%;top:3px;height:16px;
+  border-radius:50%;
+  background:rgba(255,255,255,.28);
+  filter:blur(8px);
+  pointer-events:none;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy span{
+  position:relative;
+  z-index:1;
+  font-family:"Baloo 2",sans-serif;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#2c5c91;
+  text-shadow:0 1px 0 #fff,0 2px 0 rgba(138,190,215,.72),0 5px 9px rgba(25,72,124,.2);
+}
+.portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy strong{
+  position:relative;
+  z-index:1;
+  font-family:"Baloo 2",sans-serif;
+  font-size:clamp(1.5rem,2.2vw,2.12rem);
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+  background:linear-gradient(105deg,#113a94 0%,#00afd1 27%,#7257dc 51%,#f0ae31 72%,#18a9ca 88%,#113a94 100%);
+  background-size:250% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.35px rgba(14,62,133,.38);
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.98)) drop-shadow(0 2px 0 rgba(120,184,212,.72)) drop-shadow(0 4px 0 rgba(41,101,166,.28)) drop-shadow(0 8px 8px rgba(22,70,129,.23));
+  animation:openingBrandShimmer 7s linear infinite,openingBrandLift 4.2s ease-in-out infinite;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .portal-content{
+  grid-template-columns:minmax(0,1fr) minmax(390px,520px);
+}
+.portal-shell:has(#authPanel:not(.hidden)) .auth-panel{
+  width:min(100%,490px);
+  margin-right:clamp(12px,3vw,44px);
+  padding:31px 31px 28px;
+  overflow:auto;
+  border:1px solid rgba(255,255,255,.76);
+  border-radius:36px;
+  background:radial-gradient(circle at 18% 4%,rgba(255,255,255,.34),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.17),rgba(206,241,255,.06) 52%,rgba(233,218,255,.055));
+  box-shadow:0 30px 75px rgba(35,80,137,.19),inset 0 1px 1px rgba(255,255,255,.98),inset 0 -1px 2px rgba(112,189,226,.2);
+  backdrop-filter:blur(22px) saturate(185%) contrast(106%);
+}
+.portal-shell:has(#authPanel:not(.hidden)) .auth-panel::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:-42px;left:7%;width:62%;height:110px;
+  border-radius:50%;
+  background:rgba(255,255,255,.28);
+  filter:blur(20px);
+  pointer-events:none;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .auth-panel .panel-school-logo{display:none}
+.portal-shell:has(#authPanel:not(.hidden)) .panel-head h2{
+  background:linear-gradient(100deg,#143d98,#12a1c6 45%,#7956dc);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 2px 0 rgba(255,255,255,.9)) drop-shadow(0 5px 7px rgba(20,68,130,.17));
+}
+.portal-shell:has(#authPanel:not(.hidden)) .creator-credit{
+  position:fixed;
+  z-index:6;
+  left:clamp(30px,7vw,118px);
+  right:auto;
+  bottom:27px;
+  margin:0;
+  background:linear-gradient(110deg,rgba(255,255,255,.76),rgba(218,247,255,.54));
+  border-color:rgba(255,255,255,.92);
+  box-shadow:0 13px 29px rgba(35,79,130,.13),inset 0 1px #fff;
+  text-shadow:none;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .creator-credit span{
+  color:#315c88;
+  background:none;
+  -webkit-text-fill-color:#315c88;
+  text-shadow:0 1px #fff;
+}
+.portal-shell:has(#authPanel:not(.hidden)) .creator-credit strong{
+  font-size:1.34rem;
+  background:linear-gradient(95deg,#0c63bd,#05b3cf 27%,#7654db 52%,#f1aa24 74%,#0b87c7);
+  background-size:230% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:.3px rgba(30,67,143,.3);
+  filter:drop-shadow(0 1px 0 #fff) drop-shadow(0 2px 0 rgba(114,182,211,.7)) drop-shadow(0 5px 6px rgba(28,70,133,.24));
+}
+.portal-shell:not(:has(#authPanel:not(.hidden)))>.portal-content>.creator-credit{display:none}
+@keyframes openingBrandShimmer{to{background-position:240% center}}
+@keyframes openingBrandLift{50%{transform:translateY(-1px) scale(1.012)}}
+@keyframes openingSceneBreath{
+  0%{transform:scale(1) translate3d(0,0,0)}
+  50%{transform:scale(1.025) translate3d(0,-.18%,0)}
+  100%{transform:scale(1.045) translate3d(0,.12%,0)}
+}
+@media(max-width:900px){
+  .portal-shell:has(#authPanel:not(.hidden)){
+    background-color:#e6f8ff;
+    background-image:linear-gradient(180deg,transparent 0 42svh,#e8f8ff 58svh,#eaf7ff 100%),url("portal-light-learning.png");
+  }
+  .portal-shell:has(#authPanel:not(.hidden))::after{
+    top:0;right:-3vw;bottom:auto;left:-3vw;height:57svh;
+    background-position:left 8% top;
+    background-size:auto 100%;
+    animation-duration:28s;
+  }
+  .portal-shell:has(#authPanel:not(.hidden)) .school-brand{
+    top:15px;left:12px;width:calc(100% - 24px);max-width:calc(100vw - 24px);gap:7px;
+  }
+  .portal-shell:has(#authPanel:not(.hidden)) .logo-frame{flex-basis:72px;width:72px;height:72px}
+  .portal-shell:has(#authPanel:not(.hidden)) .logo-frame img{width:215px;left:-71px;top:-3px}
+  .portal-shell:has(#authPanel:not(.hidden)) .logo-frame::after{inset:4px}
+  .portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy{height:64px;padding:7px 8px;border-radius:20px}
+  .portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy span{font-size:.39rem;letter-spacing:.4px}
+  .portal-shell:has(#authPanel:not(.hidden)) .school-brand .brand-copy strong{font-size:clamp(.76rem,3.65vw,.96rem);-webkit-text-stroke:.2px rgba(14,62,133,.34)}
+  .portal-shell:has(#authPanel:not(.hidden)) .portal-content{padding-top:47svh}
+  .portal-shell:has(#authPanel:not(.hidden)) .auth-panel{width:100%;margin:0;padding:22px 18px;border-radius:28px}
+  .portal-shell:has(#authPanel:not(.hidden)) .creator-credit{position:relative;left:auto;right:auto;bottom:auto;justify-content:center;margin:14px auto 0}
+}
