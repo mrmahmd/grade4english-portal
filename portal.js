@@ -12,7 +12,14 @@
 
   const $=selector=>document.querySelector(selector);
   const normalizeCode=value=>String(value||'').trim().toUpperCase().replace(/\s+/g,'');
-  const normalizeGrade=value=>String(value)==='5'?'5':'4';
+  const normalizeGrade=()=> '4';
+  const normalizeClassName=value=>{
+    const className=String(value||'').trim();
+    const legacyClass=className.match(/^5([A-D])$/i);
+    if(legacyClass)return `4${legacyClass[1].toUpperCase()}`;
+    if(/^primary\s*5$/i.test(className))return 'Primary 4';
+    return className||'Primary 4';
+  };
   const emailForCode=code=>`cp4.${code.toLowerCase()}@students.connectplus.app`;
   const safeText=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   let profile=null;
@@ -68,7 +75,7 @@
       userId:user.id,
       studentCode:normalizeCode(row.student_code||user.user_metadata?.student_code),
       fullName:row.full_name||user.user_metadata?.full_name||'Student',
-      className:row.class_name||user.user_metadata?.class_name||'Primary 4',
+      className:normalizeClassName(row.class_name||user.user_metadata?.class_name),
       gradeLevel:normalizeGrade(row.grade_level||user.user_metadata?.grade_level),
       savedAt:Date.now()
     };
@@ -80,12 +87,12 @@
     return String(name||'Student').trim().split(/\s+/).slice(0,2).map(part=>part[0]||'').join('').toUpperCase()||'ST';
   }
 
-  function renderHeroes(grade){
+  function renderHeroes(){
     const weekly=config.heroOfWeek||{};
-    const entries=Array.isArray(weekly[`grade${grade}`])?weekly[`grade${grade}`]:[];
+    const entries=Array.isArray(weekly.grade4)?weekly.grade4:[];
     $('#heroWeekNumber').textContent=String(weekly.weekNumber||'___').trim()||'___';
     document.querySelectorAll('[data-hero-slot]').forEach((card,index)=>{
-      const fallback={name:'STUDENT NAME',className:`${grade}${index===0?'A':'B'}`,photo:''};
+      const fallback={name:'STUDENT NAME',className:`4${index===0?'A':'B'}`,photo:''};
       const hero={...fallback,...(entries[index]||{})};
       const name=String(hero.name||fallback.name).trim()||fallback.name;
       const className=String(hero.className||fallback.className).trim()||fallback.className;
@@ -111,15 +118,12 @@
     const identity=saveIdentity(user,row);
     profile=row;
     $('#studentInitials').textContent=initials(identity.fullName);
-    $('#courseTitle').textContent=`Grade ${identity.gradeLevel} Learning Hub`;
-    $('#studentLine').innerHTML=`Welcome back, <strong>${safeText(identity.fullName.split(/\s+/)[0])}</strong> · Grade <strong>${safeText(identity.gradeLevel)}</strong> · Class <strong>${safeText(identity.className)}</strong>`;
-    $('#courseBrandTitle').textContent=`Grade ${identity.gradeLevel} English Portal`;
-    $('#gradeHeading').textContent=`GRADE ${identity.gradeLevel}`;
-    $('#grade4Courses').classList.toggle('hidden',identity.gradeLevel==='5');
-    $('#grade5Courses').classList.toggle('hidden',identity.gradeLevel!=='5');
-    $('#choiceNote').classList.toggle('hidden',identity.gradeLevel==='5');
-    $('#coursePanel').dataset.grade=identity.gradeLevel;
-    renderHeroes(identity.gradeLevel);
+    $('#courseTitle').textContent='Grade 4 Learning Hub';
+    $('#studentLine').innerHTML=`Welcome back, <strong>${safeText(identity.fullName.split(/\s+/)[0])}</strong> · Grade <strong>4</strong> · Class <strong>${safeText(identity.className)}</strong>`;
+    $('#courseBrandTitle').textContent='AlAndalus Grade 4 English Portal';
+    $('#gradeHeading').textContent='GRADE 4';
+    $('#coursePanel').dataset.grade='4';
+    renderHeroes();
     $('#authPanel').classList.add('hidden');
     $('#coursePanel').classList.remove('hidden');
   }
@@ -143,19 +147,13 @@
     if(password.length>72)throw new Error('Your password is too long.');
   }
 
-  function selectedGrade(){
-    return normalizeGrade(document.querySelector('input[name="gradeLevel"]:checked')?.value);
-  }
-
   function refreshClassOptions(){
-    const grade=selectedGrade();
     const select=$('#className');
     const selected=select.value;
-    const classes=grade==='5'?['5A','5B','5C','5D','Other']:['4A','4B','4C','4D','Other'];
+    const classes=['4A','4B','4C','4D','Other'];
     select.innerHTML=`<option value="">Choose class</option>${classes.map(value=>`<option value="${value}">${value}</option>`).join('')}`;
     if(classes.includes(selected))select.value=selected;
-    $('#classGradeIcon').textContent=grade;
-    document.querySelectorAll('.grade-choice').forEach(label=>label.classList.toggle('selected',label.querySelector('input').value===grade));
+    $('#classGradeIcon').textContent='4';
   }
 
   async function signIn(event){
@@ -185,7 +183,7 @@
     event.preventDefault();
     if(!client){showMessage('Supabase could not load. Please check your internet connection.');return;}
     const fullName=$('#fullName').value.trim();
-    const gradeLevel=selectedGrade();
+    const gradeLevel='4';
     const className=$('#className').value.trim();
     const studentCode=normalizeCode($('#newUsername').value);
     const pin=$('#newPin').value;
@@ -262,7 +260,6 @@
     $('#createTab').onclick=()=>switchAuth('create');
     $('#signInForm').onsubmit=signIn;
     $('#createForm').onsubmit=createAccount;
-    document.querySelectorAll('input[name="gradeLevel"]').forEach(input=>input.onchange=refreshClassOptions);
     $('#signOutButton').onclick=signOut;
     document.querySelectorAll('[data-toggle-pin]').forEach(button=>button.onclick=()=>{
       const input=document.getElementById(button.dataset.togglePin);

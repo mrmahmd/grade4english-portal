@@ -6,10 +6,6 @@ window.ENGLISH_PORTAL_CONFIG = {
     grade4: [
       { name: 'STUDENT NAME', className: '4A', photo: '' },
       { name: 'STUDENT NAME', className: '4B', photo: '' }
-    ],
-    grade5: [
-      { name: 'STUDENT NAME', className: '5A', photo: '' },
-      { name: 'STUDENT NAME', className: '5B', photo: '' }
     ]
   }
 };
