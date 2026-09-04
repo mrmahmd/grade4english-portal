@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#132a67">
-  <meta name="description" content="AlAndalus Private Schools English learning portal for Grades 4 and 5">
+  <meta name="description" content="AlAndalus Grade 4 English Portal for AlAndalus Private Schools students">
   <link rel="icon" type="image/png" href="alandalus-school-logo-transparent.png">
-  <title>AlAndalus English Learning Portal</title>
+  <title>AlAndalus Grade 4 English Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260830-1">
+  <link rel="stylesheet" href="styles.css?v=20260904-auth-motion-fix">
 </head>
 <body>
   <main class="portal-shell">
@@ -23,7 +23,7 @@
       <div class="logo-frame"><img src="alandalus-school-logo-transparent.png" alt="AlAndalus Private Schools, Egyptian Section"></div>
       <div class="brand-copy">
         <span>ALANDALUS PRIVATE SCHOOLS</span>
-        <strong>ENGLISH LEARNING PORTAL</strong>
+        <strong>ALANDALUS GRADE 4 ENGLISH PORTAL</strong>
       </div>
     </header>
 
@@ -40,9 +40,9 @@
           <img src="alandalus-school-logo-transparent.png?v=20260826-3" alt="AlAndalus Private Schools, Egyptian Section">
         </div>
         <div class="panel-head">
-          <span class="mini-badge">GRADES 4 &amp; 5</span>
+          <span class="mini-badge">ALANDALUS · GRADE 4</span>
           <h2 id="portalTitle">Welcome, English Star!</h2>
-          <p>Sign in once, then choose your grade and courses.</p>
+          <p>Sign in once, then choose your Grade 4 English course.</p>
         </div>
 
         <div class="auth-tabs" role="tablist" aria-label="Account access">
@@ -63,11 +63,6 @@
         </form>
 
         <form id="createForm" class="auth-form hidden" novalidate>
-          <fieldset class="grade-picker">
-            <legend>CHOOSE YOUR GRADE</legend>
-            <label class="grade-choice selected"><input type="radio" name="gradeLevel" value="4" checked><span><b>Grade 4</b><small>My English adventure</small></span></label>
-            <label class="grade-choice"><input type="radio" name="gradeLevel" value="5"><span><b>Grade 5</b><small>New journey begins</small></span></label>
-          </fieldset>
           <div class="form-pair">
             <label class="input-field" for="fullName"><span>FULL NAME</span><span class="input-box"><i class="field-icon">★</i><input id="fullName" maxlength="70" autocomplete="name" placeholder="Your full name" required></span></label>
             <label class="input-field" for="className"><span>CLASS</span><span class="input-box"><i id="classGradeIcon" class="field-icon">4</i><select id="className" required><option value="">Choose class</option><option>4A</option><option>4B</option><option>4C</option><option>4D</option><option>Other</option></select></span></label>
@@ -87,10 +82,10 @@
       <footer class="creator-credit"><span>Prepared &amp; Designed by</span><strong>Mr. Mohamed Farid</strong></footer>
 
       <section id="coursePanel" class="course-dashboard course-dashboard-v2 course-dashboard-v3 course-dashboard-galaxy hidden" aria-labelledby="courseTitle">
-        <header class="dashboard-brand brand-lockup" aria-label="AlAndalus Private Schools English Portal">
+        <header class="dashboard-brand brand-lockup" aria-label="AlAndalus Grade 4 English Portal">
           <img src="alandalus-school-logo-transparent.png?v=20260826-3" alt="AlAndalus Private Schools, Egyptian Section">
           <div>
-            <span id="courseBrandTitle">Grade 4 English Portal</span>
+            <span id="courseBrandTitle">AlAndalus Grade 4 English Portal</span>
             <strong id="courseTitle">Choose Your Courses</strong>
           </div>
         </header>
@@ -152,17 +147,6 @@
               </button>
             </div>
 
-            <section id="grade5Courses" class="grade5-course-grid hidden" aria-live="polite">
-              <article class="course-orbit coming-orbit">
-                <span class="orbit-ring"></span><span class="course-orbit-art">C+5</span>
-                <span class="course-orbit-copy"><strong>Connect Plus 5</strong><small>Coming soon</small></span>
-              </article>
-              <article class="course-orbit coming-orbit english-coming">
-                <span class="orbit-ring"></span><span class="course-orbit-art">E5</span>
-                <span class="course-orbit-copy"><strong>English 5</strong><small>Coming soon</small></span>
-              </article>
-              <p class="grade5-note">Your Grade 5 learning hub is ready. Your courses will appear here soon.</p>
-            </section>
           </section>
         </div>
 
@@ -180,7 +164,7 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="portal-config.js?v=20260827-1" defer></script>
-  <script src="portal.js?v=20260829-6" defer></script>
+  <script src="portal-config.js?v=20260831-grade4-only" defer></script>
+  <script src="portal.js?v=20260831-grade4-only" defer></script>
 </body>
 </html>
