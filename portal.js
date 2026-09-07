@@ -12,7 +12,7 @@
 
   const $=selector=>document.querySelector(selector);
   const normalizeCode=value=>String(value||'').trim().toUpperCase().replace(/\s+/g,'');
-  const normalizeGrade=()=> '4';
+  const normalizeGrade=value=>String(value)==='2'?'2':'4';
   const normalizeClassName=value=>{
     const className=String(value||'').trim();
     const legacyClass=className.match(/^5([A-D])$/i);
@@ -75,7 +75,7 @@
       userId:user.id,
       studentCode:normalizeCode(row.student_code||user.user_metadata?.student_code),
       fullName:row.full_name||user.user_metadata?.full_name||'Student',
-      className:normalizeClassName(row.class_name||user.user_metadata?.class_name),
+      className:normalizeClassName(row.class_name||user.user_metadata?.class_name||(normalizeGrade(row.grade_level||user.user_metadata?.grade_level)==='2'?'Primary 2':'Primary 4')),
       gradeLevel:normalizeGrade(row.grade_level||user.user_metadata?.grade_level),
       savedAt:Date.now()
     };
@@ -89,10 +89,11 @@
 
   function renderHeroes(){
     const weekly=config.heroOfWeek||{};
-    const entries=Array.isArray(weekly.grade4)?weekly.grade4:[];
+    const grade=normalizeGrade(profile?.grade_level);
+    const entries=Array.isArray(weekly[`grade${grade}`])?weekly[`grade${grade}`]:[];
     $('#heroWeekNumber').textContent=String(weekly.weekNumber||'___').trim()||'___';
     document.querySelectorAll('[data-hero-slot]').forEach((card,index)=>{
-      const fallback={name:'STUDENT NAME',className:`4${index===0?'A':'B'}`,photo:''};
+      const fallback={name:'STUDENT NAME',className:`${grade}${index===0?'A':'B'}`,photo:''};
       const hero={...fallback,...(entries[index]||{})};
       const name=String(hero.name||fallback.name).trim()||fallback.name;
       const className=String(hero.className||fallback.className).trim()||fallback.className;
@@ -118,11 +119,14 @@
     const identity=saveIdentity(user,row);
     profile=row;
     $('#studentInitials').textContent=initials(identity.fullName);
-    $('#courseTitle').textContent='Grade 4 Learning Hub';
-    $('#studentLine').innerHTML=`Welcome back, <strong>${safeText(identity.fullName.split(/\s+/)[0])}</strong> · Grade <strong>4</strong> · Class <strong>${safeText(identity.className)}</strong>`;
-    $('#courseBrandTitle').textContent='AlAndalus Grade 4 English Portal';
-    $('#gradeHeading').textContent='GRADE 4';
-    $('#coursePanel').dataset.grade='4';
+    $('#courseTitle').textContent=`Grade ${identity.gradeLevel} Learning Hub`;
+    $('#studentLine').innerHTML=`Welcome back, <strong>${safeText(identity.fullName.split(/\s+/)[0])}</strong> · Grade <strong>${identity.gradeLevel}</strong> · Class <strong>${safeText(identity.className)}</strong>`;
+    $('#courseBrandTitle').textContent='AlAndalus English Portal';
+    $('#gradeHeading').textContent=`GRADE ${identity.gradeLevel}`;
+    $('#coursePanel').dataset.grade=identity.gradeLevel;
+    $('#grade4Courses').classList.toggle('hidden',identity.gradeLevel!=='4');
+    $('#grade2Courses').classList.toggle('hidden',identity.gradeLevel!=='2');
+    $('#choiceNote').textContent=identity.gradeLevel==='2'?'Your English 2 adventure is ready.':'Open a magical gateway and continue your English journey.';
     renderHeroes();
     $('#authPanel').classList.add('hidden');
     $('#coursePanel').classList.remove('hidden');
@@ -150,10 +154,11 @@
   function refreshClassOptions(){
     const select=$('#className');
     const selected=select.value;
-    const classes=['4A','4B','4C','4D','Other'];
+    const grade=normalizeGrade($('#gradeLevel').value);
+    const classes=['A','B','C','D'].map(letter=>grade+letter).concat('Other');
     select.innerHTML=`<option value="">Choose class</option>${classes.map(value=>`<option value="${value}">${value}</option>`).join('')}`;
     if(classes.includes(selected))select.value=selected;
-    $('#classGradeIcon').textContent='4';
+    $('#classGradeIcon').textContent=grade;
   }
 
   async function signIn(event){
@@ -183,7 +188,7 @@
     event.preventDefault();
     if(!client){showMessage('Supabase could not load. Please check your internet connection.');return;}
     const fullName=$('#fullName').value.trim();
-    const gradeLevel='4';
+    const gradeLevel=normalizeGrade($('#gradeLevel').value);
     const className=$('#className').value.trim();
     const studentCode=normalizeCode($('#newUsername').value);
     const pin=$('#newPin').value;
@@ -220,10 +225,12 @@
   }
 
   function courseUrl(key){
-    return key==='connectPlus4'?config.connectPlus4Url:config.english4Url;
+    return ({connectPlus4:config.connectPlus4Url,english4:config.english4Url,english2:config.english2Url})[key];
   }
 
   function openCourse(key){
+    const grade=normalizeGrade(profile?.grade_level);
+    if(!profile||(grade==='2'?key!=='english2':!['english4','connectPlus4'].includes(key)))return;
     const url=String(courseUrl(key)||'').trim();
     if(!url){showMessage('This course link has not been connected yet.');return;}
     if(courseOpening)return;
@@ -234,9 +241,9 @@
     const destination=`${url}${separator}from=english-portal`;
     const door=$('#courseDoorTransition');
     if(!door){window.location.href=destination;return;}
-    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':'English 4';
+    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':key==='english2'?'English 2':'English 4';
     door.classList.remove('hidden');
-    door.classList.toggle('english-door',key==='english4');
+    door.classList.toggle('english-door',key!=='connectPlus4');
     door.setAttribute('aria-hidden','false');
     requestAnimationFrame(()=>door.classList.add('is-opening'));
     window.setTimeout(()=>{window.location.href=destination;},950);
@@ -268,6 +275,7 @@
       button.textContent=show?'Hide':'Show';
     });
     document.querySelectorAll('[data-course]').forEach(button=>button.onclick=()=>openCourse(button.dataset.course));
+    $('#gradeLevel').onchange=refreshClassOptions;
     refreshClassOptions();
     if(!client){showMessage('The secure account service could not load. Check the internet connection.');return;}
     setLoading(true,'Restoring your secure session…');
