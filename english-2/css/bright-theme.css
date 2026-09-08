@@ -1,0 +1,11 @@
+/* A bright, calm canvas that keeps lesson text easy to read. */
+html{min-height:100%;background:linear-gradient(135deg,#fff8df 0%,#e9fbff 43%,#efe9ff 100%)}
+body{min-height:100vh;background:radial-gradient(circle at 10% 12%,rgba(255,212,91,.33),transparent 25%),radial-gradient(circle at 90% 25%,rgba(80,207,242,.25),transparent 29%),radial-gradient(circle at 58% 90%,rgba(190,128,255,.16),transparent 32%)}
+.topbar{background:rgba(255,255,255,.64);border-bottom:1px solid rgba(22,100,97,.12);backdrop-filter:blur(12px)}
+main{padding:0 18px 54px}.hero{background:linear-gradient(135deg,#0f6070 0%,#177f83 48%,#526bd4 100%);box-shadow:0 24px 48px rgba(41,86,157,.25)}
+.hero::after{content:"";position:absolute;z-index:0;right:-12%;top:-45%;width:56%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,218,103,.33),rgba(255,255,255,0) 67%)}
+.overview,.unit-card,.lesson-row,.quiz-card,.writing-paper,.story{box-shadow:0 12px 26px rgba(33,83,112,.08)}
+.unit-card:nth-child(3n+1) .unit-image{background:linear-gradient(135deg,#fff0c5,#dff8ee)}
+.unit-card:nth-child(3n+2) .unit-image{background:linear-gradient(135deg,#e2f6ff,#eee2ff)}
+.unit-card:nth-child(3n) .unit-image{background:linear-gradient(135deg,#fff0eb,#fff9c9)}
+@media(max-width:700px){main{padding:0 12px 36px}.topbar{background:rgba(255,255,255,.77)}}
