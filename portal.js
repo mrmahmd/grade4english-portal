@@ -92,7 +92,10 @@
     const grade=normalizeGrade(profile?.grade_level);
     const entries=Array.isArray(weekly[`grade${grade}`])?weekly[`grade${grade}`]:[];
     $('#heroWeekNumber').textContent=String(weekly.weekNumber||'___').trim()||'___';
+    const heroGrid=document.querySelector('.hero-card-grid');
+    heroGrid?.classList.toggle('single-hero',grade==='2');
     document.querySelectorAll('[data-hero-slot]').forEach((card,index)=>{
+      card.classList.toggle('hidden',grade==='2'&&index>0);
       const fallback={name:'STUDENT NAME',className:`${grade}${index===0?'A':'B'}`,photo:''};
       const hero={...fallback,...(entries[index]||{})};
       const name=String(hero.name||fallback.name).trim()||fallback.name;
@@ -155,7 +158,7 @@
     const select=$('#className');
     const selected=select.value;
     const grade=normalizeGrade($('#gradeLevel').value);
-    const classes=['A','B','C','D'].map(letter=>grade+letter).concat('Other');
+    const classes=grade==='2'?['2A']:['4A','4B'];
     select.innerHTML=`<option value="">Choose class</option>${classes.map(value=>`<option value="${value}">${value}</option>`).join('')}`;
     if(classes.includes(selected))select.value=selected;
     $('#classGradeIcon').textContent=grade;

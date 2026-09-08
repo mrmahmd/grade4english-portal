@@ -671,3 +671,4 @@ body:has(#coursePanel:not(.hidden)){height:100%;overflow:hidden}
 #grade2Courses {grid-template-columns:minmax(0,1fr);max-width:580px;margin-inline:auto;}
 #grade2Courses .course-orbit-art img {object-fit:contain;border-radius:20px;}
 #grade2Courses .course-orbit-art {width:min(100%,300px);}
+.hero-card-grid.single-hero{grid-template-columns:minmax(0,1fr);max-width:290px;margin-left:auto;margin-right:auto}.course-dashboard-galaxy .hero-card-grid.single-hero{grid-template-columns:minmax(0,1fr);height:calc(100% - 120px);max-width:310px}.course-dashboard-galaxy .hero-card-grid.single-hero .hero-student-card{width:100%}@media(max-width:900px){.course-dashboard-galaxy .hero-card-grid.single-hero{height:320px;max-width:260px}}
