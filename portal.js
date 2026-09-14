@@ -25,6 +25,28 @@
   let profile=null;
   let session=null;
   let courseOpening=false;
+  let platformSettings={registration_enabled:true,login_enabled:true,connect_plus_visible:true,english4_visible:true,hero_week_number:'',heroes:[]};
+
+  async function loadPlatformSettings(){
+    if(!client)return;
+    const result=await client.from('platform_settings').select('registration_enabled,login_enabled,connect_plus_visible,english4_visible,hero_week_number,heroes').eq('id','grade4').maybeSingle();
+    if(!result.error&&result.data)platformSettings={...platformSettings,...result.data};
+    config.heroOfWeek={weekNumber:platformSettings.hero_week_number||'___',grade4:Array.isArray(platformSettings.heroes)?platformSettings.heroes:[]};
+    applyPlatformControls();
+  }
+
+  function applyPlatformControls(){
+    const createAllowed=platformSettings.registration_enabled!==false,loginAllowed=platformSettings.login_enabled!==false;
+    $('#createTab').classList.toggle('hidden',!createAllowed);
+    $('#createTab').disabled=!createAllowed;
+    $('#signInTab').disabled=!loginAllowed;
+    $('#signInButton').disabled=!loginAllowed;
+    const connectCard=document.querySelector('[data-course="connectPlus4"]'),englishCard=document.querySelector('[data-course="english4"]');
+    if(connectCard)connectCard.classList.toggle('hidden',platformSettings.connect_plus_visible===false);
+    if(englishCard)englishCard.classList.toggle('hidden',platformSettings.english4_visible===false);
+    if(!createAllowed&&!loginAllowed)showMessage('Student access is temporarily paused by the teacher. Please try again later.','info');
+    else if(!loginAllowed)showMessage('Student sign-in is temporarily paused by the teacher.','info');
+  }
 
   function setLoading(show,text='Opening your portal…'){
     $('#loadingText').textContent=text;
@@ -44,6 +66,8 @@
 
   function switchAuth(mode){
     const create=mode==='create';
+    if(create&&platformSettings.registration_enabled===false){showMessage('New account registration is temporarily paused.','info');return;}
+    if(!create&&platformSettings.login_enabled===false){showMessage('Student sign-in is temporarily paused by the teacher.','info');return;}
     $('#signInForm').classList.toggle('hidden',create);
     $('#createForm').classList.toggle('hidden',!create);
     $('#signInTab').classList.toggle('active',!create);
@@ -169,6 +193,8 @@
 
   async function signIn(event){
     event.preventDefault();
+    await loadPlatformSettings();
+    if(platformSettings.login_enabled===false){showMessage('Student sign-in is temporarily paused by the teacher.','info');return;}
     if(!client){showMessage('Supabase could not load. Please check your internet connection.');return;}
     const studentCode=normalizeCode($('#signInUsername').value);
     const pin=$('#signInPin').value;
@@ -198,6 +224,8 @@
 
   async function createAccount(event){
     event.preventDefault();
+    await loadPlatformSettings();
+    if(platformSettings.registration_enabled===false){showMessage('New account registration is temporarily paused.','info');return;}
     if(!client){showMessage('Supabase could not load. Please check your internet connection.');return;}
     const fullName=$('#fullName').value.trim();
     const gradeLevel='4';
@@ -242,6 +270,8 @@
 
   function openCourse(key){
     if(!profile||normalizeGrade(profile.grade_level)!=='4'||!['english4','connectPlus4'].includes(key))return;
+    if(platformSettings.login_enabled===false){showMessage('Student access is temporarily paused by the teacher.','info');return;}
+    if((key==='connectPlus4'&&platformSettings.connect_plus_visible===false)||(key==='english4'&&platformSettings.english4_visible===false)){showMessage('This course is temporarily hidden by the teacher.','info');return;}
     const url=String(courseUrl(key)||'').trim();
     if(!url){showMessage('This course link has not been connected yet.');return;}
     if(courseOpening)return;
@@ -290,15 +320,16 @@
     if(!client){showMessage('The secure account service could not load. Check the internet connection.');return;}
     setLoading(true,'Restoring your secure session…');
     try{
+      await loadPlatformSettings();
       const result=await client.auth.getSession();
       session=result.data.session;
-      if(session){
+      if(session&&platformSettings.login_enabled!==false){
         const row=await readProfile(session.user);
         if(row){
           try{validateGrade4Profile(row);showCourses(session.user,row);}
           catch(error){await client.auth.signOut().catch(()=>{});showAuth();showMessage(error.message);}
         }else showAuth();
-      }else showAuth();
+      }else{if(session&&platformSettings.login_enabled===false)await client.auth.signOut().catch(()=>{});showAuth();applyPlatformControls();}
     }catch(error){showAuth();}
     finally{setLoading(false);}
   }
