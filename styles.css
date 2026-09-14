@@ -667,8 +667,6 @@ body:has(#coursePanel:not(.hidden)){height:100%;overflow:hidden}
 @media(max-width:980px){.course-dashboard-v3.course-dashboard-galaxy .course-entry-cta .course-arrow{width:58px;height:67px}}
 @media(max-width:560px){.course-dashboard-v3.course-dashboard-galaxy .course-entry-cta{grid-template-columns:auto auto;grid-template-rows:1fr;width:auto}.course-dashboard-v3.course-dashboard-galaxy .course-entry-cta .course-arrow{width:48px;height:56px}}
 
-/* Grade 2 has one English curriculum. Keep Grade 4's existing gateways intact. */
-#grade2Courses {grid-template-columns:minmax(0,1fr);max-width:580px;margin-inline:auto;}
-#grade2Courses .course-orbit-art img {object-fit:contain;border-radius:20px;}
-#grade2Courses .course-orbit-art {width:min(100%,300px);}
-.hero-card-grid.single-hero{grid-template-columns:minmax(0,1fr);max-width:290px;margin-left:auto;margin-right:auto}.course-dashboard-galaxy .hero-card-grid.single-hero{grid-template-columns:minmax(0,1fr);height:calc(100% - 120px);max-width:310px}.course-dashboard-galaxy .hero-card-grid.single-hero .hero-student-card{width:100%}@media(max-width:900px){.course-dashboard-galaxy .hero-card-grid.single-hero{height:320px;max-width:260px}}
+.grade-confirmation{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid rgba(255,255,255,.78);border-radius:18px;background:linear-gradient(110deg,rgba(255,255,255,.5),rgba(219,243,255,.44));box-shadow:inset 0 1px rgba(255,255,255,.92),0 8px 18px rgba(31,73,137,.1)}
+.grade-confirmation>span{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,#214fbc,#5969ef);color:#fff;font-size:1rem;box-shadow:0 7px 16px rgba(37,76,178,.22)}
+.grade-confirmation div{display:grid;gap:2px}.grade-confirmation small{color:#53688e;font-family:"Nunito",sans-serif;font-size:.61rem;font-weight:1000;letter-spacing:1.3px}.grade-confirmation strong{color:#142c69;font-size:.93rem;font-weight:1000}

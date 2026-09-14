@@ -12,7 +12,7 @@
 
   const $=selector=>document.querySelector(selector);
   const normalizeCode=value=>String(value||'').trim().toUpperCase().replace(/\s+/g,'');
-  const normalizeGrade=value=>String(value)==='2'?'2':'4';
+  const normalizeGrade=value=>String(value||'').trim();
   const normalizeClassName=value=>{
     const className=String(value||'').trim();
     const legacyClass=className.match(/^5([A-D])$/i);
@@ -63,7 +63,7 @@
   async function ensureProfile(user,identity){
     let row=await readProfile(user);
     if(!row){
-      const created=await client.from('profiles').insert({id:user.id,student_code:identity.studentCode,full_name:identity.fullName,class_name:identity.className,grade_level:identity.gradeLevel}).select('student_code,full_name,class_name,grade_level,avatar_path').single();
+      const created=await client.from('profiles').insert({id:user.id,student_code:identity.studentCode,full_name:identity.fullName,class_name:identity.className,grade_level:identity.gradeLevel,role:'student'}).select('student_code,full_name,class_name,grade_level,avatar_path').single();
       if(created.error)throw created.error;
       row=created.data;
     }
@@ -75,8 +75,8 @@
       userId:user.id,
       studentCode:normalizeCode(row.student_code||user.user_metadata?.student_code),
       fullName:row.full_name||user.user_metadata?.full_name||'Student',
-      className:normalizeClassName(row.class_name||user.user_metadata?.class_name||(normalizeGrade(row.grade_level||user.user_metadata?.grade_level)==='2'?'Primary 2':'Primary 4')),
-      gradeLevel:normalizeGrade(row.grade_level||user.user_metadata?.grade_level),
+      className:normalizeClassName(row.class_name||user.user_metadata?.class_name||'Primary 4'),
+      gradeLevel:'4',
       savedAt:Date.now()
     };
     localStorage.setItem(PORTAL_IDENTITY_KEY,JSON.stringify(identity));
@@ -89,13 +89,10 @@
 
   function renderHeroes(){
     const weekly=config.heroOfWeek||{};
-    const grade=normalizeGrade(profile?.grade_level);
-    const entries=Array.isArray(weekly[`grade${grade}`])?weekly[`grade${grade}`]:[];
+    const grade='4';
+    const entries=Array.isArray(weekly.grade4)?weekly.grade4:[];
     $('#heroWeekNumber').textContent=String(weekly.weekNumber||'___').trim()||'___';
-    const heroGrid=document.querySelector('.hero-card-grid');
-    heroGrid?.classList.toggle('single-hero',grade==='2');
     document.querySelectorAll('[data-hero-slot]').forEach((card,index)=>{
-      card.classList.toggle('hidden',grade==='2'&&index>0);
       const fallback={name:'STUDENT NAME',className:`${grade}${index===0?'A':'B'}`,photo:''};
       const hero={...fallback,...(entries[index]||{})};
       const name=String(hero.name||fallback.name).trim()||fallback.name;
@@ -124,12 +121,11 @@
     $('#studentInitials').textContent=initials(identity.fullName);
     $('#courseTitle').textContent=`Grade ${identity.gradeLevel} Learning Hub`;
     $('#studentLine').innerHTML=`Welcome back, <strong>${safeText(identity.fullName.split(/\s+/)[0])}</strong> · Grade <strong>${identity.gradeLevel}</strong> · Class <strong>${safeText(identity.className)}</strong>`;
-    $('#courseBrandTitle').textContent='AlAndalus English Portal';
+    $('#courseBrandTitle').textContent='AlAndalus Grade 4 English Portal';
     $('#gradeHeading').textContent=`GRADE ${identity.gradeLevel}`;
     $('#coursePanel').dataset.grade=identity.gradeLevel;
-    $('#grade4Courses').classList.toggle('hidden',identity.gradeLevel!=='4');
-    $('#grade2Courses').classList.toggle('hidden',identity.gradeLevel!=='2');
-    $('#choiceNote').textContent=identity.gradeLevel==='2'?'Your English 2 adventure is ready.':'Open a magical gateway and continue your English journey.';
+    $('#grade4Courses').classList.remove('hidden');
+    $('#choiceNote').textContent='Open a magical gateway and continue your English journey.';
     renderHeroes();
     $('#authPanel').classList.add('hidden');
     $('#coursePanel').classList.remove('hidden');
@@ -145,8 +141,9 @@
     if(!/^[A-Z0-9_-]{3,30}$/.test(code))throw new Error('Use 3–30 English letters or numbers for the username.');
   }
 
-  function validatePin(pin){
-    if(!/^\d{6}$/.test(pin))throw new Error('Your PIN must contain exactly 6 numbers.');
+  function validateNewPassword(password){
+    if(password.length<6)throw new Error('Your PIN or password must contain at least 6 characters.');
+    if(password.length>72)throw new Error('Your password is too long.');
   }
 
   function validateLoginPassword(password){
@@ -154,11 +151,17 @@
     if(password.length>72)throw new Error('Your password is too long.');
   }
 
+  function validateGrade4Profile(row){
+    if(normalizeGrade(row?.grade_level)!=='4')throw new Error('This learning portal is available for Grade 4 students only.');
+    const className=normalizeClassName(row?.class_name);
+    if(!['4A','4B'].includes(className))throw new Error('This learning portal is available for Grade 4 classes 4A and 4B only.');
+  }
+
   function refreshClassOptions(){
     const select=$('#className');
     const selected=select.value;
-    const grade=normalizeGrade($('#gradeLevel').value);
-    const classes=grade==='2'?['2A']:['4A','4B'];
+    const grade='4';
+    const classes=['4A','4B'];
     select.innerHTML=`<option value="">Choose class</option>${classes.map(value=>`<option value="${value}">${value}</option>`).join('')}`;
     if(classes.includes(selected))select.value=selected;
     $('#classGradeIcon').textContent=grade;
@@ -177,8 +180,14 @@
       const result=await client.auth.signInWithPassword({email:emailForCode(studentCode),password:pin});
       if(result.error)throw result.error;
       session=result.data.session;
-      const row=await readProfile(result.data.user);
-      if(!row)throw new Error('Your student profile is not ready yet. Please ask your teacher for help.');
+      const metadata=result.data.user.user_metadata||{};
+      const row=await ensureProfile(result.data.user,{
+        studentCode,
+        fullName:String(metadata.full_name||'Student'),
+        className:normalizeClassName(metadata.class_name),
+        gradeLevel:normalizeGrade(metadata.grade_level)
+      });
+      validateGrade4Profile(row);
       showCourses(result.data.user,row);
     }catch(error){
       await client.auth.signOut().catch(()=>{});
@@ -191,16 +200,16 @@
     event.preventDefault();
     if(!client){showMessage('Supabase could not load. Please check your internet connection.');return;}
     const fullName=$('#fullName').value.trim();
-    const gradeLevel=normalizeGrade($('#gradeLevel').value);
+    const gradeLevel='4';
     const className=$('#className').value.trim();
     const studentCode=normalizeCode($('#newUsername').value);
     const pin=$('#newPin').value;
     const confirmation=$('#confirmPin').value;
     try{
       if(fullName.length<2)throw new Error('Please enter the student’s full name.');
-      if(!className)throw new Error('Please choose the student’s class.');
+      if(!['4A','4B'].includes(className))throw new Error('Please choose Class 4A or 4B.');
       validateUsername(studentCode);
-      validatePin(pin);
+      validateNewPassword(pin);
       if(pin!==confirmation)throw new Error('The two PIN entries do not match.');
       clearMessage();
       setLoading(true,'Creating your secure account…');
@@ -228,12 +237,11 @@
   }
 
   function courseUrl(key){
-    return ({connectPlus4:config.connectPlus4Url,english4:config.english4Url,english2:config.english2Url})[key];
+    return ({connectPlus4:config.connectPlus4Url,english4:config.english4Url})[key];
   }
 
   function openCourse(key){
-    const grade=normalizeGrade(profile?.grade_level);
-    if(!profile||(grade==='2'?key!=='english2':!['english4','connectPlus4'].includes(key)))return;
+    if(!profile||normalizeGrade(profile.grade_level)!=='4'||!['english4','connectPlus4'].includes(key))return;
     const url=String(courseUrl(key)||'').trim();
     if(!url){showMessage('This course link has not been connected yet.');return;}
     if(courseOpening)return;
@@ -244,7 +252,7 @@
     const destination=`${url}${separator}from=english-portal`;
     const door=$('#courseDoorTransition');
     if(!door){window.location.href=destination;return;}
-    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':key==='english2'?'English 2':'English 4';
+    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':'English 4';
     door.classList.remove('hidden');
     door.classList.toggle('english-door',key!=='connectPlus4');
     door.setAttribute('aria-hidden','false');
@@ -278,7 +286,6 @@
       button.textContent=show?'Hide':'Show';
     });
     document.querySelectorAll('[data-course]').forEach(button=>button.onclick=()=>openCourse(button.dataset.course));
-    $('#gradeLevel').onchange=refreshClassOptions;
     refreshClassOptions();
     if(!client){showMessage('The secure account service could not load. Check the internet connection.');return;}
     setLoading(true,'Restoring your secure session…');
@@ -287,7 +294,10 @@
       session=result.data.session;
       if(session){
         const row=await readProfile(session.user);
-        if(row)showCourses(session.user,row);else showAuth();
+        if(row){
+          try{validateGrade4Profile(row);showCourses(session.user,row);}
+          catch(error){await client.auth.signOut().catch(()=>{});showAuth();showMessage(error.message);}
+        }else showAuth();
       }else showAuth();
     }catch(error){showAuth();}
     finally{setLoading(false);}
