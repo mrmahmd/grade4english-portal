@@ -653,8 +653,8 @@ body:has(#coursePanel:not(.hidden)){height:100%;overflow:hidden}
 .course-dashboard-v3.course-dashboard-galaxy .hero-student-card:nth-child(2) .hero-name{background-color:rgba(255,255,255,.62);background-image:none;background-clip:border-box;-webkit-background-clip:border-box;color:#126ca8!important;-webkit-text-fill-color:#126ca8;text-shadow:0 1px 0 #fff;filter:none}
 .course-dashboard-v3.course-dashboard-galaxy .hero-student-card:nth-child(2) .hero-name{color:#8742ac!important;-webkit-text-fill-color:#8742ac}
 .course-dashboard-v3.course-dashboard-galaxy .hero-photo img,
-.course-dashboard-v3.course-dashboard-galaxy .hero-photo span{position:absolute;inset:6px;width:auto;height:auto}
-.course-dashboard-v3.course-dashboard-galaxy .hero-photo img{object-fit:cover;border-radius:50%}
+.course-dashboard-v3.course-dashboard-galaxy .hero-photo span{position:absolute;inset:6px;display:block;width:calc(100% - 12px);height:calc(100% - 12px)}
+.course-dashboard-v3.course-dashboard-galaxy .hero-photo img{object-fit:cover;object-position:center;border-radius:50%}
 .course-dashboard-v3.course-dashboard-galaxy .gateway-card.connect-orbit .course-orbit-copy strong{background:none;background-image:none;background-clip:border-box;-webkit-background-clip:border-box;color:#174988!important;-webkit-text-fill-color:#174988;text-shadow:0 2px 0 #fff,0 4px 7px rgba(23,62,119,.12);filter:none}
 .course-dashboard-v3.course-dashboard-galaxy .gateway-card.english-orbit .course-orbit-copy strong{background:none;background-image:none;background-clip:border-box;-webkit-background-clip:border-box;color:#743496!important;-webkit-text-fill-color:#743496;text-shadow:0 2px 0 #fff,0 4px 7px rgba(23,62,119,.12);filter:none}
 .course-dashboard-v3.course-dashboard-galaxy .gateway-card.connect-orbit .course-orbit-copy strong i{color:#0b9dc0!important;-webkit-text-fill-color:#0b9dc0}.course-dashboard-v3.course-dashboard-galaxy .gateway-card.english-orbit .course-orbit-copy strong i{color:#de5f91!important;-webkit-text-fill-color:#de5f91}
