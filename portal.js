@@ -33,6 +33,7 @@
     if(!result.error&&result.data)platformSettings={...platformSettings,...result.data};
     config.heroOfWeek={weekNumber:platformSettings.hero_week_number||'___',grade4:Array.isArray(platformSettings.heroes)?platformSettings.heroes:[]};
     applyPlatformControls();
+    if($('#coursePanel')&&!$('#coursePanel').classList.contains('hidden'))renderHeroes();
   }
 
   function applyPlatformControls(){
@@ -316,6 +317,8 @@
       button.textContent=show?'Hide':'Show';
     });
     document.querySelectorAll('[data-course]').forEach(button=>button.onclick=()=>openCourse(button.dataset.course));
+    window.setInterval(()=>{if(!document.hidden)loadPlatformSettings().catch(()=>{});},30000);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadPlatformSettings().catch(()=>{});});
     refreshClassOptions();
     if(!client){showMessage('The secure account service could not load. Check the internet connection.');return;}
     setLoading(true,'Restoring your secure session…');

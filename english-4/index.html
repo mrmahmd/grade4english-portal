@@ -520,7 +520,8 @@ const mergeEnglish4StatesCore=mergeEnglish4States;
 mergeEnglish4States=function(local,remote){const merged=mergeEnglish4StatesCore(local,remote);merged.answerEvents=Math.max(Number(local?.answerEvents||0),Number(remote?.answerEvents||0));return merged};
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.getElementById('teacherAboutModal'))closeAboutTeacher();});
 </script>
+<script src="../course-availability-gate.js?v=20260914-1" data-app="english4-term1"></script>
 <script src="question-system-v2.js?v=20260722"></script>
-<script>validate();bootFromPortal();</script>
+<script>window.grade4GateReady.then(allowed=>{if(allowed){validate();bootFromPortal();}});</script>
 </body>
 </html>
