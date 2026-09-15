@@ -25,13 +25,34 @@ const ENGLISH4_APP = 'english4-term1'
 const COURSE_IDS = [CONNECT_PLUS_APP, ENGLISH4_APP]
 const SETTINGS_ID = 'grade4'
 const HERO_BUCKET = 'hero-of-week'
+const GRADE4_CLASSES = new Set(['4A', '4B'])
 const cleanCode = (value: unknown) => String(value || '').trim().toUpperCase().replace(/\s+/g, '')
+const grade4Class = (value: unknown) => String(value || '').trim().toUpperCase().replace(/\s+/g, '')
 const studentEmail = (code: string) => `cp4.${code.toLowerCase()}${STUDENT_EMAIL_DOMAIN}`
 const json = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status, headers: corsHeaders })
 
 function validateStudent(code: string, pin?: string) {
   if (!/^[A-Z0-9_-]{3,30}$/.test(code)) throw new Error('Username must use 3–30 English letters or numbers.')
   if (pin !== undefined && !/^\d{6}$/.test(String(pin))) throw new Error('PIN must contain exactly 6 numbers.')
+}
+
+function validateGrade4Class(value: unknown) {
+  const className = grade4Class(value)
+  if (!GRADE4_CLASSES.has(className)) throw Object.assign(new Error('Choose Grade 4 Class 4A or 4B.'), { status: 400 })
+  return className
+}
+
+async function requireGrade4Student(admin: AdminClient, userId: string) {
+  if (!userId) throw Object.assign(new Error('Student is required.'), { status: 400 })
+  const [profile, auth] = await Promise.all([
+    admin.from('profiles').select('class_name').eq('id', userId).maybeSingle(),
+    admin.auth.admin.getUserById(userId)
+  ])
+  if (profile.error) throw profile.error
+  if (auth.error || !auth.data.user) throw Object.assign(new Error(auth.error?.message || 'Student was not found.'), { status: 404 })
+  const className = grade4Class(profile.data?.class_name || auth.data.user.user_metadata?.class_name)
+  if (!GRADE4_CLASSES.has(className)) throw Object.assign(new Error('This dashboard manages Grade 4 students only.'), { status: 403 })
+  return { user: auth.data.user, className }
 }
 
 async function requireTeacher(req: Request) {
@@ -149,7 +170,7 @@ async function overview(admin: AdminClient) {
     selectAll(admin, 'course_progress', 'user_id,app_id,state,answered_count,xp,stars,updated_at'),
     selectAll(admin, 'course_student_lesson_access', 'user_id,app_id,lesson_id,access_status,updated_at'),
     selectAll(admin, 'course_class_lesson_access', 'class_name,app_id,lesson_id,access_status,updated_at'),
-    admin.from('teacher_action_log').select('id,action_name,target_user_id,details,created_at').order('created_at', { ascending: false }).limit(30),
+    admin.from('teacher_action_log').select('id,action_name,target_user_id,details,created_at').order('created_at', { ascending: false }).limit(100),
     readSettings(admin)
   ])
   if (recentActions.error) throw recentActions.error
@@ -207,7 +228,14 @@ async function overview(admin: AdminClient) {
         ...stats
       }
     })
-  return { students, classAccess, recentActions: recentActions.data || [], settings }
+    .filter((student: any) => GRADE4_CLASSES.has(grade4Class(student.className)))
+  const grade4StudentIds = new Set(students.map((student: any) => student.id))
+  const grade4Actions = (recentActions.data || []).filter((row: any) => {
+    if (!row.target_user_id) return !row.details?.className || GRADE4_CLASSES.has(grade4Class(row.details.className))
+    return grade4StudentIds.has(row.target_user_id)
+  }).slice(0, 30)
+  const grade4ClassAccess = classAccess.filter((row: any) => GRADE4_CLASSES.has(grade4Class(row.class_name)))
+  return { students, classAccess: grade4ClassAccess, recentActions: grade4Actions, settings }
 }
 
 async function updatePlatformSettings(admin: AdminClient, body: any, teacherId: string) {
@@ -273,9 +301,8 @@ async function createStudent(admin: AdminClient, body: any, teacherId: string) {
   const username = cleanCode(body.username)
   const pin = String(body.pin || '')
   const fullName = String(body.fullName || '').trim() || username
-  const className = String(body.className || '').trim()
+  const className = validateGrade4Class(body.className)
   validateStudent(username, pin)
-  if (!className) throw new Error('Class is required.')
   const created = await admin.auth.admin.createUser({
     email: studentEmail(username), password: pin, email_confirm: true,
     user_metadata: { student_code: username, full_name: fullName, class_name: className },
@@ -293,8 +320,8 @@ async function createStudent(admin: AdminClient, body: any, teacherId: string) {
 async function updateStudent(admin: AdminClient, body: any, teacherId: string) {
   const userId = String(body.userId || '')
   const fullName = String(body.fullName || '').trim()
-  const className = String(body.className || '').trim()
-  if (!userId || !fullName || !className) throw new Error('Student name and class are required.')
+  const className = validateGrade4Class(body.className)
+  if (!userId || !fullName) throw new Error('Student name and class are required.')
   const current = await admin.auth.admin.getUserById(userId)
   if (current.error || !current.data.user) throw current.error || new Error('Student was not found.')
   const username = cleanCode(current.data.user.user_metadata?.student_code || String(current.data.user.email || '').replace(/^cp4\./, '').replace(STUDENT_EMAIL_DOMAIN, ''))
@@ -386,8 +413,7 @@ async function setStudentAccess(admin: AdminClient, body: any, teacherId: string
 }
 
 async function setClassAccess(admin: AdminClient, body: any, teacherId: string) {
-  const className = String(body.className || '').trim(), appId = String(body.appId || ''), entries = Array.isArray(body.entries) ? body.entries : []
-  if (!className) throw new Error('Class is required.')
+  const className = validateGrade4Class(body.className), appId = String(body.appId || ''), entries = Array.isArray(body.entries) ? body.entries : []
   if (!COURSE_IDS.includes(appId)) throw new Error('Choose one course before changing lesson access.')
   const valid = entries.filter((x: any) => /^[a-z0-9]+$/i.test(String(x.lessonId || '')) && ['inherit','visible','locked','hidden'].includes(x.status))
   const inherit = valid.filter((x: any) => x.status === 'inherit').map((x: any) => x.lessonId)
@@ -412,6 +438,8 @@ Deno.serve(async (req: Request) => {
     const teacherId = user.id
     const body = await req.json().catch(() => ({}))
     const action = String(body.action || 'overview')
+    const guardedStudentActions = new Set(['update_student','reset_pin','suspend_student','reset_progress','delete_student','set_student_access'])
+    if (guardedStudentActions.has(action)) await requireGrade4Student(admin, String(body.userId || ''))
     let data: any
     if (action === 'overview') data = await overview(admin)
     else if (action === 'create_student') data = await createStudent(admin, body, teacherId)

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="teacher.css?v=20260914-1">
+  <link rel="stylesheet" href="teacher.css?v=20260915-grade4-students">
 </head>
 <body>
   <div id="loginView" class="teacher-login">
@@ -49,6 +49,7 @@
       <nav class="teacher-nav" aria-label="Teacher dashboard">
         <button class="nav-item active" data-view="overview"><span class="nav-icon" data-icon="dashboard"></span><span><b>Overview</b><small>Performance at a glance</small></span></button>
         <button class="nav-item" data-view="students"><span class="nav-icon" data-icon="students"></span><span><b>Students</b><small>Accounts and progress</small></span><em id="studentNavCount">0</em></button>
+        <button class="nav-item" data-view="registrations"><span class="nav-icon" data-icon="userplus"></span><span><b>New Registrations</b><small>Recently created accounts</small></span><em id="newRegistrationCount">0</em></button>
         <button class="nav-item" data-view="access"><span class="nav-icon" data-icon="unlock"></span><span><b>Lesson Access</b><small>Class learning controls</small></span></button>
         <button class="nav-item" data-view="settings"><span class="nav-icon" data-icon="settings"></span><span><b>Platform Controls</b><small>Access, courses and weekly heroes</small></span></button>
         <button class="nav-item" data-view="activity"><span class="nav-icon" data-icon="activity"></span><span><b>Activity Log</b><small>Teacher action history</small></span></button>
@@ -69,6 +70,7 @@
       <main class="teacher-main">
         <section id="overviewSection" class="dashboard-section"></section>
         <section id="studentsSection" class="dashboard-section hidden"></section>
+        <section id="registrationsSection" class="dashboard-section hidden"></section>
         <section id="accessSection" class="dashboard-section hidden"></section>
         <section id="settingsSection" class="dashboard-section hidden"></section>
         <section id="activitySection" class="dashboard-section hidden"></section>
@@ -86,6 +88,6 @@
   <div id="teacherToast" class="teacher-toast" role="status"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="teacher.js?v=20260914-1" defer></script>
+  <script src="teacher.js?v=20260915-grade4-students" defer></script>
 </body>
 </html>
