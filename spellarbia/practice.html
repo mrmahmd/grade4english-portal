@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eef8ff">
+  <title>Spell Arabia | Student Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="practice.css"><script src="words.js" defer></script><script src="practice.js" defer></script>
+</head>
+<body><div class="page-shell">
+  <header class="topbar"><div class="brand"><img src="school-logo.webp" alt="Alandalus Private Schools"><div><span>ALANDALUS PRIVATE SCHOOLS</span><strong>Spell <em>Arabia</em></strong><small>GRADE 4 · ROUND 1 PRACTICE</small></div></div><a class="back-link" href="index.html">← Home</a></header>
+  <main><section class="hero"><span class="eyebrow">YOUR SPELLING ADVENTURE</span><h1>Spin. Listen. <span>Spell.</span></h1><p>Practice the Round 1 words at your own pace. No account or student name is needed.</p></section>
+    <section class="practice-grid"><div class="wheel-card"><div class="card-title"><b>01</b><div><span class="eyebrow">WORD WHEEL</span><h2>Spin for a word</h2></div></div><div class="wheel-wrap"><span class="pointer"></span><canvas id="practiceWheel" width="640" height="640" aria-label="Spelling word wheel"></canvas><div class="wheel-center"><span>ROUND</span><b>01</b></div></div><button id="spinWord" class="spin-btn" type="button">✦ Spin the word wheel</button><p class="helper">After all 50 words, a new practice cycle begins.</p></div>
+      <div class="answer-card"><div class="card-title"><b>02</b><div><span class="eyebrow">LISTEN &amp; SPELL</span><h2>Your spelling turn</h2></div></div><div class="word-display"><small>CURRENT WORD</small><strong id="wordMask">Spin to begin</strong><span id="wordHint">Listen to the word, then type how you spell it.</span></div><div class="listen-actions"><button type="button" id="hearWord" disabled>🔊 Hear the word</button><button type="button" id="showWord" disabled>◉ Reveal word</button></div><form id="answerForm"><label for="answerInput">TYPE YOUR SPELLING</label><input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the word here" disabled><button id="checkAnswer" type="submit" disabled>Check spelling →</button></form><div id="feedback" class="feedback" role="status" aria-live="polite">Ready when you are!</div><div class="progress"><div><b id="practicedCount">0</b><span>words practiced</span></div><div><b id="correctCount">0</b><span>correct first try</span></div><div><b id="remainingCount">50</b><span>words left</span></div></div></div></section>
+    <footer>Prepared &amp; developed by <strong>Mr. Mohamed Farid</strong> · Alandalus Private Schools</footer>
+  </main>
+</div></body></html>

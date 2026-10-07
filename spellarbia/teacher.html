@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8ff">
+  <title>Spell Arabia — Round 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cloud.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="words.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="cloud.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="school-logo.webp" alt="Alandalus Private Schools">
+        <div><span class="brand-overline">ALANDALUS PRIVATE SCHOOLS</span><strong>Spell <em>Arabia</em></strong><small>GRADE 4 · ROUND 01</small></div>
+      </div>
+      <div class="top-actions">
+        <span class="preview-chip"><span></span> TEACHER CLOUD SESSION</span>
+        <a class="outline-btn" href="practice.html">Student Practice</a>
+        <a class="outline-btn" href="results.html">▦ Teacher Results</a>
+        <button class="outline-btn" id="openProjector" type="button">◩ Open Projector Screen</button>
+      </div>
+    </header>
+
+    <main id="teacherApp">
+      <section class="intro-row">
+        <div><div class="eyebrow">GRADE 4 SPELLING COMPETITION · ROUND ONE</div><h1>Every turn is a <span>moment to shine.</span></h1><p>Choose a class, spin for a student and a word, then record the result.</p></div>
+        <div class="intro-art" aria-hidden="true"><span>✦</span><b>ABC</b><i>★</i></div>
+      </section>
+
+      <div class="notice" role="note"><span class="notice-icon">ℹ</span><p><strong>Teacher control.</strong> Student names are transcribed from the class lists and can be corrected in Teacher Results. Every marked answer is saved to the school cloud before the next turn.</p></div>
+
+      <section class="control-strip" aria-label="Competition settings">
+        <div class="strip-field"><span class="field-label">CURRENT CLASS</span><div class="segmented" id="classChoices"><button type="button" data-class="A" class="active">Grade 4A</button><button type="button" data-class="B">Grade 4B</button></div></div>
+        <div class="strip-field"><span class="field-label">WORDS PER STUDENT</span><div class="segmented" id="wordCountChoices"><button type="button" data-count="1" class="active">One word</button><button type="button" data-count="2">Two words</button></div></div>
+        <div class="mini-stats"><div><b id="remainingStudents">8</b><span>Students left</span></div><div><b id="remainingWords">50</b><span>Words left</span></div><div><b id="answeredCount">0</b><span>Answers recorded</span></div></div>
+      </section>
+
+      <section class="stage-grid">
+        <div class="wheel-panel student-panel">
+          <div class="panel-top"><span class="step-num">01</span><div><span class="eyebrow">STUDENT WHEEL</span><h2>Choose a Student</h2></div><span class="panel-pill">One turn each</span></div>
+          <div class="wheel-wrap"><span class="wheel-pointer"></span><canvas id="studentWheel" width="640" height="640" aria-label="Student selection wheel"></canvas><div class="wheel-center"><span>GRADE</span><b id="wheelClass">4A</b></div></div>
+          <div class="wheel-caption"><small>SELECTED STUDENT</small><strong id="chosenStudent">Ready for the first spin</strong></div>
+          <button id="spinStudent" class="action-btn student-action" type="button"><span>✦</span> Spin Student Wheel</button>
+        </div>
+
+        <div class="wheel-panel word-panel">
+          <div class="panel-top"><span class="step-num">02</span><div><span class="eyebrow">WORD WHEEL</span><h2>Choose a Word</h2></div><span class="panel-pill">50 Round 1 words</span></div>
+          <div class="wheel-wrap"><span class="wheel-pointer"></span><canvas id="wordWheel" width="640" height="640" aria-label="Word selection wheel"></canvas><div class="wheel-center"><span>ROUND</span><b>01</b></div></div>
+          <div class="wheel-caption"><small>VISIBLE TO THE TEACHER ONLY</small><strong id="wordStatus">Choose a student first</strong></div>
+          <button id="spinWord" class="action-btn word-action" type="button" disabled><span>✦</span> Spin Word Wheel</button>
+        </div>
+
+        <aside class="judge-panel">
+          <div class="judge-head"><span class="judge-icon">✧</span><div><span class="eyebrow">TEACHER ONLY</span><h2>Judges' Desk</h2></div></div>
+          <div class="judge-card"><span class="field-label">CURRENT STUDENT</span><strong id="judgeStudent">No student selected</strong><small id="studentProgress">The name will appear after the spin</small></div>
+          <div class="secret-word"><div class="secret-top"><span>SELECTED WORD</span><span class="private-tag">TEACHER VIEW</span></div><strong id="judgeWord">—</strong><small id="wordPosition">Choose a word to begin spelling</small></div>
+          <div class="timer-row"><div><span class="field-label">TIME LEFT</span><strong id="timer">00:45</strong></div><div class="timer-controls"><button type="button" id="timerToggle" title="Start or pause timer">▶</button><button type="button" id="timerReset" title="Reset timer">↺</button></div></div>
+          <div class="judge-buttons"><button id="markCorrect" type="button" class="result-btn correct" disabled>✓ Correct</button><button id="markIncorrect" type="button" class="result-btn incorrect" disabled>✕ Incorrect</button></div>
+          <div class="judge-secondary"><button type="button" id="skipStudent">Skip student</button><button type="button" id="undoAction">↶ Undo last step</button></div>
+          <p class="judge-note">The projector never shows the word or its number. Read it aloud, then record the result.</p>
+        </aside>
+      </section>
+
+      <section class="lower-grid">
+        <div class="list-card"><div class="list-title"><div><span class="eyebrow">CLASS ROSTER</span><h2>Students</h2></div><span id="rosterCount" class="small-pill">8 sample names</span></div><p class="section-help">Mark an absent student to remove them from the wheel without deleting their name.</p><div id="rosterList" class="roster-list"></div></div>
+        <div class="list-card"><div class="list-title"><div><span class="eyebrow">LIVE RECORD</span><h2>Round Results</h2></div><button type="button" id="resetPreview" class="text-btn">Start over</button></div><p class="section-help">Marked results are saved to the school cloud.</p><div id="resultList" class="result-list"></div></div>
+      </section>
+      <footer class="footer">Prepared & developed by <strong>Mr. Mohamed Farid</strong> · Alandalus Private Schools · Grade 4</footer>
+    </main>
+
+    <main id="projectorApp">
+      <div class="projector-kicker">SPELL ARABIA <span>✦</span> ROUND 01</div>
+      <h1>Ready for the next word?</h1>
+      <div class="projector-stage"><div class="projector-wheels"><div class="projector-wheel-wrap"><span class="wheel-pointer"></span><canvas id="projectorStudentWheel" width="640" height="640" aria-label="Student wheel"></canvas><div class="wheel-center"><span>GRADE</span><b id="projectorClassWheel">4A</b></div></div><div class="projector-wheel-wrap"><span class="wheel-pointer"></span><canvas id="projectorWordWheel" width="640" height="640" aria-label="Word wheel without answer labels"></canvas><div class="wheel-center"><span>ROUND</span><b>01</b></div></div></div><div class="projector-card"><div class="spark">✦</div><span>NOW SPELLING</span><strong id="projectorStudent">Waiting for a student</strong><div class="projector-line"></div><small id="projectorPrompt">The teacher will choose a student and a word</small><b id="projectorTimer">00:45</b></div></div>
+      <div class="projector-footer"><span id="projectorClass">GRADE 4A</span><span>Listen carefully · Spell with confidence · Shine</span><span>ALANDALUS PRIVATE SCHOOLS</span></div>
+      <button id="backToTeacher" class="projector-back" type="button">Back to Teacher View ↗</button>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
