@@ -38,7 +38,7 @@ Deno.serve(async req => {
       if (role.error) throw role.error
       if (!role.data?.active) return fail('Teacher access is required.', 403)
       const pin=String(body.pin||'')
-      if(!/^\d{8}$/.test(pin))return fail('Choose an eight-digit teacher PIN.')
+      if(!/^\d{6}$/.test(pin))return fail('Choose a six-digit teacher PIN.')
       const salt=bytesToB64(crypto.getRandomValues(new Uint8Array(24))),iterations=210000
       const hash=await pinHash(pin,salt,iterations)
       const saved=await admin.from('spell_arbia_teacher_pin').upsert({id:1,salt,pin_hash:hash,iterations,failed_count:0,locked_until:null,updated_by:auth.data.user.id,updated_at:new Date().toISOString()},{onConflict:'id'})
@@ -54,7 +54,7 @@ Deno.serve(async req => {
       if(row.error)throw row.error
       if(!row.data)return fail('Teacher PIN is not set yet. Use Set teacher PIN with your existing teacher account.',428)
       if(row.data.locked_until && new Date(row.data.locked_until).getTime()>Date.now())return fail('Too many incorrect attempts. Try again in 15 minutes.',429)
-      const pin=String(body.pin||''),candidate=/^\d{8}$/.test(pin)?await pinHash(pin,row.data.salt,row.data.iterations):''
+      const pin=String(body.pin||''),candidate=/^\d{6}$/.test(pin)?await pinHash(pin,row.data.salt,row.data.iterations):''
       if(!candidate||!equalHash(candidate,row.data.pin_hash)){
         const previous=row.data.locked_until&&new Date(row.data.locked_until).getTime()<=Date.now()?0:Number(row.data.failed_count||0)
         const failed=Math.min(5,previous+1)
