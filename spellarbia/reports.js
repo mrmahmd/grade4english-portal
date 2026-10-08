@@ -38,7 +38,7 @@
       const [label,kind] = status(row);
       return `<tr><td class="row-number">${String(index+1).padStart(2,'0')}</td><td class="student-name">${esc(row.display_name)}</td><td><div class="word-list">${wordPills(row)}</div></td><td>${row.attempts.length}</td><td><span class="status-pill ${kind}">${label}</span></td></tr>`;
     }).join('') : `<tr><td colspan="5" class="empty-class">No qualified students recorded in Grade 4${classKey} yet.</td></tr>`;
-    return `<section class="class-block ${classKey.toLowerCase()}"><div class="class-heading"><div><h2>Grade 4${classKey}</h2><p>${view === 'winners' ? 'Round 1 qualified students' : 'Full class roster and tested words'}</p></div><span class="class-count">${shown.length} ${view === 'winners' ? shown.length === 1 ? 'winner' : 'winners' : shown.length === 1 ? 'student' : 'students'}</span></div><p class="swipe-hint">Swipe the table sideways to see words and status →</p><div class="report-table-wrap"><table class="report-table"><thead><tr><th style="width:5%">#</th><th style="width:29%">Student</th><th>Tested words &amp; outcome</th><th style="width:8%">Tries</th><th style="width:16%">Round 1 status</th></tr></thead><tbody>${body}</tbody></table></div></section>`;
+    return `<section class="class-block ${classKey.toLowerCase()}"><div class="continuation-brand"><img src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>SPELL ARABIA · ROUND 1 · GRADE 4${classKey}</span></div></div><div class="class-heading"><div><h2>Grade 4${classKey}</h2><p>${view === 'winners' ? 'Round 1 qualified students' : 'Full class roster and tested words'}</p></div><span class="class-count">${shown.length} ${view === 'winners' ? shown.length === 1 ? 'winner' : 'winners' : shown.length === 1 ? 'student' : 'students'}</span></div><p class="swipe-hint">Swipe the table sideways to see words and status →</p><div class="report-table-wrap"><table class="report-table"><thead><tr><th style="width:5%">#</th><th style="width:34%">Student</th><th>Tested words &amp; outcome</th><th style="width:7%">Tries</th><th style="width:17%">Round 1 status</th></tr></thead><tbody>${body}</tbody></table></div></section>`;
   }
 
   function summaryItem(kind,label,number,note) {
@@ -102,6 +102,7 @@
       copy.querySelectorAll('script,link[rel="stylesheet"],link[rel="preconnect"]').forEach(node => node.remove());
       copy.querySelector('.report-toolbar')?.remove();
       copy.querySelector('#schoolLogo').src = logo;
+      copy.querySelectorAll('.continuation-brand img').forEach(img => { img.src = logo; });
       const style = document.createElement('style'); style.textContent = css;
       copy.querySelector('head').append(style);
       download(new Blob(['<!doctype html>\n',copy.outerHTML],{type:'text/html;charset=utf-8'}),`Spell_Arabia_Round_1_${view === 'winners' ? 'Winners' : 'All_Students'}.html`);
