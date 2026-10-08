@@ -56,3 +56,20 @@
   .report-footer b{font-size:9px;color:#1a567b}
   .report-footer span{font-size:8px}
 }
+
+.report-sheet.winners .report-table{min-width:650px}
+.report-sheet.winners .report-table .student-name{font-size:14px}
+.report-sheet.winners .class-heading{padding:9px 13px;border-radius:10px}
+.report-sheet.winners .class-block.a .class-heading{background:#e6f7f8;border-left:5px solid #36b9bf}
+.report-sheet.winners .class-block.b .class-heading{background:#f0eafa;border-left:5px solid #a27bd4}
+.retry-success-badge{display:inline-flex;align-items:center;padding:5px 8px;border-radius:8px;background:#eee3fb;color:#7851a8;font-size:10px;font-weight:800;white-space:nowrap}
+@media print{
+  .report-sheet.winners .report-table{min-width:0}
+  .report-sheet.winners .class-heading{padding:3px 9px;margin:4px 0 3px;border-radius:6px}
+  .report-sheet.winners .class-heading h2{font-size:16px}
+  .report-sheet.winners .report-table th{font-size:9.5px}
+  .report-sheet.winners .report-table .student-name{font-size:10.2px;line-height:1.02}
+  .report-sheet.winners .report-table td{padding:1px 6px;line-height:1.02}
+  .report-sheet.winners .word-pill{font-size:8.8px}
+  .retry-success-badge{font-size:8px;padding:2px 5px}
+}

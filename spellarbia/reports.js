@@ -29,16 +29,20 @@
 
   function wordPills(row) {
     if (!row.attempts.length) return '<span class="no-words">No word tested yet</span>';
-    return row.attempts.map(item => `<span class="word-pill ${item.correct?'correct':'incorrect'} ${item.is_retry?'retry':''}">${esc(words[item.word_index] || `Word ${item.word_index+1}`)} <span aria-label="${item.correct?'correct':'incorrect'}">${item.correct?'✓':'✕'}</span>${item.is_retry?' · Retry':''}</span>`).join('');
+    return row.attempts.map(item => `<span class="word-pill ${item.correct?'correct':'incorrect'} ${item.is_retry?'retry':''}">${esc(words[item.word_index] || `Word ${item.word_index+1}`)} <span aria-label="${item.correct?'correct':'incorrect'}">${item.correct?'✓':'✕'}</span>${item.is_retry && view === 'all'?' · Retry':''}</span>${item.is_retry && item.correct && view === 'winners' ? '<span class="retry-success-badge">Won on retry</span>' : ''}`).join('');
   }
 
   function classTable(classKey, rows) {
     const shown = view === 'winners' ? rows.filter(row => row.qualified) : rows;
     const body = shown.length ? shown.map((row,index) => {
       const [label,kind] = status(row);
-      return `<tr><td class="row-number">${String(index+1).padStart(2,'0')}</td><td class="student-name">${esc(row.display_name)}</td><td><div class="word-list">${wordPills(row)}</div></td><td>${row.attempts.length}</td><td><span class="status-pill ${kind}">${label}</span></td></tr>`;
-    }).join('') : `<tr><td colspan="5" class="empty-class">No qualified students recorded in Grade 4${classKey} yet.</td></tr>`;
-    return `<section class="class-block ${classKey.toLowerCase()}"><div class="continuation-brand"><img src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>SPELL ARABIA · ROUND 1 · GRADE 4${classKey}</span></div></div><div class="class-heading"><div><h2>Grade 4${classKey}</h2><p>${view === 'winners' ? 'Round 1 qualified students' : 'Full class roster and tested words'}</p></div><span class="class-count">${shown.length} ${view === 'winners' ? shown.length === 1 ? 'winner' : 'winners' : shown.length === 1 ? 'student' : 'students'}</span></div><p class="swipe-hint">Swipe the table sideways to see words and status →</p><div class="report-table-wrap"><table class="report-table"><thead><tr><th style="width:5%">#</th><th style="width:34%">Student</th><th>Tested words &amp; outcome</th><th style="width:7%">Tries</th><th style="width:17%">Round 1 status</th></tr></thead><tbody>${body}</tbody></table></div></section>`;
+      const firstCells = `<td class="row-number">${String(index+1).padStart(2,'0')}</td><td class="student-name">${esc(row.display_name)}</td><td><div class="word-list">${wordPills(row)}</div></td>`;
+      return view === 'winners' ? `<tr>${firstCells}</tr>` : `<tr>${firstCells}<td>${row.attempts.length}</td><td><span class="status-pill ${kind}">${label}</span></td></tr>`;
+    }).join('') : `<tr><td colspan="${view === 'winners' ? 3 : 5}" class="empty-class">No qualified students recorded in Grade 4${classKey} yet.</td></tr>`;
+    const headings = view === 'winners'
+      ? '<th style="width:5%">#</th><th style="width:50%">Student</th><th>Spelled words &amp; result</th>'
+      : '<th style="width:5%">#</th><th style="width:34%">Student</th><th>Tested words &amp; outcome</th><th style="width:7%">Tries</th><th style="width:17%">Round 1 status</th>';
+    return `<section class="class-block ${classKey.toLowerCase()}"><div class="continuation-brand"><img src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>SPELL ARABIA · ROUND 1 · GRADE 4${classKey}</span></div></div><div class="class-heading"><div><h2>Grade 4${classKey}</h2><p>${view === 'winners' ? 'Round 1 qualified students' : 'Full class roster and tested words'}</p></div><span class="class-count">${shown.length} ${view === 'winners' ? shown.length === 1 ? 'winner' : 'winners' : shown.length === 1 ? 'student' : 'students'}</span></div><p class="swipe-hint">Swipe the table sideways to see ${view === 'winners' ? 'the words' : 'words and status'} →</p><div class="report-table-wrap"><table class="report-table"><thead><tr>${headings}</tr></thead><tbody>${body}</tbody></table></div></section>`;
   }
 
   function summaryItem(kind,label,number,note) {
@@ -62,7 +66,7 @@
       ? summaryItem('teal','QUALIFIED STUDENTS',qualified.length,'Correct on any attempt') + summaryItem('gold','GRADE 4A WINNERS',a.filter(row => row.qualified).length,'Round 1') + summaryItem('purple','GRADE 4B WINNERS',b.filter(row => row.qualified).length,'Round 1')
       : summaryItem('teal','STUDENTS',all.length,'Grade 4A + Grade 4B') + summaryItem('gold','PARTICIPATED',all.filter(row => row.attempts.length).length,'At least one tested word') + summaryItem('purple','WORDS TESTED',cloud.data.attempts.length,'Every recorded attempt');
     $('#reportExplainer').innerHTML = view === 'winners'
-      ? `<b>Qualification rule:</b> A student qualifies after any correct answer. A successful retry counts as a Round 1 win. ${retryWinners.length} ${retryWinners.length === 1 ? 'student qualified' : 'students qualified'} on a retry. Only qualified students appear below.`
+      ? `<b>Qualification rule:</b> One correct word qualifies; a successful retry also counts.${retryWinners.length ? ` ${retryWinners.length} ${retryWinners.length === 1 ? 'student won' : 'students won'} on a retry.` : ''}`
       : '<b>Reading this report:</b> Words appear in attempt order. Green means correct, red means incorrect, and “Retry” marks the extra chance. Students who have not competed remain on the class list.';
     $('#classReports').innerHTML = classTable('A',a) + classTable('B',b);
     $('#generatedAt').textContent = `Generated ${reportDate.toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})}`;
