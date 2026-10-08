@@ -40,7 +40,7 @@
       return view === 'winners' ? `<tr>${firstCells}</tr>` : `<tr>${firstCells}<td>${row.attempts.length}</td><td><span class="status-pill ${kind}">${label}</span></td></tr>`;
     }).join('') : `<tr><td colspan="${view === 'winners' ? 3 : 5}" class="empty-class">No qualified students recorded in Grade 4${classKey} yet.</td></tr>`;
     const headings = view === 'winners'
-      ? '<th style="width:5%">#</th><th style="width:50%">Student</th><th>Spelled words &amp; result</th>'
+      ? '<th style="width:7%">#</th><th style="width:65%">Student</th><th>Spelled word</th>'
       : '<th style="width:5%">#</th><th style="width:34%">Student</th><th>Tested words &amp; outcome</th><th style="width:7%">Tries</th><th style="width:17%">Round 1 status</th>';
     return `<section class="class-block ${classKey.toLowerCase()}"><div class="continuation-brand"><img src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>SPELL ARABIA · ROUND 1 · GRADE 4${classKey}</span></div></div><div class="class-heading"><div><h2>Grade 4${classKey}</h2><p>${view === 'winners' ? 'Round 1 qualified students' : 'Full class roster and tested words'}</p></div><span class="class-count">${shown.length} ${view === 'winners' ? shown.length === 1 ? 'winner' : 'winners' : shown.length === 1 ? 'student' : 'students'}</span></div><p class="swipe-hint">Swipe the table sideways to see ${view === 'winners' ? 'the words' : 'words and status'} →</p><div class="report-table-wrap"><table class="report-table"><thead><tr>${headings}</tr></thead><tbody>${body}</tbody></table></div></section>`;
   }
