@@ -26,6 +26,15 @@
   function snapshot() { undoStack.push(JSON.stringify(state)); if (undoStack.length > 30) undoStack.shift(); }
   function notify(message) { const el = $('#toast'); el.textContent = message; el.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'),2600); }
   const roster = () => ROSTERS[state.classKey];
+  const studentRecords = (classKey,index) => state.records[classKey].filter(item => item.studentIndex === index);
+  const turnComplete = (classKey,index) => {
+    const records=studentRecords(classKey,index);
+    return records.some(item=>item.isRetry) || records.filter(item=>!item.isRetry).length>=state.wordsPerStudent;
+  };
+  const canRetry = (classKey,index) => {
+    const records=studentRecords(classKey,index);
+    return records.length>0 && turnComplete(classKey,index) && records.every(item=>!item.correct && !item.isRetry) && !state.absent[classKey].includes(index);
+  };
   const availableStudents = () => roster().map((_,index) => index).filter(index => !state.absent[state.classKey].includes(index) && !state.completed[state.classKey].includes(index));
   const availableWords = () => WORDS.map((_,index) => index).filter(index => !state.usedWords[state.classKey].includes(index));
   function drawWheel(canvas,kind,rotation=0,count) {
@@ -78,7 +87,7 @@
     $('#wheelClass').textContent='4'+c;$('#projectorClassWheel').textContent='4'+c;$('#projectorClass').textContent='GRADE 4'+c;
     const student=current?roster()[current.studentIndex]:'';
     $('#chosenStudent').textContent=student||'Ready for the first spin';$('#judgeStudent').textContent=student||'No student selected';$('#projectorStudent').textContent=student||'Waiting for a student';
-    $('#studentProgress').textContent=current?`Word ${current.results.length+1} of ${state.wordsPerStudent}`:'The name will appear after the spin';
+    $('#studentProgress').textContent=current?(current.retry?'Retry chance · new word':`Word ${current.results.length+1} of ${state.wordsPerStudent}`):'The name will appear after the spin';
     const wordIndex=current?.pendingWord;
     $('#judgeWord').textContent=wordIndex!==null&&wordIndex!==undefined?WORDS[wordIndex]:'—';
     $('#wordStatus').textContent=wordIndex!==null&&wordIndex!==undefined?`Word ${wordIndex+1} is ready`:current?'Ready to choose':'Choose a student first';
@@ -90,11 +99,11 @@
     $('#timerToggle').textContent=state.timer.running?'Ⅱ':'▶';updateTimerDisplay();
     $('#rosterCount').textContent=cloud?.ready?`${roster().length} students`:`${roster().length} sample names`;
     $('#rosterList').innerHTML=roster().map((name,index)=>{
-      const absent=state.absent[c].includes(index),done=state.completed[c].includes(index);
-      return `<div class="roster-row ${absent?'absent':''} ${done?'done':''}"><span class="number">${String(index+1).padStart(2,'0')}</span><strong>${escapeHTML(name)}</strong><label><input type="checkbox" data-absent="${index}" ${absent?'checked':''} ${done||current?.studentIndex===index?'disabled':''}><span>${done?'Done':'Absent'}</span></label></div>`;
+      const absent=state.absent[c].includes(index),done=state.completed[c].includes(index),retry=canRetry(c,index);
+      return `<div class="roster-row ${absent?'absent':''} ${done?'done':''}"><span class="number">${String(index+1).padStart(2,'0')}</span><strong>${escapeHTML(name)}</strong>${retry?`<button type="button" class="retry-btn" data-retry="${index}" ${current||spinning||!availableWords().length?'disabled':''}>↻ Retry</button>`:''}<label><input type="checkbox" data-absent="${index}" ${absent?'checked':''} ${done||current?.studentIndex===index?'disabled':''}><span>${absent?'Absent':studentRecords(c,index).some(item=>item.correct)?'Qualified':done?'Done':'Present'}</span></label></div>`;
     }).join('');
     const records=state.records[c];
-    $('#resultList').innerHTML=records.length?records.slice().reverse().map((item,i)=>`<div class="result-row"><span>#${records.length-i}</span><strong>${escapeHTML(roster()[item.studentIndex]||'Student')}</strong><b>${escapeHTML(WORDS[item.wordIndex]||'')}</b><i class="${item.correct?'ok':'no'}">${item.correct?'Correct':'Incorrect'}</i></div>`).join(''):'<div class="empty-state">No results yet.<br>Spin the student wheel to begin.</div>';
+    $('#resultList').innerHTML=records.length?records.slice().reverse().map((item,i)=>`<div class="result-row"><span>#${records.length-i}${item.isRetry?' · Retry':''}</span><strong>${escapeHTML(roster()[item.studentIndex]||'Student')}</strong><b>${escapeHTML(WORDS[item.wordIndex]||'')}</b><i class="${item.correct?'ok':'no'}">${item.correct?'Correct':'Incorrect'}</i></div>`).join(''):'<div class="empty-state">No results yet.<br>Spin the student wheel to begin.</div>';
     if(!spinning){drawWheel($('#studentWheel'),'student',wheelRotation.student,roster().length);drawWheel($('#wordWheel'),'word',wheelRotation.word,WORDS.length);drawWheel($('#projectorStudentWheel'),'student',wheelRotation.student,roster().length);drawWheel($('#projectorWordWheel'),'word',wheelRotation.word,WORDS.length);}
   }
   async function spinStudent() {
@@ -103,6 +112,14 @@
     snapshot();spinning=true;render();const index=choices[rand(choices.length)];channel?.postMessage({type:'spin',kind:'student',index,count:roster().length});
     await animateWheel('student',index,roster().length);
     state.current={studentIndex:index,pendingWord:null,results:state.records[state.classKey].filter(item=>item.studentIndex===index).map(item=>({wordIndex:item.wordIndex,correct:item.correct}))};spinning=false;save();notify('Student selected. Now spin for a word.');
+  }
+  function retryStudent(index) {
+    const classKey=state.classKey;
+    if(spinning||state.current||!canRetry(classKey,index)||!availableWords().length)return;
+    snapshot();
+    state.current={studentIndex:index,pendingWord:null,results:studentRecords(classKey,index).map(item=>({wordIndex:item.wordIndex,correct:item.correct,isRetry:!!item.isRetry})),retry:true};
+    save();notify('Retry selected. Spin for a new word.');
+    document.querySelector('.stage-grid')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
   async function spinWord() {
     if(spinning||!state.current||state.current.pendingWord!==null)return;
@@ -117,18 +134,18 @@
     let saved;
     if(cloud){
       spinning=true;render();
-      try{saved=await cloud.save(cloud.rosterIds[state.classKey][studentIndex],attemptNo,wordIndex,correct)}
+      try{saved=await cloud.save(cloud.rosterIds[state.classKey][studentIndex],attemptNo,wordIndex,correct,!!current.retry)}
       catch(error){spinning=false;render();notify(`Result was not saved: ${error.message}`);return}
       spinning=false;undoStack=[];
     }else snapshot();
-    current.results.push({wordIndex,correct});state.records[state.classKey].push({studentIndex,wordIndex,correct,time:saved?.attempt?.created_at?Date.parse(saved.attempt.created_at):Date.now()});current.pendingWord=null;
+    current.results.push({wordIndex,correct,isRetry:!!current.retry});state.records[state.classKey].push({studentIndex,wordIndex,correct,isRetry:!!current.retry,time:saved?.attempt?.created_at?Date.parse(saved.attempt.created_at):Date.now()});current.pendingWord=null;
     state.timer={running:false,remaining:45,startedAt:null};
-    if(current.results.length>=state.wordsPerStudent){state.completed[state.classKey].push(studentIndex);state.current=null;notify('This student’s turn is recorded.');}
+    if(current.retry||current.results.filter(item=>!item.isRetry).length>=state.wordsPerStudent){state.completed[state.classKey]=[...new Set([...state.completed[state.classKey],studentIndex])];state.current=null;notify(correct?'This student qualifies for Round 1.':current.retry?'Retry recorded. The student did not qualify.':'Result recorded. This student can have one retry.');}
     else notify('Result recorded. Spin for this student’s second word.');
     save();
   }
   function switchClass(classKey){if(spinning)return;if(state.current){notify('Finish or skip the current turn before switching classes.');return;}state.classKey=classKey;state.timer={running:false,remaining:45,startedAt:null};save();}
-  function setWordCount(count){if(spinning)return;if(state.current){notify('Finish the current turn before changing the word count.');return;}state.wordsPerStudent=count;for(const classKey of ['A','B'])state.completed[classKey]=ROSTERS[classKey].map((_,index)=>index).filter(index=>state.records[classKey].filter(item=>item.studentIndex===index).length>=count);save();}
+  function setWordCount(count){if(spinning)return;if(state.current){notify('Finish the current turn before changing the word count.');return;}state.wordsPerStudent=count;for(const classKey of ['A','B'])state.completed[classKey]=ROSTERS[classKey].map((_,index)=>index).filter(index=>turnComplete(classKey,index));save();}
   function skipStudent(){if(!state.current||spinning)return;snapshot();const word=state.current.pendingWord;if(word!==null)state.usedWords[state.classKey]=state.usedWords[state.classKey].filter(index=>index!==word);state.current=null;state.timer={running:false,remaining:45,startedAt:null};save();notify('Student skipped and remains eligible for a later turn.');}
   function undo(){if(!undoStack.length||spinning)return;state=JSON.parse(undoStack.pop());save();notify('Last step undone.');}
   async function toggleAbsent(index,absent){if(state.current?.studentIndex===index)return;const classKey=state.classKey;if(cloud){try{await cloud.setAbsent(cloud.rosterIds[classKey][index],absent)}catch(error){notify(`Attendance was not saved: ${error.message}`);render();return}}else snapshot();const list=state.absent[classKey];state.absent[classKey]=absent?[...new Set([...list,index])]:list.filter(item=>item!==index);save();}
@@ -138,6 +155,7 @@
   $('#markCorrect').addEventListener('click',()=>mark(true));$('#markIncorrect').addEventListener('click',()=>mark(false));
   $('#skipStudent').addEventListener('click',skipStudent);$('#undoAction').addEventListener('click',undo);
   $('#rosterList').addEventListener('change',event=>{if(event.target.matches('[data-absent]'))toggleAbsent(Number(event.target.dataset.absent),event.target.checked);});
+  $('#rosterList').addEventListener('click',event=>{const button=event.target.closest('[data-retry]');if(button)retryStudent(Number(button.dataset.retry));});
   $('#timerToggle').addEventListener('click',()=>{const t=state.timer;if(t.running){setTimer(false,Math.max(0,t.remaining-Math.floor((Date.now()-t.startedAt)/1000)));}else setTimer(true,t.remaining||45);});
   $('#timerReset').addEventListener('click',()=>setTimer(false,45));
   $('#resetPreview').addEventListener('click',()=>{if(confirm('Start a new preview and clear results saved on this device?')){state=fresh();undoStack=[];save();notify('New preview started.')}});
@@ -151,7 +169,7 @@
     state.current=null;state.timer={running:false,remaining:45,startedAt:null};
     state.records=saved.records;state.absent=saved.absent;state.usedWords=saved.usedWords;
     state.completed={A:[],B:[]};
-    for(const classKey of ['A','B'])for(let i=0;i<ROSTERS[classKey].length;i++)if(saved.records[classKey].filter(item=>item.studentIndex===i).length>=state.wordsPerStudent)state.completed[classKey].push(i);
+    for(const classKey of ['A','B'])for(let i=0;i<ROSTERS[classKey].length;i++)if(turnComplete(classKey,i))state.completed[classKey].push(i);
     undoStack=[];save();notify('Roster and results loaded from the cloud.');
   });
   render();

@@ -83,7 +83,7 @@ Deno.serve(async req => {
     if (action === 'load') {
       const [roster, attempts] = await Promise.all([
         admin.from('spell_arbia_roster').select('id,class_key,position,display_name,absent,active').eq('active', true).order('class_key').order('position'),
-        admin.from('spell_arbia_attempts').select('id,roster_id,class_key,attempt_no,word_index,correct,created_at').order('created_at')
+        admin.from('spell_arbia_attempts').select('id,roster_id,class_key,attempt_no,word_index,correct,is_retry,created_at').order('created_at')
       ])
       if (roster.error) throw roster.error
       if (attempts.error) throw attempts.error
@@ -92,24 +92,28 @@ Deno.serve(async req => {
 
     if (action === 'save_attempt') {
       if (!uuid(body.rosterId)) return fail('Choose a valid student.')
-      const attemptNo = Number(body.attemptNo), wordIndex = Number(body.wordIndex)
-      if (![1, 2].includes(attemptNo) || !Number.isInteger(wordIndex) || wordIndex < 0 || wordIndex > 49 || typeof body.correct !== 'boolean') return fail('Invalid word result.')
+      const attemptNo = Number(body.attemptNo), wordIndex = Number(body.wordIndex), isRetry = body.isRetry === true
+      if (![1, 2, 3].includes(attemptNo) || !Number.isInteger(wordIndex) || wordIndex < 0 || wordIndex > 49 || typeof body.correct !== 'boolean' || (body.isRetry !== undefined && typeof body.isRetry !== 'boolean')) return fail('Invalid word result.')
       const student = await admin.from('spell_arbia_roster').select('id,class_key,active,absent').eq('id', body.rosterId).maybeSingle()
       if (student.error) throw student.error
       if (!student.data?.active || student.data.absent) return fail('This student is unavailable.')
-      const existing = await admin.from('spell_arbia_attempts').select('id,attempt_no,word_index,correct,created_at').eq('roster_id', body.rosterId).order('attempt_no')
+      const existing = await admin.from('spell_arbia_attempts').select('id,attempt_no,word_index,correct,is_retry,created_at').eq('roster_id', body.rosterId).order('attempt_no')
       if (existing.error) throw existing.error
       const same = (existing.data || []).find(item => item.attempt_no === attemptNo)
-      if (same) return same.word_index === wordIndex && same.correct === body.correct ? reply({ attempt: same, alreadySaved: true }) : fail('This attempt is already recorded with another result.', 409)
-      if ((existing.data || []).length + 1 !== attemptNo) return fail('Record the first word before the second.', 409)
+      if (same) return same.word_index === wordIndex && same.correct === body.correct && same.is_retry === isRetry ? reply({ attempt: same, alreadySaved: true }) : fail('This attempt is already recorded with another result.', 409)
+      if ((existing.data || []).length + 1 !== attemptNo) return fail('Record the previous word before this attempt.', 409)
+      if (isRetry) {
+        if (!existing.data?.length || existing.data.some(item => item.correct || item.is_retry)) return fail('A retry is available only once after incorrect answers.', 409)
+      } else if (attemptNo > 2 || existing.data?.some(item => item.is_retry)) return fail('Only two regular words are allowed before a retry.', 409)
       const inserted = await admin.from('spell_arbia_attempts').insert({
         roster_id: body.rosterId,
         class_key: student.data.class_key,
         attempt_no: attemptNo,
         word_index: wordIndex,
         correct: body.correct,
+        is_retry: isRetry,
         marked_by: teacherId
-      }).select('id,roster_id,class_key,attempt_no,word_index,correct,created_at').single()
+      }).select('id,roster_id,class_key,attempt_no,word_index,correct,is_retry,created_at').single()
       if (inserted.error) {
         if (inserted.error.code === '23505') return fail('This student attempt or word is already recorded. Refresh results.', 409)
         throw inserted.error

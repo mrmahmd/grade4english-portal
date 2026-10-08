@@ -48,7 +48,7 @@
 
       <section class="stage-grid">
         <div class="wheel-panel student-panel">
-          <div class="panel-top"><span class="step-num">01</span><div><span class="eyebrow">STUDENT WHEEL</span><h2>Choose a Student</h2></div><span class="panel-pill">One turn each</span></div>
+          <div class="panel-top"><span class="step-num">01</span><div><span class="eyebrow">STUDENT WHEEL</span><h2>Choose a Student</h2></div><span class="panel-pill">One retry after a loss</span></div>
           <div class="wheel-wrap"><span class="wheel-pointer"></span><canvas id="studentWheel" width="640" height="640" aria-label="Student selection wheel"></canvas><div class="wheel-center"><span>GRADE</span><b id="wheelClass">4A</b></div></div>
           <div class="wheel-caption"><small>SELECTED STUDENT</small><strong id="chosenStudent">Ready for the first spin</strong></div>
           <button id="spinStudent" class="action-btn student-action" type="button"><span>✦</span> Spin Student Wheel</button>
@@ -73,7 +73,7 @@
       </section>
 
       <section class="lower-grid">
-        <div class="list-card"><div class="list-title"><div><span class="eyebrow">CLASS ROSTER</span><h2>Students</h2></div><span id="rosterCount" class="small-pill">8 sample names</span></div><p class="section-help">Mark an absent student to remove them from the wheel without deleting their name.</p><div id="rosterList" class="roster-list"></div></div>
+        <div class="list-card"><div class="list-title"><div><span class="eyebrow">CLASS ROSTER</span><h2>Students</h2></div><span id="rosterCount" class="small-pill">Students</span></div><p class="section-help">After an incorrect completed turn, choose Retry beside the student to give one new word. Mark absent students to remove them from the wheel.</p><div id="rosterList" class="roster-list"></div></div>
         <div class="list-card"><div class="list-title"><div><span class="eyebrow">LIVE RECORD</span><h2>Round Results</h2></div><button type="button" id="resetPreview" class="text-btn">Start over</button></div><p class="section-help">Marked results are saved to the school cloud.</p><div id="resultList" class="result-list"></div></div>
       </section>
       <footer class="footer">Prepared & developed by <strong>Mr. Mohamed Farid</strong> · Alandalus Private Schools · Grade 4</footer>

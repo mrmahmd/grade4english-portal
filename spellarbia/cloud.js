@@ -60,7 +60,7 @@
   };
   cloud.request=request;
   cloud.refresh=async onReady=>{const data=await request('load');apply(data);onReady?.(data);return data};
-  cloud.save=(rosterId,attemptNo,wordIndex,correct)=>request('save_attempt',{rosterId,attemptNo,wordIndex,correct});
+  cloud.save=(rosterId,attemptNo,wordIndex,correct,isRetry=false)=>request('save_attempt',{rosterId,attemptNo,wordIndex,correct,isRetry});
   cloud.setAbsent=(rosterId,absent)=>request('set_absent',{rosterId,absent});
   cloud.rename=(rosterId,name)=>request('rename_student',{rosterId,name});
   cloud.toState=()=>{
@@ -71,7 +71,7 @@
       rows.forEach((row,index)=>{if(row.absent)result.absent[classKey].push(index)});
       for(const item of cloud.data.attempts.filter(item=>item.class_key===classKey)){
         const studentIndex=rows.findIndex(row=>row.id===item.roster_id);if(studentIndex<0)continue;
-        result.records[classKey].push({studentIndex,wordIndex:item.word_index,correct:item.correct,time:Date.parse(item.created_at),attemptNo:item.attempt_no});
+        result.records[classKey].push({studentIndex,wordIndex:item.word_index,correct:item.correct,isRetry:item.is_retry===true,time:Date.parse(item.created_at),attemptNo:item.attempt_no});
         result.usedWords[classKey].push(item.word_index);
       }
     }

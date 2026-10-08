@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf7ff">
+  <title>Spell Arabia | Round 1 Reports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reports.css">
+  <link rel="stylesheet" href="cloud.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="words.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="cloud.js" defer></script>
+  <script src="reports.js" defer></script>
+</head>
+<body>
+  <nav class="report-toolbar" aria-label="Teacher report controls">
+    <a href="results.html" class="back-link">← Teacher Results</a>
+    <div class="report-switch"><a href="reports.html?view=winners" id="winnersLink">✦ Winners only</a><a href="reports.html?view=all" id="allLink">▦ All students</a></div>
+    <div class="report-actions"><button id="downloadHtml" type="button">↓ Download report</button><button id="printReport" type="button">▤ Print / Save PDF</button></div>
+  </nav>
+  <main class="report-sheet" id="reportSheet">
+    <header class="report-header"><div class="school-brand"><img id="schoolLogo" src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>GRADE 4 · SPELL ARABIA</span></div></div><span class="round-chip">ROUND 01 · OFFICIAL REPORT</span></header>
+    <section class="report-hero"><span class="hero-kicker" id="heroKicker">SPELLING COMPETITION</span><h1 id="reportTitle">Round 1 Report</h1><p id="reportSubtitle">Loading the latest competition results…</p><div class="hero-decoration" aria-hidden="true">A<span>✦</span>B</div></section>
+    <section class="summary-strip" id="summaryStrip" aria-label="Report summary"></section>
+    <div class="report-explainer" id="reportExplainer"></div>
+    <div id="classReports"></div>
+    <footer class="report-footer"><div><b>Prepared &amp; developed by Mr. Mohamed Farid</b><span>English Teacher · Alandalus Private Schools</span></div><div><b>Spell Arabia · Round 1</b><span id="generatedAt">—</span></div></footer>
+  </main>
+</body>
+</html>
