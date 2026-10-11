@@ -1,0 +1,106 @@
+/* Championship skin and motion. All controls also work without animation. */
+:root{--navy:#123869;--gold:#ffcf54;--mint:#1bb99c}
+body{background:radial-gradient(ellipse at 10% 0,#d9f5ff,transparent 50%),radial-gradient(ellipse at 100% 70%,#e4f6e9,transparent 45%),#f4f9ff}
+.ambient-two{background:#d2f1e1}
+.header-tools{display:flex;align-items:center;gap:10px}
+.sound-button{border:2px solid #d3e3ef;border-radius:30px;color:#245a88;background:white;padding:10px 14px;font-size:12px;font-weight:900;min-height:44px}
+.sound-button[aria-pressed=true]{border-color:#36bea0;background:#e3fff4;color:#0b6858}
+.hero-copy h1{color:var(--navy);font-weight:800}
+.hero-copy h1 em{color:#e48121}
+.hero-art:before{background:linear-gradient(145deg,#bdeafe,#d5f5e5 65%,#fff1b4)}
+.hero-art{overflow:clip}
+.art-core{background:radial-gradient(circle at 30% 23%,#4dabed,#166bc0 48%,#123869)}
+.feature-row span{background:#fff;border:1px solid #d8e8f1;border-radius:9px;padding:8px 11px}
+.primary-button{background:linear-gradient(115deg,#167cca,#1960b5);box-shadow:0 6px 0 #124b8c,0 12px 20px #14599626;letter-spacing:.02em}
+.primary-button:hover{box-shadow:0 8px 0 #124b8c,0 15px 24px #14599635}
+.primary-button:active{box-shadow:0 2px 0 #124b8c}
+.player-form .primary-button{background:linear-gradient(110deg,#ffce54,#ffab35);color:#17365d;box-shadow:0 6px 0 #dc8b21,0 12px 20px #df9c3430}
+.game-screen{max-width:920px;margin-top:16px}
+.play-header h2{font-size:36px}
+.score-cluster strong{color:#166ec4}
+.progress-track{margin-top:12px;height:9px}
+.progress-track div{background:linear-gradient(90deg,#19bba0,#a0dd76)}
+.progress-meta{margin-bottom:10px}
+.round-map{display:flex;justify-content:center;align-items:center;gap:22px;margin:12px 0 14px}
+.round-step{position:relative;display:grid;place-items:center;height:32px;min-width:32px;border:2px solid #d6e4f0;background:#fff;border-radius:12px;color:#65829c;font-weight:1000;font-size:12px}
+.round-step:not(:last-child):after{content:"";position:absolute;width:22px;height:3px;background:#d6e4f0;left:calc(100% + 2px);top:13px}
+.round-step[aria-current]{background:#196dc0;border-color:#196dc0;color:#fff;box-shadow:0 3px 0 #12477b}
+.round-step.completed{background:#dcf8ee;border-color:#4fc5a5;color:#08715d}
+.round-step:last-child{padding:0 10px;border-color:#e8bf56;color:#916421;background:#fff8e5}
+.round-step:last-child[aria-current]{background:#ffce54;color:#17365d}
+.pitch{height:290px;border:4px solid #bcd9ec;border-radius:22px;background:linear-gradient(#0c2754 0%,#254e78 46%,#168d60 47%,#28a66c 100%);box-shadow:0 9px 0 #90b4ca,0 18px 35px #123e6327;isolation:isolate;margin-bottom:24px;--shot-x:0px;--keeper-x:-65px}
+.pitch:before{height:53%;background:repeating-linear-gradient(90deg,#ffffff09 0 85px,#093c2310 85px 170px)}
+.pitch:after{bottom:-96px;height:190px;left:23%;right:23%}
+.stadium-crowd{opacity:.9;background:radial-gradient(circle,#ffd35d 1px,transparent 2px) 0 0/21px 17px,radial-gradient(circle,#71c5ef 1.5px,transparent 2px) 8px 7px/25px 19px,linear-gradient(#142b54,#375b7c);animation:crowdWave 3.5s ease-in-out infinite alternate}
+.stadium-banner{position:absolute;top:73px;left:0;right:0;padding:5px;background:#1369a4;color:#e7f8ff;font-size:9px;letter-spacing:.28em;text-align:center;font-weight:900;box-shadow:0 3px 0 #0e426d}
+.pitch-lights{background:conic-gradient(from 155deg at 10% 0,transparent,#e3f7ff22 15deg,transparent 33deg),conic-gradient(from 180deg at 90% 0,transparent,#e3f7ff22 15deg,transparent 33deg)}
+.pitch-score{top:13px;left:14px;background:#082447;border:1px solid #80b9e1;border-radius:12px;padding:8px 12px;font-size:11px;box-shadow:0 4px 0 #061a36}
+.pitch-score b{font-size:20px;color:#ffdc6d;margin-left:5px}
+.goal{width:280px;height:154px;top:91px;border-width:7px;box-shadow:0 0 16px #ffffff80;background:#102e4840}
+.goalkeeper{height:143px;bottom:-7px;z-index:2;transform-origin:center 70%}
+.goal-net{opacity:.75;transition:none}
+.pitch-striker{height:236px;left:8%;bottom:-8px;transform-origin:bottom center;transition:none;animation:playerReady 3s ease-in-out infinite}
+.ball{left:50%;bottom:22px;width:43px;height:43px;font-size:0;transform:translateX(-50%);transition:none;filter:drop-shadow(0 5px 3px #033c3880)}
+.ball svg{width:100%;height:100%}
+.pitch-striker,.goalkeeper,.ball,.stadium-crowd,.pitch-lights,.goal-net{pointer-events:none}
+.pitch{overflow:clip}
+.pitch-callout{font-size:10px;max-width:45%;padding:8px 12px;right:14px;bottom:15px;box-shadow:0 3px 0 #0b604832}
+.goal-targets{position:absolute;inset:3px;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;gap:7px;padding:7px}
+.goal-targets button{width:58px;height:55px;border:3px solid #fff;border-radius:16px;background:#ffda5aea;color:#17365d;font-size:28px;font-weight:1000;box-shadow:0 4px 0 #af801f;animation:targetGlow 1.2s ease-in-out infinite alternate}
+.goal-targets button:hover{background:#fff2b1;transform:scale(1.08)}
+.pitch.aiming .goalkeeper{opacity:.65}
+.shot-instructions{display:grid;text-align:center;gap:3px;color:#14569a;background:#edf7ff;border:2px solid #a6d1ef;border-radius:16px;padding:12px;margin:-8px 0 16px}
+.shot-instructions span{font-size:13px;font-weight:800}
+.pitch.shot-left{--shot-x:-83px;--keeper-x:65px}
+.pitch.shot-right{--shot-x:83px;--keeper-x:-65px}
+.pitch.shot-center{--shot-x:0px;--keeper-x:-65px}
+.pitch.goal-shot .ball,.pitch.save-shot .ball{opacity:1;animation:ballFlight .8s cubic-bezier(.2,.7,.3,1) forwards;transform:none}
+.pitch.goal-shot .pitch-striker,.pitch.save-shot .pitch-striker{animation:kickPlayer .6s ease-in-out forwards;transform:none}
+.pitch.goal-shot .goalkeeper{animation:keeperDive .8s ease-in-out forwards}
+.pitch.save-shot .goalkeeper{animation:keeperSave .8s ease-in-out forwards;transform:none}
+.pitch.save-shot .ball{animation:ballSaved .8s ease-in-out forwards}
+.pitch.goal-shot .goal-net{animation:netShake .5s .65s ease-out}
+.pitch.goal-shot .goal{box-shadow:0 0 12px #fff,0 0 34px #ffda5a99}
+.celebration{position:absolute;inset:20px 0 auto;z-index:8;display:grid;place-items:center;pointer-events:none;animation:goalPop .35s ease-out}
+.celebration strong{font:800 48px/.95 'Baloo 2',sans-serif;color:#ffe375;-webkit-text-stroke:1px #b56b17;text-shadow:0 4px #17365d,0 6px 15px #09265299;transform:rotate(-5deg)}
+.celebration span{background:#123869ed;color:white;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:900;margin-top:8px}
+.confetti{position:absolute;inset:0;z-index:9;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;left:var(--x);top:-12px;width:7px;height:13px;background:var(--color);border-radius:2px;animation:confettiFall 2s var(--delay) ease-in forwards}
+.question-card{border:2px solid #d3e4f1;border-bottom:5px solid #ccdfed;padding:20px 24px}
+.question-card h3{font-size:28px;line-height:1.25}
+.question-hint{color:#506d88;font-size:14px}
+.answer-area:has(>.option){grid-template-columns:repeat(2,minmax(0,1fr))}
+.option{min-height:52px;font-size:17px;border-bottom-width:4px;color:#173b61;padding:12px 15px}
+.option.selected{background:#d9f7ef;border-color:#1cae8d;box-shadow:0 0 0 2px #1cae8d20}
+.option.selected:before{content:"✓ ";color:#0b8068}
+.word-chip{min-height:48px;font-size:16px;border-bottom-width:4px}
+.word-chip.selected{background:#ffefb6;border-color:#dfac30}
+.answer-input{font-size:18px;min-height:54px}
+.feedback{font-size:16px;line-height:1.5}
+.question-actions{margin-top:15px}
+.question-actions .primary-button{min-width:190px;font-size:16px}
+.round-screen{max-width:650px;margin:40px auto;background:#fff;border:2px solid #c8dfed;border-bottom:8px solid #c8dfed;border-radius:28px;text-align:center;padding:35px;box-shadow:0 15px 40px #17365d12}
+.round-medal{display:grid;place-items:center;margin:15px auto;width:100px;height:100px;color:#a7701b;background:linear-gradient(135deg,#fff1a8,#ffc945);border:7px solid #ffe9a3;border-radius:50%;font-size:65px;box-shadow:0 7px 0 #d7ab40}
+.round-screen h2{font-size:38px;line-height:1.1;margin:20px 0 10px}
+.round-screen p{font-size:17px;color:#527390;font-weight:800;line-height:1.5}
+.round-stars{font-size:35px;color:#d99d1c;letter-spacing:8px;margin:12px 0}
+.result-screen{background:radial-gradient(ellipse at top,#fff4c9,transparent 55%),#fff;border-bottom:8px solid #c5ddec}
+.result-stats div:nth-child(1){background:#e4fbf1;border-color:#b5e7d4}
+.result-stats div:nth-child(2){background:#eaf5ff;border-color:#beddf5}
+.result-stats div:nth-child(3){background:#fff5d6;border-color:#f2dda1}
+@keyframes playerReady{50%{transform:translateY(-3px) rotate(-1deg)}}
+@keyframes crowdWave{to{background-position:2px 2px,7px 9px,0 0;opacity:.7}}
+@keyframes targetGlow{to{box-shadow:0 4px 0 #af801f,0 0 18px #ffe56d80}}
+@keyframes kickPlayer{35%{transform:translateX(10px) rotate(-10deg)}100%{transform:translateX(5px) rotate(-4deg)}}
+@keyframes ballFlight{0%{transform:translate(-50%,0) rotate(0) scale(1)}65%{transform:translate(calc(-50% + var(--shot-x)),-137px) rotate(240deg) scale(.52)}100%{transform:translate(calc(-50% + var(--shot-x)),-115px) rotate(320deg) scale(.4)}}
+@keyframes ballSaved{0%{transform:translate(-50%,0) scale(1)}65%{transform:translate(-50%,-105px) scale(.55)}100%{transform:translate(30px,-30px) rotate(160deg) scale(.6)}}
+@keyframes keeperDive{30%{transform:translateX(-50%) translateY(-3px)}100%{transform:translateX(calc(-50% + var(--keeper-x))) rotate(30deg) translateY(12px)}}
+@keyframes keeperSave{100%{transform:translateX(-50%) scale(1.1) translateY(-8px)}}
+@keyframes netShake{30%{transform:translateX(4px) scaleX(1.03)}65%{transform:translateX(-3px)}100%{transform:none}}
+@keyframes goalPop{0%{transform:scale(.55);opacity:0}75%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes confettiFall{to{transform:translateY(340px) rotate(600deg);opacity:0}}
+@media(min-width:1000px){.playing .game-screen{display:grid;grid-template-columns:1fr 1.12fr;gap:0 20px;align-items:start;max-width:1140px}.play-header,.progress-track,.progress-meta,.round-map{grid-column:1/-1}.playing .pitch{grid-column:1;grid-row:5;height:360px;margin-top:4px;--shot-x:0px}.playing .goal{top:129px}.playing .stadium-banner{top:104px}.playing .pitch-striker{height:260px;left:0}.playing .question-card{grid-column:2;grid-row:5 / span 3;min-width:0}.playing .shot-instructions{grid-column:1;grid-row:6}.playing .text-button{grid-column:1;grid-row:7}.playing .pitch.shot-left{--shot-x:-83px}.playing .pitch.shot-right{--shot-x:83px}}
+@media(max-width:520px){.shell{padding:10px 12px 24px}.header-tools{gap:5px}.header-pill{display:none}.sound-button{font-size:11px;padding:7px 10px}.hero-copy h1{font-size:43px}.hero-lead{font-size:17px}.hero-art{height:250px}.feature-row{gap:6px}.feature-row span{font-size:11px;padding:7px}.start-card{padding:17px}.player-form label{font-size:13px}.player-form input,.player-form select{font-size:16px}.start-card .privacy-copy{font-size:12px;line-height:1.5}.game-screen{margin-top:12px}.play-header h2{font-size:26px;line-height:1.06}.play-header p{font-size:12px}.eyebrow{font-size:10px}.score-cluster{flex-basis:84px}.score-cluster strong{font-size:23px}.round-map{gap:17px;margin:9px 0 12px}.round-step{height:27px;min-width:27px;font-size:10px;border-radius:9px}.round-step:not(:last-child):after{width:17px;top:10px}.round-step:last-child{padding:0 7px}.pitch{height:205px;border-width:3px;margin-bottom:18px;--keeper-x:-44px}.stadium-banner{top:52px;font-size:7px;padding:3px}.goal{top:70px;width:186px;height:103px;border-width:5px}.goalkeeper{height:98px}.pitch-striker{height:174px;left:0;bottom:-6px}.ball{width:31px;height:31px;bottom:12px;left:50%}.pitch-score{left:7px;top:7px;font-size:9px;padding:4px 7px}.pitch-score b{font-size:14px}.pitch-callout{font-size:8px;right:6px;bottom:8px;max-width:49%;padding:6px 7px}.goal-targets{inset:0;padding:4px;gap:3px}.goal-targets button{width:48px;height:46px;font-size:24px;border-radius:12px;border-width:2px}.pitch.shot-left{--shot-x:-54px;--keeper-x:44px}.pitch.shot-right{--shot-x:54px;--keeper-x:-44px}.pitch.shot-center{--keeper-x:-44px}.celebration{top:13px}.celebration strong{font-size:36px}.celebration span{font-size:10px;padding:3px 9px;margin-top:5px}.question-card{padding:15px;border-radius:19px}.question-card h3{font-size:24px;margin-top:12px;line-height:1.2}.question-hint{font-size:12px;margin-bottom:12px}.type-badge,.lesson-badge{font-size:9px;padding:6px 8px;letter-spacing:.02em}.option{font-size:16px;padding:10px;min-height:48px}.answer-area{gap:7px}.question-actions .primary-button{width:100%;font-size:17px}.word-chip{font-size:15px;padding:8px 10px}.match-row{grid-template-columns:.9fr 1.1fr;gap:6px}.match-row strong,.match-row .option{font-size:14px;padding:9px;overflow-wrap:anywhere}.passage{font-size:16px;line-height:2.8;padding:12px}.passage select{font-size:16px;max-width:100%;min-height:44px}.feedback{font-size:15px;padding:11px}.shot-instructions{font-size:15px;padding:10px}.round-screen{padding:24px 17px;margin-top:25px}.round-screen h2{font-size:32px}.round-screen p{font-size:16px}.footer{margin-top:22px}.playing .footer{font-size:10px}.playing .school-mark img{width:42px;height:42px}
+@keyframes ballFlight{0%{transform:translate(-50%,0) rotate(0) scale(1)}65%{transform:translate(calc(-50% + var(--shot-x)),-94px) rotate(240deg) scale(.5)}100%{transform:translate(calc(-50% + var(--shot-x)),-73px) rotate(320deg) scale(.4)}}
+@keyframes ballSaved{0%{transform:translate(-50%,0) scale(1)}65%{transform:translate(-50%,-73px) scale(.55)}100%{transform:translate(20px,-22px) rotate(160deg) scale(.6)}}}
+@media(prefers-reduced-motion:reduce){.pitch *, .hero-art *{animation:none!important;transition:none!important}.pitch.goal-shot .ball{transform:translate(calc(-50% + var(--shot-x)),-80px) scale(.4);opacity:1}.pitch.save-shot .ball{transform:translate(-50%,-65px) scale(.55);opacity:1}.pitch.goal-shot .goalkeeper{transform:translateX(calc(-50% + var(--keeper-x))) rotate(20deg)}.confetti{display:none}.celebration{animation:none}.round-screen *{animation:none}}

@@ -48,17 +48,47 @@ const $ = id => document.getElementById(id);
 const ui = {welcome:$("welcomeScreen"),game:$("gameScreen"),result:$("resultScreen"),name:$("playerName"),className:$("playerClass"),form:$("playerForm"),area:$("answerArea"),feedback:$("feedback"),check:$("checkButton"),next:$("nextButton"),pitch:$("pitch"),callout:$("pitchCallout")};
 let player = {name:"",className:""};
 let index = 0, correct = 0, xp = 0, streak = 0, answerState = null, locked = false;
+let phase = "answer", animationTimer = null, roundGoals = 0;
+let soundEnabled = false, audioContext = null;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+// Effects are generated locally; no recordings, accounts or remote audio requests.
+function unlockAudio(){
+  if(!soundEnabled)return;
+  try{const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return;audioContext ||= new Context();audioContext.resume().catch(()=>{});}catch{}
+}
+function playSound(kind){
+  if(!soundEnabled||!audioContext||audioContext.state!=="running")return;
+  const now=audioContext.currentTime;
+  const notes=kind==="kick"?[[110,0,.12],[65,.035,.1]]:kind==="save"?[[220,0,.12],[160,.12,.16]]:kind==="whistle"?[[1400,0,.12],[1700,.13,.16]]:[[523,0,.15],[659,.13,.15],[784,.26,.17],[1047,.42,.24]];
+  for(const [frequency,delay,duration] of notes){const oscillator=audioContext.createOscillator(),gain=audioContext.createGain();oscillator.type=kind==="kick"?"triangle":"sine";oscillator.frequency.value=frequency;gain.gain.setValueAtTime(0,now+delay);gain.gain.linearRampToValueAtTime(.085,now+delay+.01);gain.gain.exponentialRampToValueAtTime(.001,now+delay+duration);oscillator.connect(gain);gain.connect(audioContext.destination);oscillator.start(now+delay);oscillator.stop(now+delay+duration+.02);}
+  if(kind==="goal"){
+    const duration=.8,buffer=audioContext.createBuffer(1,audioContext.sampleRate*duration,audioContext.sampleRate),data=buffer.getChannelData(0);
+    for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*.35;
+    const source=audioContext.createBufferSource(),filter=audioContext.createBiquadFilter(),gain=audioContext.createGain();source.buffer=buffer;filter.type="lowpass";filter.frequency.value=850;gain.gain.setValueAtTime(.07,now);gain.gain.exponentialRampToValueAtTime(.001,now+duration);source.connect(filter);filter.connect(gain);gain.connect(audioContext.destination);source.start();
+  }
+}
+function cancelShot(){clearTimeout(animationTimer);animationTimer=null;phase="answer";}
+function drawRoundMap(lesson){const map=$("roundMap");map.replaceChildren();LESSONS.forEach((title,i)=>{const step=textNode("span",i===5?"FINAL":String(i+1),"round-step");step.title=title;step.setAttribute("aria-label",`${title}${i+1<lesson?", completed":i+1===lesson?", current round":""}`);if(i+1===lesson)step.setAttribute("aria-current","step");if(i+1<lesson)step.classList.add("completed");map.append(step);});}
+function celebrate(){
+  $("celebrationTitle").textContent=streak>0&&streak%3===0?"HAT-TRICK!":"GOAL!";
+  $("celebrationSubtitle").textContent=streak%3===0?"3 in a row! +5 bonus XP":"What a finish! +10 XP";
+  $("celebration").classList.remove("hidden");
+  if(reducedMotion.matches)return;
+  for(let i=0;i<26;i++){const piece=textNode("i","","");piece.style.setProperty("--x",`${Math.random()*100}%`);piece.style.setProperty("--delay",`${Math.random()*.25}s`);piece.style.setProperty("--color",["#ffd65a","#69e9c9","#ffffff","#61baff"][i%4]);$("confetti").append(piece);}
+}
 
 function normalize(value,caseSensitive=false){const text=String(value).replace(/[’]/g,"'");return (caseSensitive?text:text.toLowerCase()).replace(/[^a-zA-Z0-9' ]/g," ").replace(/\s+/g," ").trim();}
 function shuffle(items){const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}return copy;}
-function show(screen){ui.welcome.classList.toggle("hidden",screen!=="welcome");ui.game.classList.toggle("hidden",screen!=="game");ui.result.classList.toggle("hidden",screen!=="result");window.scrollTo({top:0,behavior:"smooth"});}
+function show(screen){ui.welcome.classList.toggle("hidden",screen!=="welcome");ui.game.classList.toggle("hidden",screen!=="game");ui.result.classList.toggle("hidden",screen!=="result");$("roundScreen").classList.toggle("hidden",screen!=="round");document.body.classList.toggle("playing",screen==="game");window.scrollTo({top:0,behavior:reducedMotion.matches?"instant":"smooth"});}
 function textNode(tag,text,className){const el=document.createElement(tag);el.textContent=text;if(className)el.className=className;return el;}
 
-function startGame(){index=0;correct=0;xp=0;streak=0;locked=false;show("game");renderQuestion();}
+function startGame(){cancelShot();unlockAudio();index=0;correct=0;xp=0;streak=0;roundGoals=0;locked=false;show("game");renderQuestion();playSound("whistle");}
 function renderQuestion(){
-  const q=QUESTIONS[index];locked=false;answerState=q.type==="order"?[]:q.type==="drag"?{}:null;
+  const q=QUESTIONS[index];cancelShot();locked=false;answerState=q.type==="order"?[]:q.type==="drag"?{}:null;
   ui.area.replaceChildren();ui.feedback.className="feedback hidden";ui.feedback.textContent="";ui.check.classList.remove("hidden");ui.next.classList.add("hidden");
-  ui.pitch.classList.remove("goal-shot","save-shot");ui.callout.textContent="ANSWER TO TAKE YOUR SHOT";
+  ui.pitch.classList.remove("goal-shot","save-shot","aiming","shot-left","shot-center","shot-right");ui.callout.textContent="ANSWER TO TAKE YOUR SHOT";
+  $("goalTargets").classList.add("hidden");$("shotInstructions").classList.add("hidden");$("celebration").classList.add("hidden");$("confetti").replaceChildren();drawRoundMap(q.lesson);
   $("missionLabel").textContent=q.lesson===6?"THE FINAL SHOOTOUT":`ROUND ${q.lesson} OF 6`;
   $("missionTitle").textContent=LESSONS[q.lesson-1];$("missionSubtitle").textContent=q.lesson===6?"Seven skills. Seven final kicks.":"Answer correctly to score a goal!";
   $("playerBadge").textContent=`${player.name} · ${player.className}`;$("scoreLabel").textContent=`${xp} XP`;
@@ -82,11 +112,51 @@ function renderDrag(q){const bank=textNode("div","","word-bank");const rows=text
 function renderPassage(q){const box=textNode("div","","passage");q.parts.forEach((part,i)=>{box.append(document.createTextNode(part));if(i<q.blanks.length){const select=document.createElement("select");select.setAttribute("aria-label",`Blank ${i+1}`);select.append(new Option("Choose...",""));shuffle(q.blanks[i].options).forEach(value=>select.append(new Option(value,value)));box.append(select);}});ui.area.append(box);}
 function hasAnswer(q){if(q.type==="order")return answerState.length===q.words.length;if(q.type==="drag")return Object.keys(answerState).length===q.pairs.length;if(q.type==="passage")return [...ui.area.querySelectorAll("select")].every(el=>el.value);return String(answerState??"").trim().length>0;}
 function isCorrect(q){if(q.type==="choice")return answerState===q.answer;if(q.type==="tf")return (answerState==="True")===q.answer;if(q.type==="fill"||q.type==="correct")return [q.answer,...(q.accept||[])].some(value=>normalize(value,q.caseSensitive)===normalize(answerState,q.caseSensitive));if(q.type==="order")return answerState.every((entry,i)=>entry.id===i);if(q.type==="drag")return q.pairs.every((pair,i)=>answerState[i]===pair[1]);return [...ui.area.querySelectorAll("select")].every((select,i)=>select.value===q.blanks[i].answer);}
-function checkAnswer(){if(locked)return;const q=QUESTIONS[index];if(!hasAnswer(q)){ui.feedback.textContent="Complete your answer before taking the shot.";ui.feedback.className="feedback incorrect";return;}locked=true;const won=isCorrect(q);if(won){correct++;streak++;xp+=10+(streak%3===0?5:0);}else streak=0;ui.pitch.classList.add(won?"goal-shot":"save-shot");ui.callout.textContent=won?"GOOOAL! ⚽":"SAVED! KEEP GOING";ui.feedback.textContent=`${won?"GOAL! +10 XP":"The goalkeeper saved it."} ${q.explain}`;ui.feedback.className=`feedback${won?"":" incorrect"}`;ui.check.classList.add("hidden");ui.next.classList.remove("hidden");ui.next.querySelector("span").textContent=index===QUESTIONS.length-1?"🏆":"→";ui.next.firstChild.textContent=index===QUESTIONS.length-1?"Final whistle ":"Next kick ";$("scoreLabel").textContent=`${xp} XP`;$("goalScore").textContent=String(correct);$("saveScore").textContent=String(index+1-correct);$("streakLabel").textContent=`${streak} goal streak`;ui.area.querySelectorAll("button,input,select").forEach(el=>el.disabled=true);}
+function checkAnswer(){
+  if(locked)return;
+  const q=QUESTIONS[index];
+  if(!hasAnswer(q)){ui.feedback.textContent="Complete your answer before taking the shot.";ui.feedback.className="feedback incorrect";return;}
+  unlockAudio();locked=true;ui.check.classList.add("hidden");ui.area.querySelectorAll("button,input,select").forEach(el=>el.disabled=true);
+  ui.feedback.className="feedback hidden";
+  if(isCorrect(q)){
+    phase="aim";ui.pitch.classList.add("aiming");$("goalTargets").classList.remove("hidden");$("shotInstructions").classList.remove("hidden");ui.callout.textContent="PICK A TARGET · TAKE YOUR SHOT";
+    $("goalTargets").querySelectorAll("button").forEach(el=>el.disabled=false);
+    ui.pitch.scrollIntoView({behavior:reducedMotion.matches?"instant":"smooth",block:"center"});
+    $("goalTargets").querySelector("button").focus({preventScroll:true});
+  }else shoot("center",false);
+}
+function shoot(direction,won=true){
+  if(won&&phase!=="aim")return;
+  phase="shooting";$("goalTargets").querySelectorAll("button").forEach(el=>el.disabled=true);$("goalTargets").classList.add("hidden");$("shotInstructions").classList.add("hidden");ui.pitch.classList.remove("aiming");
+  ui.pitch.classList.add(`shot-${direction}`,won?"goal-shot":"save-shot");ui.callout.textContent="HERE COMES THE SHOT…";playSound("kick");
+  animationTimer=setTimeout(()=>{
+    animationTimer=null;phase="done";
+    if(won){correct++;roundGoals++;streak++;xp+=10+(streak%3===0?5:0);celebrate();}else streak=0;
+    playSound(won?"goal":"save");ui.callout.textContent=won?"GOAL! GREAT SHOT":"SAVED · YOU CAN LEARN THIS!";
+    ui.feedback.textContent=`${won?`GOAL! +${streak%3===0?15:10} XP.`:"Good try! Here's the answer:"} ${QUESTIONS[index].explain}`;
+    ui.feedback.className=`feedback${won?"":" incorrect"}`;ui.next.classList.remove("hidden");
+    const endsRound=index===QUESTIONS.length-1||QUESTIONS[index+1].lesson!==QUESTIONS[index].lesson;
+    ui.next.firstChild.textContent=index===QUESTIONS.length-1?"Final whistle ":endsRound?"Round results ":"Next kick ";ui.next.querySelector("span").textContent="→";
+    $("scoreLabel").textContent=`${xp} XP`;$("goalScore").textContent=String(correct);$("saveScore").textContent=String(index+1-correct);$("streakLabel").textContent=`${streak} goal streak`;
+    $("progressFill").style.width=`${(index+1)/QUESTIONS.length*100}%`;document.querySelector(".progress-track").setAttribute("aria-valuenow",String(index+1));
+    ui.next.focus({preventScroll:true});
+  },reducedMotion.matches?100:950);
+}
+function nextQuestion(){
+  if(phase!=="done")return;
+  const finishedLesson=QUESTIONS[index].lesson;index++;
+  if(index===QUESTIONS.length){finish();playSound("goal");return;}
+  if(QUESTIONS[index].lesson!==finishedLesson){
+    $("roundTitle").textContent=`Round ${finishedLesson} complete!`;$("roundSummary").textContent=`${roundGoals} goals from 5 kicks · ${LESSONS[finishedLesson-1]}`;$("roundStars").textContent="★".repeat(Math.ceil(roundGoals*3/5))+"☆".repeat(3-Math.ceil(roundGoals*3/5));$("roundNext").textContent=`Coming up: ${LESSONS[QUESTIONS[index].lesson-1]}`;show("round");playSound("whistle");$("continueButton").focus({preventScroll:true});
+  }else{renderQuestion();window.scrollTo({top:0,behavior:reducedMotion.matches?"instant":"smooth"});}
+}
 function finish(){const stars=correct>=27?3:correct>=20?2:correct>=11?1:0;$("resultName").textContent=player.name;$("resultCorrect").textContent=`${correct}/${QUESTIONS.length}`;$("resultXp").textContent=xp;$("resultStars").textContent="★".repeat(stars)||"—";$("resultMessage").textContent=stars===3?"Hat-trick hero! Your Unit 1 skills are shining.":stars===2?"Great match! A little practice can take you even further.":"Every champion improves with practice. Take another shot!";show("result");}
 ui.form.addEventListener("submit",event=>{event.preventDefault();const name=ui.name.value.trim().replace(/\s+/g," ");if(!name||!ui.className.value){ui.form.reportValidity();return;}player={name,className:ui.className.value};sessionStorage.setItem("unit1game-player",JSON.stringify(player));startGame();});
 ui.check.addEventListener("click",checkAnswer);
-ui.next.addEventListener("click",()=>{index++;if(index===QUESTIONS.length)finish();else{renderQuestion();window.scrollTo({top:0,behavior:"smooth"});}});
+ui.next.addEventListener("click",nextQuestion);
+$("continueButton").addEventListener("click",()=>{roundGoals=0;show("game");renderQuestion();});
+$("goalTargets").querySelectorAll("button").forEach(button=>button.addEventListener("click",()=>{unlockAudio();shoot(button.dataset.target);}));
+$("soundButton").addEventListener("click",()=>{soundEnabled=!soundEnabled;$("soundButton").textContent=soundEnabled?"Sound on":"Sound off";$("soundButton").setAttribute("aria-pressed",String(soundEnabled));$("soundButton").setAttribute("aria-label",soundEnabled?"Turn sound off":"Turn sound on");if(soundEnabled){unlockAudio();if(audioContext)audioContext.resume().then(()=>{if(soundEnabled)playSound("whistle");}).catch(()=>{});}else if(audioContext)audioContext.suspend().catch(()=>{});});
 $("retryButton").addEventListener("click",startGame);
-$("exitButton").addEventListener("click",()=>show("welcome"));
+$("exitButton").addEventListener("click",()=>{cancelShot();show("welcome");});
 try{const saved=JSON.parse(sessionStorage.getItem("unit1game-player")||"null");if(saved&&typeof saved.name==="string"&&["4A","4B"].includes(saved.className)){ui.name.value=saved.name;ui.className.value=saved.className;}}catch{}
