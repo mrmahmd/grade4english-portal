@@ -9,12 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="attendance.css?v=20261011">
   <link rel="stylesheet" href="cloud.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="words.js" defer></script>
   <script src="data.js" defer></script>
-  <script src="cloud.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="cloud.js?v=20261011" defer></script>
+  <script src="app.js?v=20261011" defer></script>
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
@@ -73,7 +74,7 @@
       </section>
 
       <section class="lower-grid">
-        <div class="list-card"><div class="list-title"><div><span class="eyebrow">CLASS ROSTER</span><h2>Students</h2></div><span id="rosterCount" class="small-pill">Students</span></div><p class="section-help">After an incorrect completed turn, choose Retry beside the student to give one new word. Mark absent students to remove them from the wheel.</p><div id="rosterList" class="roster-list"></div></div>
+        <div class="list-card"><div class="list-title"><div><span class="eyebrow">CLASS ROSTER</span><h2>Students</h2></div><span id="rosterCount" class="small-pill">Students</span></div><p class="section-help">For a returning absent student, choose Allow attempt to start their first turn. After an incorrect completed turn, choose Retry for one extra word.</p><div id="rosterList" class="roster-list"></div></div>
         <div class="list-card"><div class="list-title"><div><span class="eyebrow">LIVE RECORD</span><h2>Round Results</h2></div><button type="button" id="resetPreview" class="text-btn">Start over</button></div><p class="section-help">Marked results are saved to the school cloud.</p><div id="resultList" class="result-list"></div></div>
       </section>
       <footer class="footer">Prepared & developed by <strong>Mr. Mohamed Farid</strong> · Alandalus Private Schools · Grade 4</footer>

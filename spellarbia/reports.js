@@ -29,18 +29,19 @@
 
   function wordPills(row) {
     if (!row.attempts.length) return '<span class="no-words">No word tested yet</span>';
-    return row.attempts.map(item => `<span class="word-pill ${item.correct?'correct':'incorrect'} ${item.is_retry?'retry':''}">${esc(words[item.word_index] || `Word ${item.word_index+1}`)} <span aria-label="${item.correct?'correct':'incorrect'}">${item.correct?'✓':'✕'}</span>${item.is_retry && view === 'all'?' · Retry':''}</span>${item.is_retry && item.correct && view === 'winners' ? '<span class="retry-success-badge">Won on retry</span>' : ''}`).join('');
+    const shown = view === 'winners' ? row.attempts.filter(item => item.correct === true) : row.attempts;
+    return shown.map(item => `<span class="winning-word"><span class="word-pill ${item.correct?'correct':'incorrect'} ${item.is_retry?'retry':''}">${esc(words[item.word_index] || `Word ${item.word_index+1}`)} <span aria-label="${item.correct?'correct':'incorrect'}">${item.correct?'✓':'✕'}</span>${item.is_retry && view === 'all'?' · Retry':''}</span>${item.is_retry && view === 'winners' ? '<small class="winning-note">Successful retry</small>' : ''}</span>`).join('');
   }
 
   function classTable(classKey, rows) {
     const shown = view === 'winners' ? rows.filter(row => row.qualified) : rows;
     const body = shown.length ? shown.map((row,index) => {
       const [label,kind] = status(row);
-      const firstCells = `<td class="row-number">${String(index+1).padStart(2,'0')}</td><td class="student-name">${esc(row.display_name)}</td><td><div class="word-list">${wordPills(row)}</div></td>`;
+      const firstCells = `<td class="row-number"><span>${String(index+1).padStart(2,'0')}</span></td><td class="student-name">${esc(row.display_name)}</td><td><div class="word-list">${wordPills(row)}</div></td>`;
       return view === 'winners' ? `<tr>${firstCells}</tr>` : `<tr>${firstCells}<td>${row.attempts.length}</td><td><span class="status-pill ${kind}">${label}</span></td></tr>`;
     }).join('') : `<tr><td colspan="${view === 'winners' ? 3 : 5}" class="empty-class">No qualified students recorded in Grade 4${classKey} yet.</td></tr>`;
     const headings = view === 'winners'
-      ? '<th style="width:7%">#</th><th style="width:65%">Student</th><th>Spelled word</th>'
+      ? '<th style="width:7%">#</th><th style="width:64%">Student name</th><th>Winning word</th>'
       : '<th style="width:5%">#</th><th style="width:34%">Student</th><th>Tested words &amp; outcome</th><th style="width:7%">Tries</th><th style="width:17%">Round 1 status</th>';
     return `<section class="class-block ${classKey.toLowerCase()}"><div class="continuation-brand"><img src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>SPELL ARABIA · ROUND 1 · GRADE 4${classKey}</span></div></div><div class="class-heading"><div><h2>Grade 4${classKey}</h2><p>${view === 'winners' ? 'Round 1 qualified students' : 'Full class roster and tested words'}</p></div><span class="class-count">${shown.length} ${view === 'winners' ? shown.length === 1 ? 'winner' : 'winners' : shown.length === 1 ? 'student' : 'students'}</span></div><p class="swipe-hint">Swipe the table sideways to see ${view === 'winners' ? 'the words' : 'words and status'} →</p><div class="report-table-wrap"><table class="report-table"><thead><tr>${headings}</tr></thead><tbody>${body}</tbody></table></div></section>`;
   }
@@ -55,21 +56,22 @@
     const qualified = all.filter(row => row.qualified);
     const retryWinners = qualified.filter(row => row.retryWin);
     $('#reportSheet').classList.toggle('winners',view === 'winners');
+    $('#reportSheet').classList.toggle('dense',view === 'winners' && Math.max(a.filter(row=>row.qualified).length,b.filter(row=>row.qualified).length)>16);
     $('#winnersLink').classList.toggle('active',view === 'winners');
     $('#allLink').classList.toggle('active',view === 'all');
     $('#reportTitle').textContent = view === 'winners' ? 'Round 1 Winners' : 'All Students & Words';
     $('#heroKicker').textContent = view === 'winners' ? 'SPELL ARABIA · HALL OF ACHIEVEMENT' : 'SPELL ARABIA · COMPLETE ROUND 1 RECORD';
     $('#reportSubtitle').textContent = view === 'winners'
-      ? 'Celebrating every student who spelled at least one word correctly, including success on the retry.'
+      ? 'Celebrating our young spellers: confidence, effort, and a successful first round.'
       : 'A clear record of every Grade 4 student, each tested word, and the outcome of every attempt.';
     $('#summaryStrip').innerHTML = view === 'winners'
-      ? summaryItem('teal','QUALIFIED STUDENTS',qualified.length,'Correct on any attempt') + summaryItem('gold','GRADE 4A WINNERS',a.filter(row => row.qualified).length,'Round 1') + summaryItem('purple','GRADE 4B WINNERS',b.filter(row => row.qualified).length,'Round 1')
+      ? summaryItem('teal','ROUND 1 WINNERS',qualified.length,`From ${all.length} Grade 4 students`) + summaryItem('gold','GRADE 4A',a.filter(row => row.qualified).length,'Successful spellers') + summaryItem('purple','GRADE 4B',b.filter(row => row.qualified).length,'Successful spellers')
       : summaryItem('teal','STUDENTS',all.length,'Grade 4A + Grade 4B') + summaryItem('gold','PARTICIPATED',all.filter(row => row.attempts.length).length,'At least one tested word') + summaryItem('purple','WORDS TESTED',cloud.data.attempts.length,'Every recorded attempt');
     $('#reportExplainer').innerHTML = view === 'winners'
-      ? `<b>Qualification rule:</b> One correct word qualifies; a successful retry also counts.${retryWinners.length ? ` ${retryWinners.length} ${retryWinners.length === 1 ? 'student won' : 'students won'} on a retry.` : ''}`
+      ? `<b>Qualification rule:</b> One correct word qualifies; a successful retry also counts.${retryWinners.length ? ` ${retryWinners.length} ${retryWinners.length === 1 ? 'student won' : 'students won'} on a retry. <span class="retry-legend">R = successful retry.</span>` : ''}`
       : '<b>Reading this report:</b> Words appear in attempt order. Green means correct, red means incorrect, and “Retry” marks the extra chance. Students who have not competed remain on the class list.';
     $('#classReports').innerHTML = classTable('A',a) + classTable('B',b);
-    $('#generatedAt').textContent = `Generated ${reportDate.toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'})}`;
+    $('#generatedAt').textContent = `Issued ${reportDate.toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Riyadh'})} · Saudi time`;
     document.title = `Spell Arabia | ${view === 'winners' ? 'Round 1 Winners' : 'All Students & Words'}`;
     ready = true;
   }
@@ -77,7 +79,8 @@
   async function imageDataUrl(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error('The school logo could not be loaded.');
-    const blob = await response.blob();
+    const downloaded = await response.blob();
+    const blob = downloaded.type.startsWith('image/') ? downloaded : new Blob([downloaded],{type:'image/webp'});
     return new Promise((resolve,reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result);
@@ -98,16 +101,17 @@
     const button = $('#downloadHtml');
     button.disabled = true; button.textContent = 'Preparing report…';
     try {
-      const [css,logo] = await Promise.all([
-        fetch('reports.css').then(response => {if(!response.ok)throw new Error('The report style could not be loaded.');return response.text()}),
+      const [css,polish,logo] = await Promise.all([
+        fetch('reports.css?v=20261011').then(response => {if(!response.ok)throw new Error('The report style could not be loaded.');return response.text()}),
+        fetch('report-polish.css?v=20261011').then(response => {if(!response.ok)throw new Error('The report design could not be loaded.');return response.text()}),
         imageDataUrl('school-logo.webp')
       ]);
       const copy = document.documentElement.cloneNode(true);
       copy.querySelectorAll('script,link[rel="stylesheet"],link[rel="preconnect"]').forEach(node => node.remove());
-      copy.querySelector('.report-toolbar')?.remove();
+      copy.querySelector('.report-toolbar')?.remove();copy.querySelector('.print-tip')?.remove();
       copy.querySelector('#schoolLogo').src = logo;
       copy.querySelectorAll('.continuation-brand img').forEach(img => { img.src = logo; });
-      const style = document.createElement('style'); style.textContent = css;
+      const style = document.createElement('style'); style.textContent = css+'\n'+polish;
       copy.querySelector('head').append(style);
       download(new Blob(['<!doctype html>\n',copy.outerHTML],{type:'text/html;charset=utf-8'}),`Spell_Arabia_Round_1_${view === 'winners' ? 'Winners' : 'All_Students'}.html`);
     } catch (error) { alert(`Could not prepare the report: ${error.message}`); }

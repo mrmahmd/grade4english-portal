@@ -61,7 +61,7 @@
   cloud.request=request;
   cloud.refresh=async onReady=>{const data=await request('load');apply(data);onReady?.(data);return data};
   cloud.save=(rosterId,attemptNo,wordIndex,correct,isRetry=false)=>request('save_attempt',{rosterId,attemptNo,wordIndex,correct,isRetry});
-  cloud.setAbsent=(rosterId,absent)=>request('set_absent',{rosterId,absent});
+  cloud.setAbsent=async(rosterId,absent)=>{const result=await request('set_absent',{rosterId,absent});const row=cloud.data?.roster.find(item=>item.id===rosterId);if(row&&result.student)Object.assign(row,result.student);return result;};
   cloud.rename=(rosterId,name)=>request('rename_student',{rosterId,name});
   cloud.toState=()=>{
     const result={records:{A:[],B:[]},absent:{A:[],B:[]},completed:{A:[],B:[]},usedWords:{A:[],B:[]}};

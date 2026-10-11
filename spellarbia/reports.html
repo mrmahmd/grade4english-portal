@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="reports.css">
+  <link rel="stylesheet" href="reports.css?v=20261011">
+  <link rel="stylesheet" href="report-polish.css?v=20261011">
   <link rel="stylesheet" href="cloud.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="words.js" defer></script>
   <script src="data.js" defer></script>
-  <script src="cloud.js" defer></script>
-  <script src="reports.js" defer></script>
+  <script src="cloud.js?v=20261011" defer></script>
+  <script src="reports.js?v=20261011" defer></script>
 </head>
 <body>
   <nav class="report-toolbar" aria-label="Teacher report controls">
@@ -25,7 +26,7 @@
   <p class="print-tip">For a clean PDF: choose A4 Landscape and turn off “Headers and footers” in the print dialog.</p>
   <main class="report-sheet" id="reportSheet">
     <header class="report-header"><div class="school-brand"><img id="schoolLogo" src="school-logo.webp" alt="Alandalus Private Schools"><div><b>ALANDALUS PRIVATE SCHOOLS</b><span>GRADE 4 · SPELL ARABIA</span></div></div><span class="round-chip">ROUND 01 · OFFICIAL REPORT</span></header>
-    <section class="report-hero"><span class="hero-kicker" id="heroKicker">SPELLING COMPETITION</span><h1 id="reportTitle">Round 1 Report</h1><p id="reportSubtitle">Loading the latest competition results…</p><div class="hero-decoration" aria-hidden="true">A<span>✦</span>B</div></section>
+    <section class="report-hero"><span class="hero-kicker" id="heroKicker">SPELLING COMPETITION</span><h1 id="reportTitle">Round 1 Report</h1><p id="reportSubtitle">Loading the latest competition results…</p><div class="hero-decoration trophy-art" aria-hidden="true"><svg viewBox="0 0 120 120"><path d="M33 23H17v15c0 19 16 28 30 29M87 23h16v15c0 19-16 28-30 29" fill="none" stroke="#e8af40" stroke-width="9" stroke-linecap="round"/><path d="M29 14h62v29c0 21-15 36-31 36S29 64 29 43Z" fill="#ffd56b"/><path d="M60 79v20M41 100h38" stroke="#d59b29" stroke-width="10" stroke-linecap="round"/><path d="m60 28 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2Z" fill="#fff8d4"/><path d="M34 105h52v9H34Z" fill="#1c5a87"/></svg></div></section>
     <section class="summary-strip" id="summaryStrip" aria-label="Report summary"></section>
     <div class="report-explainer" id="reportExplainer"></div>
     <div id="classReports"></div>

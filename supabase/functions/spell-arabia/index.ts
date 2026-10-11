@@ -123,10 +123,18 @@ Deno.serve(async req => {
 
     if (action === 'set_absent') {
       if (!uuid(body.rosterId) || typeof body.absent !== 'boolean') return fail('Invalid attendance change.')
+      const previous = await admin.from('spell_arbia_roster').select('id,absent,active').eq('id', body.rosterId).maybeSingle()
+      if (previous.error) throw previous.error
+      if (!previous.data?.active) return fail('This student is unavailable.', 409)
       if (body.absent) {
         const prior = await admin.from('spell_arbia_attempts').select('id').eq('roster_id', body.rosterId).limit(1)
         if (prior.error) throw prior.error
         if (prior.data?.length) return fail('A student with recorded results cannot be marked absent.', 409)
+      }
+      // Preserve the prior absence before changing current attendance; never delete any answers.
+      if (previous.data.absent !== body.absent) {
+        const audit = await admin.from('teacher_action_log').insert({ teacher_id: teacherId, action_name: 'spell_arbia_attendance_requested', details: { roster_id: body.rosterId, previous_absent: previous.data.absent, requested_absent: body.absent } })
+        if (audit.error) throw audit.error
       }
       const changed = await admin.from('spell_arbia_roster').update({ absent: body.absent, updated_at: new Date().toISOString() }).eq('id', body.rosterId).eq('active', true).select('id,absent').single()
       if (changed.error) throw changed.error

@@ -1,0 +1,7 @@
+.roster-row.absent{opacity:1;background:#fff7e7;border-color:#ead29b}
+.roster-row.absent strong,.roster-row.absent .number{color:#856628}
+.makeup-btn{border:1px solid #b8dfed;background:#e7f7ff;color:#176d98;border-radius:9px;padding:9px 12px;min-height:40px;font-size:11px;font-weight:800;white-space:nowrap;box-shadow:0 2px 0 #c4e0eb}
+.makeup-btn:hover:not(:disabled){background:#d0f0ff;border-color:#69b7d3}
+.makeup-btn:disabled{opacity:.55}
+.roster-row input{min-width:18px;min-height:18px}
+@media(max-width:480px){.makeup-btn{margin-left:35px;order:2}.roster-row.absent label{order:3;margin-left:auto}.roster-row.absent strong{flex-basis:calc(100% - 40px)}}
