@@ -1,0 +1,115 @@
+/* Large, bold reading and question text, requested for the full edition. */
+.hero-copy>p{font-size:20px;font-weight:600;line-height:1.9}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:1px}
+.hero-trust{font-size:14px;font-weight:700;line-height:1.8}
+.unit-card p{font-size:17px;font-weight:700;line-height:1.9}
+.unit-number,.unit-card-bottom small{font-size:14px;font-weight:800}
+.edition-note p{font-size:17px;font-weight:600;line-height:1.9}
+.edition-note button{font-size:16px;font-weight:800}
+.journey-strip small{font-size:16px;font-weight:700}
+.teacher-signature small{font-size:13px;font-weight:800}
+.teacher-signature div>span{font-size:15px;font-weight:700}
+.practice-selects label{font-size:14px;font-weight:800;letter-spacing:.6px}
+.practice-selects select{font-size:18px;font-weight:700;min-height:52px}
+.practice-help{font-size:18px;font-weight:700;line-height:1.9}
+.question-label small{font-size:16px;font-weight:700;line-height:1.8}
+.question-label>span{font-size:15px;font-weight:800}
+.full-question h3{font-size:24px;font-weight:700;line-height:1.9}
+.full-question .option{font-size:21px;font-weight:800;line-height:1.7;min-height:58px;padding:13px}
+.check-one{font-size:17px;font-weight:800}
+.show-answer{font-size:15px;font-weight:700}
+.full-feedback{font-size:17px;font-weight:700;line-height:1.9}
+.reading-passage p{font-size:22px;font-weight:600;line-height:2}
+.full-question .word-bank span{font-size:18px;font-weight:800}
+.passage-blanks{font-size:23px;font-weight:600;line-height:3}
+.passage-blanks input{font-size:21px;font-weight:800;min-height:50px}
+.response-input{font-size:22px;font-weight:700;line-height:1.9}
+.sentence-built button,.sentence-tokens button{font-size:20px;font-weight:800;min-height:52px}
+.sentence-placeholder{font-size:17px;font-weight:700}
+.writing-info,.review-note{font-size:15px;font-weight:700;line-height:1.9}
+.rail-lesson p{font-size:17px;font-weight:700;line-height:1.9}
+.full-score p{font-size:16px;font-weight:700}
+.whole-progress p{font-size:15px;font-weight:700;line-height:1.9}
+.practice-byline small{font-size:12px;font-weight:800}
+.practice-byline>span{font-size:15px;font-weight:700}
+.practice-page-heading>span{font-size:17px;font-weight:800}
+.contents-item b{font-size:16px;font-weight:800}
+.contents-item small{font-size:14px;font-weight:700;line-height:1.8}
+.panel-label{font-size:14px;font-weight:800;line-height:1.8}
+.panel-label span{font-size:12px;font-weight:700}
+.storage-note{font-size:15px;font-weight:700}
+.annotation-toolbar button{font-size:15px;font-weight:800;min-height:46px}
+.tool-hint{font-size:15px;font-weight:700;line-height:1.9}
+.lesson-banner,.lesson-banner button{font-size:15px;font-weight:700;line-height:1.8}
+.reader-bottom{font-size:14px;font-weight:700}
+.notes-panel>p,.tip-card p{font-size:17px;font-weight:700;line-height:1.9}
+.notes-panel label{font-size:14px;font-weight:800}
+.notes-panel textarea{font-size:20px;font-weight:700}
+.source-link{font-size:16px;font-weight:700}
+footer,footer button{font-size:15px;font-weight:700}
+@media(max-width:800px){.teacher-signature div>span{font-size:14px}.full-score p{font-size:14px}.whole-progress p{font-size:14px}.rail-lesson p{font-size:16px}.hero-copy>p{font-size:19px}}
+@media(max-width:520px){
+ .hero-copy>p{font-size:19px;font-weight:700}
+ .hero-trust{font-size:12px;flex-wrap:wrap;gap:4px 13px}
+ .eyebrow{font-size:12px}
+ .teacher-signature small{font-size:11px}.teacher-signature div>span{font-size:13px;line-height:1.8}
+ .teacher-signature strong{font-size:27px}
+ .unit-card p{font-size:16px}.unit-number{font-size:12px}.unit-card-bottom small{font-size:12px}
+ .journey-strip small{font-size:14px;line-height:1.8}.journey-strip button{font-size:14px;font-weight:800}
+ .edition-note p{font-size:17px}.edition-note button{font-size:16px}
+ .practice-selects label{font-size:13px}.practice-selects select{font-size:17px;line-height:1.7}
+ .practice-help{font-size:18px}
+ .question-label small{font-size:15px}.question-label>span{font-size:14px}
+ .full-question h3{font-size:23px;line-height:1.9}
+ .full-question .option{font-size:20px;font-weight:800;line-height:1.65;padding:12px 10px;min-height:59px}
+ .full-question .question-options{gap:10px}
+ .check-one{font-size:16px}.show-answer{font-size:14px}.full-feedback{font-size:16px}
+ .response-input{font-size:21px;line-height:1.9}
+ .reading-passage p{font-size:21px;line-height:2}
+ .passage-blanks{font-size:22px;line-height:3}.passage-blanks input{font-size:20px;max-width:100%;width:145px}
+ .full-question .word-bank span{font-size:17px}
+ .sentence-built button,.sentence-tokens button{font-size:19px;padding:11px 13px}
+ .rail-lesson p{font-size:15px}.full-score p{font-size:14px}.whole-progress p{font-size:13px}
+ .whole-progress>span,.full-score>span{font-size:12px;font-weight:800;line-height:1.8}
+ .practice-page-heading>span{font-size:16px}
+ .writing-info,.review-note{font-size:14px}
+ .contents-item b{font-size:15px}.contents-item small{font-size:13px}
+ .panel-label{font-size:13px}.panel-label span{font-size:11px}
+ .annotation-toolbar button{font-size:14px;padding:8px 10px;min-height:46px}
+ .tool-hint{font-size:14px}.lesson-banner,.lesson-banner button{font-size:14px}
+ .reader-bottom{font-size:12px}.notes-panel>p,.tip-card p{font-size:17px}
+ .notes-panel textarea{font-size:21px}.source-link{font-size:16px}
+ .page-answer textarea{font-size:15px;font-weight:700}
+ footer,footer button{font-size:14px}
+}
+/* Reader controls and chapter headings: visibly larger at normal browser zoom. */
+.reader-layout{grid-template-columns:270px minmax(0,1fr) 250px;gap:22px}
+.contents-item{padding:17px 12px;gap:13px;min-height:88px;margin-bottom:9px;border:1px solid transparent}
+.contents-item.active{border-color:#b4d8f4;background:#e8f5ff}
+.contents-item b{font-size:21px;font-weight:800;line-height:1.55}
+.contents-item small{font-size:16px;font-weight:700;line-height:1.8;margin-top:5px}
+.contents-number{font-size:18px;font-weight:800;padding:11px;min-width:45px;text-align:center;border-radius:11px}
+.panel-label{font-size:16px;font-weight:800;letter-spacing:.5px;line-height:1.7;margin-bottom:19px}
+.panel-label span{font-size:13px;font-weight:800}
+.bookmark-link{font-size:18px;font-weight:800;padding:12px 0;line-height:1.7}
+.storage-note{font-size:16px;line-height:1.9}
+.book-toolbar{padding:15px 17px;gap:14px}
+.book-toolbar label,.view-tools span{font-size:18px;font-weight:800}
+.book-toolbar input{font-size:21px;font-weight:800;width:58px;padding:10px 5px}
+.book-toolbar button{font-size:27px;font-weight:800;min-width:47px;min-height:48px}
+.book-toolbar svg{width:23px;height:23px}
+.page-navigation,.view-tools{gap:10px}
+.annotation-toolbar{padding:13px;gap:7px}
+.annotation-toolbar button{font-size:18px;font-weight:800;min-height:52px;padding:11px 14px;line-height:1.6;border-radius:10px}
+.annotation-toolbar svg{width:21px;height:21px}
+.annotation-toolbar input{width:40px;height:40px}
+.tool-hint{font-size:17px;font-weight:700;line-height:1.9;margin:11px 0;padding:0 18px}
+.lesson-banner,.lesson-banner button{font-size:17px;font-weight:800;line-height:1.8}
+.lesson-banner{padding:15px 18px;gap:15px}
+.reader-heading h1{font-size:36px;font-weight:800}
+.reader-heading .eyebrow{font-size:14px;font-weight:800}
+.reader-bottom{font-size:14px;font-weight:800;padding:15px 16px;line-height:1.8}
+.notes-panel h2{font-size:25px;font-weight:800}
+@media(max-width:1200px){.reader-layout{grid-template-columns:255px minmax(0,1fr)}.notes-panel{grid-column:2}.contents-item b{font-size:21px}}
+@media(max-width:800px){.reader-layout{display:block}.notes-panel{grid-column:auto}#contentsToggle{font-size:17px;font-weight:800;max-width:220px;padding:14px 16px}.contents-item b{font-size:20px}.contents-item small{font-size:15px}.contents-number{font-size:17px;padding:10px}.contents-item{gap:10px;padding:15px 10px}}
+@media(max-width:520px){#contents{display:block}.contents-panel{padding:18px 14px}.contents-item{min-height:84px;padding:17px 13px}.contents-item b{font-size:22px}.contents-item small{font-size:16px}.contents-number{font-size:19px;min-width:48px;padding:12px}.panel-label{font-size:16px}.panel-label span{font-size:13px}.reader-heading h1{font-size:29px}.reader-heading .eyebrow{font-size:11px}#contentsToggle{font-size:15px;max-width:160px;line-height:1.8}.book-toolbar{padding:13px 10px;justify-content:center;gap:14px}.book-toolbar label,.view-tools span{font-size:17px}.book-toolbar input{font-size:21px;width:55px}.book-toolbar button{min-width:46px;min-height:48px;font-size:25px}.annotation-toolbar{padding:12px 10px;gap:7px}.annotation-toolbar button{font-size:18px;min-height:51px;padding:10px 12px}.annotation-toolbar svg{width:20px;height:20px}.annotation-toolbar input{width:40px;height:40px}.tool-hint{font-size:16px;line-height:1.9;padding:0 13px}.lesson-banner,.lesson-banner button{font-size:16px}.lesson-banner{padding:13px}.reader-bottom{font-size:13px;line-height:1.8}.hero-art .orbit2{width:320px;height:235px}}

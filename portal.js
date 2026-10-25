@@ -42,9 +42,10 @@
     $('#createTab').disabled=!createAllowed;
     $('#signInTab').disabled=!loginAllowed;
     $('#signInButton').disabled=!loginAllowed;
-    const connectCard=document.querySelector('[data-course="connectPlus4"]'),englishCard=document.querySelector('[data-course="english4"]');
+    const connectCard=document.querySelector('[data-course="connectPlus4"]'),englishCard=document.querySelector('[data-course="english4"]'),workbookCard=document.querySelector('[data-course="workbook4"]');
     if(connectCard)connectCard.classList.toggle('hidden',platformSettings.connect_plus_visible===false);
     if(englishCard)englishCard.classList.toggle('hidden',platformSettings.english4_visible===false);
+    if(workbookCard)workbookCard.classList.toggle('hidden',platformSettings.english4_visible===false);
     if(!createAllowed&&!loginAllowed)showMessage('Student access is temporarily paused by the teacher. Please try again later.','info');
     else if(!loginAllowed)showMessage('Student sign-in is temporarily paused by the teacher.','info');
   }
@@ -266,13 +267,13 @@
   }
 
   function courseUrl(key){
-    return ({connectPlus4:config.connectPlus4Url,english4:config.english4Url})[key];
+    return ({connectPlus4:config.connectPlus4Url,english4:config.english4Url,workbook4:config.workbook4Url})[key];
   }
 
   function openCourse(key){
-    if(!profile||normalizeGrade(profile.grade_level)!=='4'||!['english4','connectPlus4'].includes(key))return;
+    if(!profile||normalizeGrade(profile.grade_level)!=='4'||!['english4','connectPlus4','workbook4'].includes(key))return;
     if(platformSettings.login_enabled===false){showMessage('Student access is temporarily paused by the teacher.','info');return;}
-    if((key==='connectPlus4'&&platformSettings.connect_plus_visible===false)||(key==='english4'&&platformSettings.english4_visible===false)){showMessage('This course is temporarily hidden by the teacher.','info');return;}
+    if((key==='connectPlus4'&&platformSettings.connect_plus_visible===false)||(['english4','workbook4'].includes(key)&&platformSettings.english4_visible===false)){showMessage('This course is temporarily hidden by the teacher.','info');return;}
     const url=String(courseUrl(key)||'').trim();
     if(!url){showMessage('This course link has not been connected yet.');return;}
     if(courseOpening)return;
@@ -283,7 +284,7 @@
     const destination=`${url}${separator}from=english-portal`;
     const door=$('#courseDoorTransition');
     if(!door){window.location.href=destination;return;}
-    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':'English 4';
+    $('#doorCourseName').textContent=key==='connectPlus4'?'Connect Plus 4':key==='workbook4'?'English Language':'English 4';
     door.classList.remove('hidden');
     door.classList.toggle('english-door',key!=='connectPlus4');
     door.setAttribute('aria-hidden','false');

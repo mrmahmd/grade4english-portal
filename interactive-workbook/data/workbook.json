@@ -1,0 +1,6669 @@
+{
+  "version": 2,
+  "source": "1437.pdf",
+  "sourcePages": 64,
+  "pages": [
+    {
+      "page": 4,
+      "title": "Lesson 1 · What are the five senses?",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Look at the food picture on the original page. Which senses do you use to know this?",
+          "target": 0,
+          "id": "p4-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Our _____ help us stay safe and learn.",
+          "options": [
+            "books",
+            "neighbors",
+            "senses",
+            "toys"
+          ],
+          "answers": [
+            "senses"
+          ],
+          "id": "p4-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "If we smell smoke, we know there is a _____.",
+          "options": [
+            "tree",
+            "flower",
+            "fire",
+            "bird"
+          ],
+          "answers": [
+            "fire"
+          ],
+          "id": "p4-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "We _____ the teacher’s voice in class.",
+          "options": [
+            "see",
+            "hear",
+            "taste",
+            "smell"
+          ],
+          "answers": [
+            "hear"
+          ],
+          "id": "p4-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "I can _____ soft things with my fingers.",
+          "options": [
+            "touch",
+            "hear",
+            "smell",
+            "see"
+          ],
+          "answers": [
+            "touch"
+          ],
+          "id": "p4-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "You use your _____ to read a book.",
+          "options": [
+            "tongue",
+            "ears",
+            "eyes",
+            "nose"
+          ],
+          "answers": [
+            "eyes"
+          ],
+          "id": "p4-6"
+        },
+        {
+          "type": "passage",
+          "text": "Samir can hear the birds in the garden. He sees {{butterflies}} flying near the flowers. He can {{see}} their beautiful wings. His sister {{smells}} the sweet {{flowers}} in the air. Birds sing loudly, so she can {{hear}} them in the tree.",
+          "bank": [
+            "flowers",
+            "butterflies",
+            "hear",
+            "see",
+            "smells"
+          ],
+          "answers": [
+            [
+              "butterflies"
+            ],
+            [
+              "see"
+            ],
+            [
+              "smells"
+            ],
+            [
+              "flowers"
+            ],
+            [
+              "hear"
+            ]
+          ],
+          "id": "p4-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Imagine you are at the beach. Write what you can see, hear, smell, touch or taste. Start: I can see...",
+          "target": 0,
+          "id": "p4-8"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "title": "Lesson 2 · Healthy habits",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Match the habit pictures on the original page to morning, afternoon or evening.",
+          "target": 0,
+          "id": "p5-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Look at the pictures on the original page. Write complete sentences. Which habits are healthy?",
+          "target": 0,
+          "id": "p5-2"
+        },
+        {
+          "type": "short",
+          "prompt": "My grandfather _____ coffee in the morning. (drink)",
+          "answers": [
+            "drinks"
+          ],
+          "id": "p5-3"
+        },
+        {
+          "type": "short",
+          "prompt": "We _____ our hands before eating. (washes)",
+          "answers": [
+            "wash"
+          ],
+          "id": "p5-4"
+        },
+        {
+          "type": "short",
+          "prompt": "Salma and I _____ the school bus every morning. (takes)",
+          "answers": [
+            "take"
+          ],
+          "id": "p5-5"
+        },
+        {
+          "type": "short",
+          "prompt": "He _____ stories in English class. (read)",
+          "answers": [
+            "reads"
+          ],
+          "id": "p5-6"
+        },
+        {
+          "type": "short",
+          "prompt": "She _____ her room every Friday. (clean)",
+          "answers": [
+            "cleans"
+          ],
+          "id": "p5-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Write five sentences about your healthy habits.",
+          "target": 0,
+          "id": "p5-8"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "title": "Lesson 3 · Goha’s great meal",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Look at the man on the original page. Who do you think he is?",
+          "target": 0,
+          "id": "p6-1"
+        },
+        {
+          "type": "reading",
+          "text": "Omar was walking home when he smelled soup from a restaurant. He did not go in, but he stood there smiling. The owner said, “If you enjoy the smell, you must pay.” Omar laughed and shook his coins. “This is the sound of my payment!” he said. The owner laughed too.",
+          "id": "p6-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Omar paid with the sound of _____.",
+          "options": [
+            "laughter",
+            "coins",
+            "his voice",
+            "shoes"
+          ],
+          "answers": [
+            "coins"
+          ],
+          "id": "p6-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "The owner told Omar he must _____.",
+          "options": [
+            "work",
+            "eat",
+            "pay",
+            "leave"
+          ],
+          "answers": [
+            "pay"
+          ],
+          "id": "p6-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Do you think Omar is clever? Why or why not?",
+          "target": 0,
+          "id": "p6-5"
+        },
+        {
+          "type": "write",
+          "prompt": "How did the owner feel at the end?",
+          "target": 0,
+          "id": "p6-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "let's share this food",
+          "answers": [
+            "Let's share this food."
+          ],
+          "id": "p6-7"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "The owner was greedy."
+          ],
+          "tokens": [
+            "The",
+            "owner",
+            "was",
+            "greedy."
+          ],
+          "id": "p6-8"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Goha didn't have any money."
+          ],
+          "tokens": [
+            "Goha",
+            "didn't",
+            "have",
+            "any",
+            "money."
+          ],
+          "id": "p6-9"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "He was walking through the market."
+          ],
+          "tokens": [
+            "He",
+            "was",
+            "walking",
+            "through",
+            "the",
+            "market."
+          ],
+          "id": "p6-10"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Goha was clever and funny."
+          ],
+          "tokens": [
+            "Goha",
+            "was",
+            "clever",
+            "and",
+            "funny."
+          ],
+          "id": "p6-11"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "If you want food, you should have money."
+          ],
+          "tokens": [
+            "If",
+            "you",
+            "want",
+            "food,",
+            "you",
+            "should",
+            "have",
+            "money."
+          ],
+          "id": "p6-12"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "title": "Weekly quiz · Groups A, B & C",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "passage",
+          "text": "Group A: Nilly passed a pizza shop. She was very {{hungry}} but had no money. The {{owner}} said, “You must pay for {{smelling}} my pizza!” Nilly clapped her hands and said, “Take the {{sound}} as payment!” The owner {{laughed}}.",
+          "bank": [
+            "owner",
+            "smelling",
+            "hungry",
+            "sound",
+            "laughed"
+          ],
+          "answers": [
+            [
+              "hungry"
+            ],
+            [
+              "owner"
+            ],
+            [
+              "smelling"
+            ],
+            [
+              "sound"
+            ],
+            [
+              "laughed"
+            ]
+          ],
+          "id": "p7-1"
+        },
+        {
+          "type": "passage",
+          "text": "Group B: We use our eyes to read books and see our friends. Our {{ears}} help us listen to teachers in class. With our nose, we {{smell}} clean air. We {{touch}} our books with our hands and {{taste}} lunch with our tongue. Our {{senses}} help us learn.",
+          "bank": [
+            "smell",
+            "ears",
+            "senses",
+            "touch",
+            "taste"
+          ],
+          "answers": [
+            [
+              "ears"
+            ],
+            [
+              "smell"
+            ],
+            [
+              "touch"
+            ],
+            [
+              "taste"
+            ],
+            [
+              "senses"
+            ]
+          ],
+          "id": "p7-2"
+        },
+        {
+          "type": "passage",
+          "text": "Group C: Shady eats a good {{breakfast}} every morning to have energy. At school, he {{plays}} with his {{friends}} during break time. He {{sleeps}} for nine hours every night to keep his mind {{sharp}} and his body healthy.",
+          "bank": [
+            "friends",
+            "sharp",
+            "breakfast",
+            "plays",
+            "sleeps"
+          ],
+          "answers": [
+            [
+              "breakfast"
+            ],
+            [
+              "plays"
+            ],
+            [
+              "friends"
+            ],
+            [
+              "sleeps"
+            ],
+            [
+              "sharp"
+            ]
+          ],
+          "id": "p7-3"
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "title": "Lesson 4 · Sequence words",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Look at the pictures on the original page. Which habits are healthy?",
+          "target": 0,
+          "id": "p8-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “cake” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Long vowel"
+          ],
+          "id": "p8-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “bike” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Long vowel"
+          ],
+          "id": "p8-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “fish” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Short vowel"
+          ],
+          "id": "p8-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “bed” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Short vowel"
+          ],
+          "id": "p8-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “team” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Long vowel"
+          ],
+          "id": "p8-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “road” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Long vowel"
+          ],
+          "id": "p8-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “man” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Short vowel"
+          ],
+          "id": "p8-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “dog” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Short vowel"
+          ],
+          "id": "p8-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “cup” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Short vowel"
+          ],
+          "id": "p8-10"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is the vowel sound in “cube” short or long?",
+          "options": [
+            "Short vowel",
+            "Long vowel"
+          ],
+          "answers": [
+            "Long vowel"
+          ],
+          "id": "p8-11"
+        },
+        {
+          "type": "passage",
+          "text": "At night, {{First}} I take a shower. {{Then|Next|After that}} I have dinner with my family. {{Next|Then|After that}} I do my homework. {{After that|Then|Next}} I brush my teeth and read a book. {{Finally}} I go to bed at nine o’clock because sleeping early keeps me healthy.",
+          "bank": [
+            "First",
+            "Then",
+            "Next",
+            "After that",
+            "Finally"
+          ],
+          "answers": [
+            [
+              "First"
+            ],
+            [
+              "Then",
+              "Next",
+              "After that"
+            ],
+            [
+              "Next",
+              "Then",
+              "After that"
+            ],
+            [
+              "After that",
+              "Then",
+              "Next"
+            ],
+            [
+              "Finally"
+            ]
+          ],
+          "id": "p8-12"
+        },
+        {
+          "type": "reading",
+          "text": "Sequence words: First starts the routine and Finally ends it. The middle words may be used in a different sensible order. Try to use each word once.",
+          "id": "p8-13"
+        },
+        {
+          "type": "choice",
+          "prompt": "If we don't sleep, we feel _____.",
+          "options": [
+            "excited",
+            "tired",
+            "fast",
+            "clean"
+          ],
+          "answers": [
+            "tired"
+          ],
+          "id": "p8-14"
+        },
+        {
+          "type": "choice",
+          "prompt": "We _____ and jump in the playground.",
+          "options": [
+            "wash",
+            "sleep",
+            "run",
+            "eat"
+          ],
+          "answers": [
+            "run"
+          ],
+          "id": "p8-15"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sleeping early keeps me _____.",
+          "options": [
+            "unhealthy",
+            "healthy",
+            "late",
+            "tired"
+          ],
+          "answers": [
+            "healthy"
+          ],
+          "id": "p8-16"
+        },
+        {
+          "type": "choice",
+          "prompt": "I brush my _____ before bed.",
+          "options": [
+            "clothes",
+            "teeth",
+            "books",
+            "shoes"
+          ],
+          "answers": [
+            "teeth"
+          ],
+          "id": "p8-17"
+        },
+        {
+          "type": "choice",
+          "prompt": "I _____ a shower in the evening.",
+          "options": [
+            "walk",
+            "do",
+            "take",
+            "eat"
+          ],
+          "answers": [
+            "take"
+          ],
+          "id": "p8-18"
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "title": "Lesson 5 · Think and create",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Draw two healthy foods you like on the original page using the Pen tool.",
+          "target": 0,
+          "id": "p9-1"
+        },
+        {
+          "type": "reading",
+          "text": "Healthy lunch helps children feel strong and happy. A good lunch may have rice, chicken, vegetables, and fruits. Drinking water is also important. You should not eat too many sweets or fried food. If you eat well, you will be able to run, play, and study better. Some children bring lunch from home, while others eat at school. Try to choose healthy food every day to keep your body and mind strong.",
+          "id": "p9-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "A healthy lunch may have chicken, vegetables, fruit and _____.",
+          "options": [
+            "water",
+            "pizza",
+            "rice",
+            "candy"
+          ],
+          "answers": [
+            "rice"
+          ],
+          "id": "p9-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "A healthy lunch helps children feel _____.",
+          "options": [
+            "strong",
+            "sad",
+            "tired",
+            "sleepy"
+          ],
+          "answers": [
+            "strong"
+          ],
+          "id": "p9-4"
+        },
+        {
+          "type": "write",
+          "prompt": "What shouldn't you eat too much of?",
+          "target": 0,
+          "id": "p9-5"
+        },
+        {
+          "type": "write",
+          "prompt": "How does healthy food help you at school?",
+          "target": 0,
+          "id": "p9-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "it s important to go to bed early",
+          "answers": [
+            "It's important to go to bed early."
+          ],
+          "id": "p9-7"
+        },
+        {
+          "type": "passage",
+          "text": "To stay strong and active, we need to eat food from all {{groups}}. We should eat rice and bread. We also need proteins such as beans or {{eggs}}. For strong bones, drink {{milk}} every day. Do not forget your {{vegetables}} and at least one {{fruit}} with the meal.",
+          "bank": [
+            "vegetables",
+            "fruit",
+            "groups",
+            "milk",
+            "eggs"
+          ],
+          "answers": [
+            [
+              "groups"
+            ],
+            [
+              "eggs"
+            ],
+            [
+              "milk"
+            ],
+            [
+              "vegetables"
+            ],
+            [
+              "fruit"
+            ]
+          ],
+          "id": "p9-8"
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "title": "Weekly quiz · Writing workshop",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Group A: Food That Helps My Body. Which healthy food do you eat? How does it help your body? Name one fruit and one vegetable you like.",
+          "target": 18,
+          "id": "p10-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Group B: My Favorite Healthy Snacks. Use: favorite, apple and nuts, between meals.",
+          "target": 18,
+          "id": "p10-2"
+        },
+        {
+          "type": "write",
+          "prompt": "Group C: Your Healthy Routine. Use: important, habits, keep strong.",
+          "target": 18,
+          "id": "p10-3"
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "title": "Unit 1 review · Choose",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "I always _____ my teeth before I go to bed.",
+          "options": [
+            "brush",
+            "brushing",
+            "brushes",
+            "brushed"
+          ],
+          "answers": [
+            "brush"
+          ],
+          "id": "p11-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "We _____ with our ears.",
+          "options": [
+            "hear",
+            "see",
+            "taste",
+            "walk"
+          ],
+          "answers": [
+            "hear"
+          ],
+          "id": "p11-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "She _____ her backpack every day.",
+          "options": [
+            "carries",
+            "carry",
+            "carried",
+            "carrying"
+          ],
+          "answers": [
+            "carries"
+          ],
+          "id": "p11-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "The yummy smell came from a _____ nearby.",
+          "options": [
+            "garden",
+            "TV",
+            "market",
+            "soup"
+          ],
+          "answers": [
+            "market"
+          ],
+          "id": "p11-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "I can _____ the soup with my tongue.",
+          "options": [
+            "smell",
+            "hear",
+            "taste",
+            "watch"
+          ],
+          "answers": [
+            "taste"
+          ],
+          "id": "p11-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "He gave the man the _____ of his coins.",
+          "options": [
+            "look",
+            "food",
+            "sound",
+            "share"
+          ],
+          "answers": [
+            "sound"
+          ],
+          "id": "p11-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "It's good to _____ food with friends.",
+          "options": [
+            "share",
+            "brush",
+            "take",
+            "play"
+          ],
+          "answers": [
+            "share"
+          ],
+          "id": "p11-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "They _____ the books in the morning.",
+          "options": [
+            "to read",
+            "read",
+            "reading",
+            "reads"
+          ],
+          "answers": [
+            "read"
+          ],
+          "id": "p11-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "She _____ vitamins every morning.",
+          "options": [
+            "touches",
+            "takes",
+            "hears",
+            "helps"
+          ],
+          "answers": [
+            "takes"
+          ],
+          "id": "p11-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "My sister and I _____ TV in the evening.",
+          "options": [
+            "watch",
+            "watches",
+            "watching",
+            "watched"
+          ],
+          "answers": [
+            "watch"
+          ],
+          "id": "p11-10"
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "title": "Unit 1 review · Complete the texts",
+      "unit": 1,
+      "sections": [
+        {
+          "type": "passage",
+          "text": "I see with my eyes. I hear with my {{ears}}. I {{smell}} with my nose. I taste with my {{tongue}}. I touch with my hands. These five {{senses}} help me understand the world around me.",
+          "bank": [
+            "eyes",
+            "ears",
+            "smell",
+            "tongue",
+            "senses"
+          ],
+          "answers": [
+            [
+              "ears"
+            ],
+            [
+              "smell"
+            ],
+            [
+              "tongue"
+            ],
+            [
+              "senses"
+            ]
+          ],
+          "id": "p12-1"
+        },
+        {
+          "type": "passage",
+          "text": "My brother and I play football every day. He wakes up early and {{brushes}} his teeth. Then he eats {{breakfast}}. After school, he {{helps}} our father. We enjoy watching TV together at night. These are our daily habits and {{routines}}.",
+          "bank": [
+            "routines",
+            "brushes",
+            "breakfast",
+            "helps",
+            "watches"
+          ],
+          "answers": [
+            [
+              "brushes"
+            ],
+            [
+              "breakfast"
+            ],
+            [
+              "helps"
+            ],
+            [
+              "routines"
+            ]
+          ],
+          "id": "p12-2"
+        },
+        {
+          "type": "passage",
+          "text": "Goha walked to the market. He {{smelled}} something delicious. He stopped near the {{restaurant}} window and closed his eyes. The smell made him feel full. When the {{owner}} came, Goha gave him the sound of {{coins}} instead of real money.",
+          "bank": [
+            "smelled",
+            "restaurant",
+            "owner",
+            "coins",
+            "money"
+          ],
+          "answers": [
+            [
+              "smelled"
+            ],
+            [
+              "restaurant"
+            ],
+            [
+              "owner"
+            ],
+            [
+              "coins"
+            ]
+          ],
+          "id": "p12-3"
+        },
+        {
+          "type": "passage",
+          "text": "Habiba wakes up early every day. She eats fruit and takes her {{vitamins}}. Then she {{studies}} English before going to school. Her brother {{plays}} games after breakfast. They both {{help}} their parents and watch cartoons at night before sleeping happily.",
+          "bank": [
+            "vitamins",
+            "studies",
+            "plays",
+            "help",
+            "wakes"
+          ],
+          "answers": [
+            [
+              "vitamins"
+            ],
+            [
+              "studies"
+            ],
+            [
+              "plays"
+            ],
+            [
+              "help"
+            ]
+          ],
+          "id": "p12-4"
+        },
+        {
+          "type": "passage",
+          "text": "Sara eats many kinds of food to stay healthy. Every day, she eats {{fruit}} like apples and bananas. She also enjoys {{vegetables}} such as carrots and peas. Her mother says it is important to eat from all {{food}} groups. Sara drinks milk, too. She feels strong and full of {{energy}}.",
+          "bank": [
+            "food",
+            "fruit",
+            "vegetables",
+            "energy"
+          ],
+          "answers": [
+            [
+              "fruit"
+            ],
+            [
+              "vegetables"
+            ],
+            [
+              "food"
+            ],
+            [
+              "energy"
+            ]
+          ],
+          "id": "p12-5"
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "title": "Lesson 1 · Helping the community",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Look at the picture on the original page. What do the people do? Why?",
+          "target": 0,
+          "id": "p13-1"
+        },
+        {
+          "type": "reading",
+          "text": "My name is Farida. My sister Habiba and I like to help our community. Every Friday we clean trash from our street and plant trees in the park. Also, we feed dogs and cats in the street. Our brother Ali likes to collect clothes and give them to poor people and help elderly people. When we all help, we make our community great.",
+          "id": "p13-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Ali likes to _____.",
+          "options": [
+            "feed cats",
+            "collect clothes",
+            "clean trash",
+            "plant trees"
+          ],
+          "answers": [
+            "collect clothes"
+          ],
+          "id": "p13-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Ali has _____ sisters.",
+          "options": [
+            "one",
+            "three",
+            "two",
+            "no"
+          ],
+          "answers": [
+            "two"
+          ],
+          "id": "p13-4"
+        },
+        {
+          "type": "write",
+          "prompt": "How does Farida help her community?",
+          "target": 0,
+          "id": "p13-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Do you help your community? How?",
+          "target": 0,
+          "id": "p13-6"
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "title": "Helping the community · Practice",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "I _____ clothes and give them to people who need them.",
+          "options": [
+            "plant",
+            "sleep",
+            "collect",
+            "help"
+          ],
+          "answers": [
+            "collect"
+          ],
+          "id": "p14-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "It is important to help our _____.",
+          "options": [
+            "neighbors",
+            "schools",
+            "toys",
+            "clothes"
+          ],
+          "answers": [
+            "neighbors"
+          ],
+          "id": "p14-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Many people like to _____ at the community park.",
+          "options": [
+            "plant",
+            "volunteer",
+            "collect",
+            "give"
+          ],
+          "answers": [
+            "volunteer"
+          ],
+          "id": "p14-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "We will go to the _____ to help the environment.",
+          "options": [
+            "school",
+            "house",
+            "neighbors",
+            "community park"
+          ],
+          "answers": [
+            "community park"
+          ],
+          "id": "p14-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Soad is a kind girl. She likes to _____ animals.",
+          "options": [
+            "write",
+            "feed",
+            "collect",
+            "plant"
+          ],
+          "answers": [
+            "feed"
+          ],
+          "id": "p14-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Helping Our Community. Use: community park, plant trees, collect trash.",
+          "target": 18,
+          "id": "p14-6"
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "title": "Lesson 2 · Problems and solutions",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: How can we reduce traffic? Look at the picture on the original page.",
+          "target": 0,
+          "id": "p15-1"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ Sally like ice cream? (Do)",
+          "answers": [
+            "Does"
+          ],
+          "id": "p15-2"
+        },
+        {
+          "type": "short",
+          "prompt": "We _____ English every day. (studies)",
+          "answers": [
+            "study"
+          ],
+          "id": "p15-3"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ Adam go to school on foot? (Do)",
+          "answers": [
+            "Does"
+          ],
+          "id": "p15-4"
+        },
+        {
+          "type": "short",
+          "prompt": "Ali _____ unhealthy food. (not eat)",
+          "answers": [
+            "does not eat",
+            "doesn't eat"
+          ],
+          "id": "p15-5"
+        },
+        {
+          "type": "short",
+          "prompt": "The farmers _____ the animals. (not feed)",
+          "answers": [
+            "do not feed",
+            "don't feed"
+          ],
+          "id": "p15-6"
+        },
+        {
+          "type": "passage",
+          "text": "{{Traffic}} is very bad near schools. Our community has many {{problems}}. Please put {{trash}} in bins. Use the {{school bus}} instead of cars. We should {{walk}} or cycle for short distances.",
+          "bank": [
+            "Traffic",
+            "trash",
+            "walk",
+            "problems",
+            "school bus"
+          ],
+          "answers": [
+            [
+              "Traffic"
+            ],
+            [
+              "problems"
+            ],
+            [
+              "trash"
+            ],
+            [
+              "school bus"
+            ],
+            [
+              "walk"
+            ]
+          ],
+          "id": "p15-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Look at the home-performance picture on the original page. How can you solve the problem?",
+          "target": 0,
+          "id": "p15-8"
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "title": "Lesson 3 · Egypt: My culture",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Draw and color Egypt's flag on the original page.",
+          "target": 0,
+          "id": "p16-1"
+        },
+        {
+          "type": "passage",
+          "text": "Every summer, I travel to my grandfather. He lives in Luxor. It is a governorate in {{Upper}} Egypt. Men there wear {{galabeyas}} and women wear {{colorful}} dresses. Farmers grow {{sugar cane}}. People there are very {{kind}}.",
+          "bank": [
+            "galabeyas",
+            "Upper",
+            "sugar cane",
+            "colorful",
+            "kind"
+          ],
+          "answers": [
+            [
+              "Upper"
+            ],
+            [
+              "galabeyas"
+            ],
+            [
+              "colorful"
+            ],
+            [
+              "sugar cane"
+            ],
+            [
+              "kind"
+            ]
+          ],
+          "id": "p16-2"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Egypt has two special regions."
+          ],
+          "tokens": [
+            "Egypt",
+            "has",
+            "two",
+            "special",
+            "regions."
+          ],
+          "id": "p16-3"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Egyptians are proud of their culture."
+          ],
+          "tokens": [
+            "Egyptians",
+            "are",
+            "proud",
+            "of",
+            "their",
+            "culture."
+          ],
+          "id": "p16-4"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Upper Egypt is in the south."
+          ],
+          "tokens": [
+            "Upper",
+            "Egypt",
+            "is",
+            "in",
+            "the",
+            "south."
+          ],
+          "id": "p16-5"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Houses are painted in bright colors."
+          ],
+          "tokens": [
+            "Houses",
+            "are",
+            "painted",
+            "in",
+            "bright",
+            "colors."
+          ],
+          "id": "p16-6"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Families sing traditional songs."
+          ],
+          "tokens": [
+            "Families",
+            "sing",
+            "traditional",
+            "songs."
+          ],
+          "id": "p16-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Your Community Traditions. Use: Delta, rice and cotton, spring festivals.",
+          "target": 18,
+          "id": "p16-8"
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "title": "Weekly quiz · Groups A & B",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Group A: Hana _____ flowers in the park.",
+          "options": [
+            "helps",
+            "plants",
+            "feeds",
+            "volunteers"
+          ],
+          "answers": [
+            "plants"
+          ],
+          "id": "p17-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "They _____ to help in the park.",
+          "options": [
+            "clean",
+            "help",
+            "volunteer",
+            "collect"
+          ],
+          "answers": [
+            "volunteer"
+          ],
+          "id": "p17-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "In Upper Egypt, we grow _____.",
+          "options": [
+            "cotton",
+            "rice",
+            "wheat",
+            "sugar cane"
+          ],
+          "answers": [
+            "sugar cane"
+          ],
+          "id": "p17-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Noha _____ wash her car every day.",
+          "options": [
+            "don't",
+            "isn't",
+            "aren't",
+            "doesn't"
+          ],
+          "answers": [
+            "doesn't"
+          ],
+          "id": "p17-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ you like sweets?",
+          "options": [
+            "Is",
+            "Do",
+            "Does",
+            "Are"
+          ],
+          "answers": [
+            "Do"
+          ],
+          "id": "p17-5"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Farmers grow cotton and rice in Delta."
+          ],
+          "tokens": [
+            "Farmers",
+            "grow",
+            "cotton",
+            "and",
+            "rice",
+            "in",
+            "Delta."
+          ],
+          "id": "p17-6"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Farida feeds cats in the street."
+          ],
+          "tokens": [
+            "Farida",
+            "feeds",
+            "cats",
+            "in",
+            "the",
+            "street."
+          ],
+          "id": "p17-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Group B: I _____ cats and dogs.",
+          "options": [
+            "help",
+            "plant",
+            "feed",
+            "volunteer"
+          ],
+          "answers": [
+            "feed"
+          ],
+          "id": "p17-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "They _____ to help in the park.",
+          "options": [
+            "clean",
+            "help",
+            "volunteer",
+            "collect"
+          ],
+          "answers": [
+            "volunteer"
+          ],
+          "id": "p17-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "In Delta, we grow _____.",
+          "options": [
+            "dates",
+            "cactus",
+            "rice",
+            "sugar cane"
+          ],
+          "answers": [
+            "rice"
+          ],
+          "id": "p17-10"
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "title": "Weekly quiz · Groups B & C",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Group B: We _____ wash our car every day.",
+          "options": [
+            "don't",
+            "isn't",
+            "aren't",
+            "doesn't"
+          ],
+          "answers": [
+            "don't"
+          ],
+          "id": "p18-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ she like mango?",
+          "options": [
+            "Is",
+            "Do",
+            "Does",
+            "Are"
+          ],
+          "answers": [
+            "Does"
+          ],
+          "id": "p18-2"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Egypt has two special regions."
+          ],
+          "tokens": [
+            "Egypt",
+            "has",
+            "two",
+            "special",
+            "regions."
+          ],
+          "id": "p18-3"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "I go to school by bus."
+          ],
+          "tokens": [
+            "I",
+            "go",
+            "to",
+            "school",
+            "by",
+            "bus."
+          ],
+          "id": "p18-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Group C: Hana _____ at the community garden.",
+          "options": [
+            "helps",
+            "plants",
+            "feeds",
+            "volunteers"
+          ],
+          "answers": [
+            "helps",
+            "volunteers"
+          ],
+          "id": "p18-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "They _____ clothes from people.",
+          "options": [
+            "clean",
+            "help",
+            "volunteer",
+            "collect"
+          ],
+          "answers": [
+            "collect"
+          ],
+          "id": "p18-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "In Upper Egypt, we grow _____.",
+          "options": [
+            "cotton",
+            "rice",
+            "wheat",
+            "sugar cane"
+          ],
+          "answers": [
+            "sugar cane"
+          ],
+          "id": "p18-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "I _____ drink tea in the morning.",
+          "options": [
+            "don't",
+            "isn't",
+            "aren't",
+            "doesn't"
+          ],
+          "answers": [
+            "don't"
+          ],
+          "id": "p18-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ she cook every day?",
+          "options": [
+            "Is",
+            "Do",
+            "Does",
+            "Are"
+          ],
+          "answers": [
+            "Does"
+          ],
+          "id": "p18-9"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Men wear galabeyas in Upper Egypt."
+          ],
+          "tokens": [
+            "Men",
+            "wear",
+            "galabeyas",
+            "in",
+            "Upper",
+            "Egypt."
+          ],
+          "id": "p18-10"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "You should walk or cycle to school."
+          ],
+          "tokens": [
+            "You",
+            "should",
+            "walk",
+            "or",
+            "cycle",
+            "to",
+            "school."
+          ],
+          "id": "p18-11"
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "title": "Lesson 3 · Sounds and word forms",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Which sound starts “flower”?",
+          "options": [
+            "/f/",
+            "/v/"
+          ],
+          "answers": [
+            "/f/"
+          ],
+          "id": "p19-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which sound starts “fish”?",
+          "options": [
+            "/f/",
+            "/v/"
+          ],
+          "answers": [
+            "/f/"
+          ],
+          "id": "p19-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which sound starts “violin”?",
+          "options": [
+            "/f/",
+            "/v/"
+          ],
+          "answers": [
+            "/v/"
+          ],
+          "id": "p19-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which sound starts “father”?",
+          "options": [
+            "/f/",
+            "/v/"
+          ],
+          "answers": [
+            "/f/"
+          ],
+          "id": "p19-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which sound starts “vase”?",
+          "options": [
+            "/f/",
+            "/v/"
+          ],
+          "answers": [
+            "/v/"
+          ],
+          "id": "p19-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which sound starts “van”?",
+          "options": [
+            "/f/",
+            "/v/"
+          ],
+          "answers": [
+            "/v/"
+          ],
+          "id": "p19-6"
+        },
+        {
+          "type": "reading",
+          "text": "In the word-form task, use a prefix to give the opposite meaning where needed.",
+          "id": "p19-7"
+        },
+        {
+          "type": "short",
+          "prompt": "Hala _____ dirty places. (like)",
+          "answers": [
+            "dislikes"
+          ],
+          "id": "p19-8"
+        },
+        {
+          "type": "short",
+          "prompt": "It is _____ to drive fast. (legal)",
+          "answers": [
+            "illegal"
+          ],
+          "id": "p19-9"
+        },
+        {
+          "type": "short",
+          "prompt": "Ahmed _____ after eating all sweets. (appears)",
+          "answers": [
+            "disappears"
+          ],
+          "id": "p19-10"
+        },
+        {
+          "type": "short",
+          "prompt": "The verb make has an _____ past form. (regular)",
+          "answers": [
+            "irregular"
+          ],
+          "id": "p19-11"
+        },
+        {
+          "type": "short",
+          "prompt": "He is _____. He forgot his keys. (responsible)",
+          "answers": [
+            "irresponsible"
+          ],
+          "id": "p19-12"
+        },
+        {
+          "type": "write",
+          "prompt": "My Country. Use: Egypt, good weather, kind people.",
+          "target": 18,
+          "id": "p19-13"
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "title": "Lessons 4 & 5 · A diary entry and a poster",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "The first item has awkward wording in the source. Write a correct version for teacher review rather than receiving an automatic mark.",
+          "id": "p20-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Correct the source sentence: My old school is still _____ today. (plays / stands / writes / does)",
+          "target": 0,
+          "id": "p20-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "We can take a _____ from the train station.",
+          "options": [
+            "car",
+            "taxi",
+            "train",
+            "bus"
+          ],
+          "answers": [
+            "car",
+            "taxi",
+            "train",
+            "bus"
+          ],
+          "id": "p20-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "We go to the market to buy _____.",
+          "options": [
+            "books",
+            "computers",
+            "beds",
+            "fruits"
+          ],
+          "answers": [
+            "fruits"
+          ],
+          "id": "p20-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ to school to stop air pollution.",
+          "options": [
+            "Walk",
+            "Read",
+            "Wear",
+            "Ask"
+          ],
+          "answers": [
+            "Walk"
+          ],
+          "id": "p20-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "My mother told me _____ about her family.",
+          "options": [
+            "foods",
+            "letters",
+            "stories",
+            "books"
+          ],
+          "answers": [
+            "stories"
+          ],
+          "id": "p20-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "hana walks to school every day",
+          "answers": [
+            "Hana walks to school every day."
+          ],
+          "id": "p20-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Write a diary entry about a fun day with your family. Include the date, Dear diary, what happened, Yours truly, and your name.",
+          "target": 0,
+          "id": "p20-8"
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "title": "Weekly quiz · Community writing",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Group A: My Country. Use: Egypt, good weather, kind people.",
+          "target": 18,
+          "id": "p21-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Group B: Traffic Problem. Use: schools, walk, buses.",
+          "target": 18,
+          "id": "p21-2"
+        },
+        {
+          "type": "write",
+          "prompt": "Group C: Helping Our Community. Use: clean trash, plant trees, feed animals.",
+          "target": 18,
+          "id": "p21-3"
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "title": "Unit 2 review · Vocabulary and reading",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "You should throw trash in the _____.",
+          "options": [
+            "book",
+            "bin",
+            "pen",
+            "pin"
+          ],
+          "answers": [
+            "bin"
+          ],
+          "id": "p22-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "It is _____ to smoke here.",
+          "options": [
+            "legal",
+            "illegal",
+            "like",
+            "dislike"
+          ],
+          "answers": [
+            "illegal"
+          ],
+          "id": "p22-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ you study English every day?",
+          "options": [
+            "Are",
+            "Does",
+            "Do",
+            "Is"
+          ],
+          "answers": [
+            "Do"
+          ],
+          "id": "p22-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "He _____ go to school by bus.",
+          "options": [
+            "isn't",
+            "aren't",
+            "do",
+            "doesn't"
+          ],
+          "answers": [
+            "doesn't"
+          ],
+          "id": "p22-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "They _____ the street on Sundays.",
+          "options": [
+            "feed",
+            "clean",
+            "help",
+            "collect"
+          ],
+          "answers": [
+            "clean"
+          ],
+          "id": "p22-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "The bus helps _____ traffic.",
+          "options": [
+            "reduce",
+            "increase",
+            "help",
+            "work"
+          ],
+          "answers": [
+            "reduce"
+          ],
+          "id": "p22-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "He _____ go to school on Friday.",
+          "options": [
+            "isn't",
+            "don't",
+            "doesn't",
+            "aren't"
+          ],
+          "answers": [
+            "doesn't"
+          ],
+          "id": "p22-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Traffic is bad _____ schools.",
+          "options": [
+            "near",
+            "away",
+            "in",
+            "on"
+          ],
+          "answers": [
+            "near"
+          ],
+          "id": "p22-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "The cat always _____ after eating all the food.",
+          "options": [
+            "appears",
+            "disappears",
+            "dislikes",
+            "likes"
+          ],
+          "answers": [
+            "disappears"
+          ],
+          "id": "p22-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "She _____ cats in the street.",
+          "options": [
+            "walks",
+            "sleeps",
+            "feeds",
+            "wears"
+          ],
+          "answers": [
+            "feeds"
+          ],
+          "id": "p22-10"
+        },
+        {
+          "type": "passage",
+          "text": "My name is Hassan. I am in grade four. My brother and I {{volunteer}} to help in the park. We {{clean}} the park and {{collect}} bottles. We {{plant}} trees and flowers.",
+          "bank": [
+            "plant",
+            "collect",
+            "volunteer",
+            "clean",
+            "school bus"
+          ],
+          "answers": [
+            [
+              "volunteer"
+            ],
+            [
+              "clean"
+            ],
+            [
+              "collect"
+            ],
+            [
+              "plant"
+            ]
+          ],
+          "id": "p22-11"
+        },
+        {
+          "type": "passage",
+          "text": "My community has many {{problems}}. Traffic is one of these problems. Cars {{move}} slowly in the morning {{near}} schools. So we should use {{buses}} instead of {{cars}}.",
+          "bank": [
+            "trash",
+            "buses",
+            "move",
+            "cars",
+            "near",
+            "problems"
+          ],
+          "answers": [
+            [
+              "problems"
+            ],
+            [
+              "move"
+            ],
+            [
+              "near"
+            ],
+            [
+              "buses"
+            ],
+            [
+              "cars"
+            ]
+          ],
+          "id": "p22-12"
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "title": "Unit 2 review · Grammar and writing",
+      "unit": 2,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "We don't _____ trash in bins. (puts)",
+          "answers": [
+            "put"
+          ],
+          "id": "p23-1"
+        },
+        {
+          "type": "short",
+          "prompt": "Do you _____ Arabic every day? (studys)",
+          "answers": [
+            "study"
+          ],
+          "id": "p23-2"
+        },
+        {
+          "type": "short",
+          "prompt": "Cars _____ quickly in the morning. (not move)",
+          "answers": [
+            "do not move",
+            "don't move"
+          ],
+          "id": "p23-3"
+        },
+        {
+          "type": "short",
+          "prompt": "I _____ loud sounds. (like)",
+          "answers": [
+            "like",
+            "dislike"
+          ],
+          "id": "p23-4"
+        },
+        {
+          "type": "short",
+          "prompt": "It is _____ to drive very fast. (legal)",
+          "answers": [
+            "illegal"
+          ],
+          "id": "p23-5"
+        },
+        {
+          "type": "short",
+          "prompt": "No, she doesn't _____ any books. (has)",
+          "answers": [
+            "have"
+          ],
+          "id": "p23-6"
+        },
+        {
+          "type": "short",
+          "prompt": "The sun _____ at night. (appears)",
+          "answers": [
+            "disappears"
+          ],
+          "id": "p23-7"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ Ramy study English every day? (Do)",
+          "answers": [
+            "Does"
+          ],
+          "id": "p23-8"
+        },
+        {
+          "type": "short",
+          "prompt": "Ali _____ his homework in the evening. (write)",
+          "answers": [
+            "writes"
+          ],
+          "id": "p23-9"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "this is my father",
+          "answers": [
+            "This is my father."
+          ],
+          "id": "p23-10"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "does Ahmed like cats",
+          "answers": [
+            "Does Ahmed like cats?"
+          ],
+          "id": "p23-11"
+        },
+        {
+          "type": "write",
+          "prompt": "Upper Egypt. Use: sugar cane, pottery, galabeyas.",
+          "target": 18,
+          "id": "p23-12"
+        },
+        {
+          "type": "write",
+          "prompt": "Your Community History. Use: neighborhood, old market, fresh vegetables.",
+          "target": 18,
+          "id": "p23-13"
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "title": "Lesson 1 · Let’s meet the animals",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Draw and color your favorite animal on the original page.",
+          "target": 0,
+          "id": "p24-1"
+        },
+        {
+          "type": "short",
+          "prompt": "Look at picture 1 on the original page. Name the animal.",
+          "answers": [
+            "giraffe"
+          ],
+          "id": "p24-2"
+        },
+        {
+          "type": "short",
+          "prompt": "Look at picture 2 on the original page. Name the animal.",
+          "answers": [
+            "elephant"
+          ],
+          "id": "p24-3"
+        },
+        {
+          "type": "short",
+          "prompt": "Look at picture 3 on the original page. Name the animal.",
+          "answers": [
+            "lion"
+          ],
+          "id": "p24-4"
+        },
+        {
+          "type": "short",
+          "prompt": "Look at picture 4 on the original page. Name the animal.",
+          "answers": [
+            "monkey"
+          ],
+          "id": "p24-5"
+        },
+        {
+          "type": "short",
+          "prompt": "Look at picture 5 on the original page. Name the animal.",
+          "answers": [
+            "zebra"
+          ],
+          "id": "p24-6"
+        },
+        {
+          "type": "passage",
+          "text": "The {{giraffe}} has a spotted coat. My dad is a {{forest}} guide; he shows visitors the animals. {{Monkeys}} are very good at climbing trees. The {{forest park}} is an amazing place where you can see animals up close. The bear has thick {{fur}}.",
+          "bank": [
+            "forest",
+            "giraffe",
+            "forest park",
+            "Monkeys",
+            "fur"
+          ],
+          "answers": [
+            [
+              "giraffe"
+            ],
+            [
+              "forest"
+            ],
+            [
+              "Monkeys"
+            ],
+            [
+              "forest park"
+            ],
+            [
+              "fur"
+            ]
+          ],
+          "id": "p24-7"
+        },
+        {
+          "type": "write",
+          "prompt": "A Day at the Forest Park. Use: animals, monkeys, elephants.",
+          "target": 18,
+          "id": "p24-8"
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "title": "Lesson 2 · Taking care of animals",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Adam wants to take care of a rabbit. Give him advice.",
+          "target": 0,
+          "id": "p25-1"
+        },
+        {
+          "type": "reading",
+          "text": "Zoo animals need special attention. Elephants need bigger spaces than monkeys to move around. Lions eat a lot of food to stay stronger than other animals. Giraffes need taller trees to reach their food.",
+          "id": "p25-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Giraffes need taller _____.",
+          "options": [
+            "seats",
+            "senses",
+            "trees",
+            "fans"
+          ],
+          "answers": [
+            "trees"
+          ],
+          "id": "p25-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Elephants need _____ spaces than monkeys.",
+          "options": [
+            "smaller",
+            "heavier",
+            "bigger",
+            "taller"
+          ],
+          "answers": [
+            "bigger"
+          ],
+          "id": "p25-4"
+        },
+        {
+          "type": "write",
+          "prompt": "What do zoo animals need?",
+          "target": 0,
+          "id": "p25-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Why do lions eat a lot of food?",
+          "target": 0,
+          "id": "p25-6"
+        },
+        {
+          "type": "short",
+          "prompt": "Ahmed is _____ than Ali. (short)",
+          "answers": [
+            "shorter"
+          ],
+          "id": "p25-7"
+        },
+        {
+          "type": "short",
+          "prompt": "Sally is _____ than Rana. (lazy)",
+          "answers": [
+            "lazier"
+          ],
+          "id": "p25-8"
+        },
+        {
+          "type": "short",
+          "prompt": "Elephants are _____ than cats. (big)",
+          "answers": [
+            "bigger"
+          ],
+          "id": "p25-9"
+        },
+        {
+          "type": "short",
+          "prompt": "Cats are _____ than lions. (safe)",
+          "answers": [
+            "safer"
+          ],
+          "id": "p25-10"
+        },
+        {
+          "type": "short",
+          "prompt": "Today is _____ than yesterday. (hot)",
+          "answers": [
+            "hotter"
+          ],
+          "id": "p25-11"
+        },
+        {
+          "type": "write",
+          "prompt": "Write three sentences about your favorite pet.",
+          "target": 0,
+          "id": "p25-12"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "title": "Lesson 3 · The old lion and the fox",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: The lion is known as...",
+          "target": 0,
+          "id": "p26-1"
+        },
+        {
+          "type": "passage",
+          "text": "The old lion {{pretended}} to be very sick. Many animals came into the lion’s {{cave}} to visit him but they did not {{come out}}. The fox was very clever. He learned from the {{mistakes}} of others.",
+          "bank": [
+            "mistakes",
+            "cave",
+            "pretended",
+            "sick",
+            "come out"
+          ],
+          "answers": [
+            [
+              "pretended"
+            ],
+            [
+              "cave"
+            ],
+            [
+              "come out"
+            ],
+            [
+              "mistakes"
+            ]
+          ],
+          "id": "p26-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "The old lion could hunt animals.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p26-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "The fox saw footprints coming out of the cave.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p26-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "The fox was a foolish animal.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p26-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "We should learn from the mistakes of others.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p26-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "The lion was really sick.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p26-7"
+        },
+        {
+          "type": "write",
+          "prompt": "How did the fox discover the lion's trick?",
+          "target": 0,
+          "id": "p26-8"
+        },
+        {
+          "type": "write",
+          "prompt": "Did you like the fox or the lion? Why?",
+          "target": 0,
+          "id": "p26-9"
+        },
+        {
+          "type": "write",
+          "prompt": "Was the lion really sick? Explain.",
+          "target": 0,
+          "id": "p26-10"
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "title": "Monthly review · Units 1, 2 & 3",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "The cat is _____ than the mouse.",
+          "options": [
+            "big",
+            "bigger",
+            "biggest",
+            "as big"
+          ],
+          "answers": [
+            "bigger"
+          ],
+          "id": "p27-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "We _____ flowers and trees in the park.",
+          "options": [
+            "does",
+            "plant",
+            "feed",
+            "wear"
+          ],
+          "answers": [
+            "plant"
+          ],
+          "id": "p27-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "I use my _____ to taste food.",
+          "options": [
+            "tongue",
+            "ears",
+            "arms",
+            "eyes"
+          ],
+          "answers": [
+            "tongue"
+          ],
+          "id": "p27-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Fruit is a/an _____ food.",
+          "options": [
+            "unhealthy",
+            "bad",
+            "healthy",
+            "harmful"
+          ],
+          "answers": [
+            "healthy"
+          ],
+          "id": "p27-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sara _____ to her village every week to visit her mother.",
+          "options": [
+            "traveled",
+            "travels",
+            "travelling",
+            "travel"
+          ],
+          "answers": [
+            "travels"
+          ],
+          "id": "p27-5"
+        },
+        {
+          "type": "short",
+          "prompt": "Nora _____ her car every day. (wash)",
+          "answers": [
+            "washes"
+          ],
+          "id": "p27-6"
+        },
+        {
+          "type": "short",
+          "prompt": "Nashwa is _____ than Hala. (thin)",
+          "answers": [
+            "thinner"
+          ],
+          "id": "p27-7"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ you play football? (Does)",
+          "answers": [
+            "Do"
+          ],
+          "id": "p27-8"
+        },
+        {
+          "type": "short",
+          "prompt": "Hany doesn't _____ well. (reads)",
+          "answers": [
+            "read"
+          ],
+          "id": "p27-9"
+        },
+        {
+          "type": "short",
+          "prompt": "Do you _____ up late? (gets)",
+          "answers": [
+            "get"
+          ],
+          "id": "p27-10"
+        },
+        {
+          "type": "short",
+          "prompt": "We _____ go to the club on Friday. (doesn’t)",
+          "answers": [
+            "don't",
+            "do not"
+          ],
+          "id": "p27-11"
+        },
+        {
+          "type": "short",
+          "prompt": "Dina is _____ than Amira. (pretty)",
+          "answers": [
+            "prettier"
+          ],
+          "id": "p27-12"
+        },
+        {
+          "type": "passage",
+          "text": "My name is Farida. I follow the same routine every day. First, I wake up at 8 a.m. I {{wash}} my face, {{brush}} my teeth and get {{dressed}} for school. {{Then}} I have my breakfast. {{Next}} I go to school.",
+          "bank": [
+            "brush",
+            "wash",
+            "Then",
+            "dressed",
+            "Next"
+          ],
+          "answers": [
+            [
+              "wash"
+            ],
+            [
+              "brush"
+            ],
+            [
+              "dressed"
+            ],
+            [
+              "Then"
+            ],
+            [
+              "Next"
+            ]
+          ],
+          "id": "p27-13"
+        },
+        {
+          "type": "reading",
+          "text": "My name is Ahmed. I live in Cairo. I have a lot of problems in my community. One of these problems is traffic. There are many cars and buses on the roads. This makes traffic very slow. We wait for a long time in traffic. I am always late for work. My neighbors and I decided to use buses or bicycles instead of our private cars. Continue the questions on page 28.",
+          "id": "p27-14"
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "title": "Monthly review · Traffic reading",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "Ahmed lives in Cairo. There are many cars and buses on the roads. This makes traffic very slow. He waits a long time and is late for work. He and his neighbors decided to use buses or bicycles instead of private cars.",
+          "id": "p28-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Ahmed lives in _____.",
+          "options": [
+            "Giza",
+            "Luxor",
+            "Cairo",
+            "Sohag"
+          ],
+          "answers": [
+            "Cairo"
+          ],
+          "id": "p28-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Ahmed is always _____ for work.",
+          "options": [
+            "busy",
+            "late",
+            "early",
+            "slow"
+          ],
+          "answers": [
+            "late"
+          ],
+          "id": "p28-3"
+        },
+        {
+          "type": "write",
+          "prompt": "How did Ahmed and his neighbors solve the traffic problem?",
+          "target": 0,
+          "id": "p28-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Do you have a traffic problem in your community?",
+          "target": 0,
+          "id": "p28-5"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "do you like healthy food",
+          "answers": [
+            "Do you like healthy food?"
+          ],
+          "id": "p28-6"
+        }
+      ]
+    },
+    {
+      "page": 29,
+      "title": "Lessons 4 & 5 · Endangered animals",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "Many animals around the world are in danger of disappearing forever. Some animals are in danger because of cutting down trees, pollution and hunting animals. Examples of endangered animals are the Arabian Leopard, the Red Sea Dugong and the giant panda. We can protect endangered animals by protecting their homes, planting trees, keeping the environment clean and not hunting animals.",
+          "id": "p29-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Some animals are in danger because of _____.",
+          "options": [
+            "planting trees",
+            "cutting down trees",
+            "hunting animals",
+            "both cutting down trees and hunting animals"
+          ],
+          "answers": [
+            "both cutting down trees and hunting animals"
+          ],
+          "id": "p29-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ is an example of an endangered animal.",
+          "options": [
+            "Dog",
+            "Cat",
+            "Giant panda",
+            "Rabbit"
+          ],
+          "answers": [
+            "Giant panda"
+          ],
+          "id": "p29-3"
+        },
+        {
+          "type": "write",
+          "prompt": "How can we protect endangered animals?",
+          "target": 0,
+          "id": "p29-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Write a suitable title for the passage.",
+          "target": 0,
+          "id": "p29-5"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "hala is a student",
+          "answers": [
+            "Hala is a student."
+          ],
+          "id": "p29-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "are you happy",
+          "answers": [
+            "Are you happy?"
+          ],
+          "id": "p29-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Red Sea Dugong. Use: sea grass, danger, pollution.",
+          "target": 18,
+          "id": "p29-8"
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "title": "Weekly quiz · Comparatives and grammar",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "Group A: Hala is _____ than Amira. (short)",
+          "answers": [
+            "shorter"
+          ],
+          "id": "p30-1"
+        },
+        {
+          "type": "short",
+          "prompt": "Sama is _____ than Abeer. (lazy)",
+          "answers": [
+            "lazier"
+          ],
+          "id": "p30-2"
+        },
+        {
+          "type": "short",
+          "prompt": "My class is _____ than yours. (big)",
+          "answers": [
+            "bigger"
+          ],
+          "id": "p30-3"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ Ramy study English every day? (Do)",
+          "answers": [
+            "Does"
+          ],
+          "id": "p30-4"
+        },
+        {
+          "type": "short",
+          "prompt": "Ali _____ his homework in the evening. (write)",
+          "answers": [
+            "writes"
+          ],
+          "id": "p30-5"
+        },
+        {
+          "type": "short",
+          "prompt": "Group B: Arabic is _____ than French. (easy)",
+          "answers": [
+            "easier"
+          ],
+          "id": "p30-6"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ they play football every day? (Does)",
+          "answers": [
+            "Do"
+          ],
+          "id": "p30-7"
+        },
+        {
+          "type": "short",
+          "prompt": "Hana is taller _____ Rana. (then)",
+          "answers": [
+            "than"
+          ],
+          "id": "p30-8"
+        },
+        {
+          "type": "short",
+          "prompt": "Ahmed isn't _____ than Ali. (tall)",
+          "answers": [
+            "taller"
+          ],
+          "id": "p30-9"
+        },
+        {
+          "type": "short",
+          "prompt": "Bears are _____ than monkeys. (lazy)",
+          "answers": [
+            "lazier"
+          ],
+          "id": "p30-10"
+        },
+        {
+          "type": "short",
+          "prompt": "Group C: Fruit is _____ than sweets. (healthy)",
+          "answers": [
+            "healthier"
+          ],
+          "id": "p30-11"
+        },
+        {
+          "type": "short",
+          "prompt": "Sara is _____ than Heba. (pretty)",
+          "answers": [
+            "prettier"
+          ],
+          "id": "p30-12"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ you like ice cream? (Does)",
+          "answers": [
+            "Do"
+          ],
+          "id": "p30-13"
+        },
+        {
+          "type": "short",
+          "prompt": "The plane is _____ than the train. (fast)",
+          "answers": [
+            "faster"
+          ],
+          "id": "p30-14"
+        },
+        {
+          "type": "short",
+          "prompt": "Salma is _____ than Rana. (lazy)",
+          "answers": [
+            "lazier"
+          ],
+          "id": "p30-15"
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "title": "Unit 3 review · Animals and comparisons",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Giraffes eat green _____.",
+          "options": [
+            "fish",
+            "leaves",
+            "meat",
+            "paper"
+          ],
+          "answers": [
+            "leaves"
+          ],
+          "id": "p31-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Elephants need _____ spaces.",
+          "options": [
+            "bigger",
+            "smaller",
+            "heavier",
+            "thinner"
+          ],
+          "answers": [
+            "bigger"
+          ],
+          "id": "p31-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Rabbits eat fresh _____.",
+          "options": [
+            "fruits",
+            "insects",
+            "birds",
+            "vegetables"
+          ],
+          "answers": [
+            "vegetables",
+            "fruits"
+          ],
+          "id": "p31-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "The monkey has a _____ tail.",
+          "options": [
+            "short",
+            "lazy",
+            "long",
+            "loud"
+          ],
+          "answers": [
+            "long"
+          ],
+          "id": "p31-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Noha is _____ than Nashwa.",
+          "options": [
+            "shortest",
+            "short",
+            "shorter",
+            "a short"
+          ],
+          "answers": [
+            "shorter"
+          ],
+          "id": "p31-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sally is a _____ girl.",
+          "options": [
+            "fattest",
+            "fatter",
+            "fat",
+            "taller"
+          ],
+          "answers": [
+            "fat"
+          ],
+          "id": "p31-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "The zebra has a _____ coat.",
+          "options": [
+            "spotted",
+            "striped",
+            "gray",
+            "yellow"
+          ],
+          "answers": [
+            "striped"
+          ],
+          "id": "p31-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "A/An _____ shows visitors the animals.",
+          "options": [
+            "doctor",
+            "engineer",
+            "vet",
+            "forest guide"
+          ],
+          "answers": [
+            "forest guide"
+          ],
+          "id": "p31-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Lions _____ at night.",
+          "options": [
+            "play",
+            "walk",
+            "sleep",
+            "hunt"
+          ],
+          "answers": [
+            "hunt"
+          ],
+          "id": "p31-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "Pets need _____ care from their owners.",
+          "options": [
+            "monthly",
+            "weekly",
+            "daily",
+            "yearly"
+          ],
+          "answers": [
+            "daily"
+          ],
+          "id": "p31-10"
+        },
+        {
+          "type": "short",
+          "prompt": "English is _____ than French. (easy)",
+          "answers": [
+            "easier"
+          ],
+          "id": "p31-11"
+        },
+        {
+          "type": "short",
+          "prompt": "Hana is taller _____ Rana. (then)",
+          "answers": [
+            "than"
+          ],
+          "id": "p31-12"
+        },
+        {
+          "type": "short",
+          "prompt": "Ahmed isn't _____ than Ali. (tall)",
+          "answers": [
+            "taller"
+          ],
+          "id": "p31-13"
+        },
+        {
+          "type": "short",
+          "prompt": "Bears are _____ than monkeys. (lazy)",
+          "answers": [
+            "lazier"
+          ],
+          "id": "p31-14"
+        },
+        {
+          "type": "short",
+          "prompt": "Fruit is _____ than sweets. (healthy)",
+          "answers": [
+            "healthier"
+          ],
+          "id": "p31-15"
+        },
+        {
+          "type": "short",
+          "prompt": "Ola is _____ than Dina. (pretty)",
+          "answers": [
+            "prettier"
+          ],
+          "id": "p31-16"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "title": "Unit 3 review · Writing and punctuation",
+      "unit": 3,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "_____ you like ice cream? (Does)",
+          "answers": [
+            "Do"
+          ],
+          "id": "p32-1"
+        },
+        {
+          "type": "short",
+          "prompt": "The plane is _____ than the train. (fast)",
+          "answers": [
+            "faster"
+          ],
+          "id": "p32-2"
+        },
+        {
+          "type": "short",
+          "prompt": "Sama is _____ than Hana. (lazy)",
+          "answers": [
+            "lazier"
+          ],
+          "id": "p32-3"
+        },
+        {
+          "type": "short",
+          "prompt": "The lion is _____ than a rabbit. (strongest)",
+          "answers": [
+            "stronger"
+          ],
+          "id": "p32-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Your Favorite Animal. Use: animal, monkey, climbs trees.",
+          "target": 18,
+          "id": "p32-5"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "how old are you",
+          "answers": [
+            "How old are you?"
+          ],
+          "id": "p32-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "i'm a student in grade four",
+          "answers": [
+            "I'm a student in grade four."
+          ],
+          "id": "p32-7"
+        }
+      ]
+    },
+    {
+      "page": 33,
+      "title": "Lesson 1 · Places in Egypt",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Guess the place. “I am very tall. You can see Cairo from me.” / “I am full of water and trees. People relax here.”",
+          "target": 0,
+          "id": "p33-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "The _____ is a very long river in Egypt.",
+          "options": [
+            "bazaar",
+            "museum",
+            "Nile",
+            "tower"
+          ],
+          "answers": [
+            "Nile"
+          ],
+          "id": "p33-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "I want to _____ the Egyptian Museum.",
+          "options": [
+            "ride",
+            "visit",
+            "walk",
+            "build"
+          ],
+          "answers": [
+            "visit"
+          ],
+          "id": "p33-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "People buy _____ from the bazaar.",
+          "options": [
+            "gifts",
+            "history",
+            "camels",
+            "pyramids"
+          ],
+          "answers": [
+            "gifts"
+          ],
+          "id": "p33-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "A/An _____ is a place with water and trees in the desert.",
+          "options": [
+            "tower",
+            "bazaar",
+            "museum",
+            "oasis"
+          ],
+          "answers": [
+            "oasis"
+          ],
+          "id": "p33-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "You can look down from the _____ Tower.",
+          "options": [
+            "Egyptian",
+            "Cairo",
+            "Siwa",
+            "Giza"
+          ],
+          "answers": [
+            "Cairo"
+          ],
+          "id": "p33-6"
+        },
+        {
+          "type": "passage",
+          "text": "Ali is a tour {{guide}} in Egypt. He takes tourists to see the {{Pyramids}}. They stop to take {{pictures}} with their cameras. Many visitors want to {{ride}} a {{camel}} near the pyramids.",
+          "bank": [
+            "pictures",
+            "guide",
+            "Pyramids",
+            "ride",
+            "camel"
+          ],
+          "answers": [
+            [
+              "guide"
+            ],
+            [
+              "Pyramids"
+            ],
+            [
+              "pictures"
+            ],
+            [
+              "ride"
+            ],
+            [
+              "camel"
+            ]
+          ],
+          "id": "p33-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Write about a place you like to visit with your friends.",
+          "target": 0,
+          "id": "p33-8"
+        }
+      ]
+    },
+    {
+      "page": 34,
+      "title": "Lesson 2 · My city",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Guess the place. “I go there to learn and meet friends.”",
+          "target": 0,
+          "id": "p34-1"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "I borrow books from the library."
+          ],
+          "tokens": [
+            "I",
+            "borrow",
+            "books",
+            "from",
+            "the",
+            "library."
+          ],
+          "id": "p34-2"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "We learn history in the museum."
+          ],
+          "tokens": [
+            "We",
+            "learn",
+            "history",
+            "in",
+            "the",
+            "museum."
+          ],
+          "id": "p34-3"
+        },
+        {
+          "type": "short",
+          "prompt": "The flower is growing _____ the pot. (on)",
+          "answers": [
+            "in"
+          ],
+          "id": "p34-4"
+        },
+        {
+          "type": "short",
+          "prompt": "The sandwich is _____ the juice and the salad. (next)",
+          "answers": [
+            "between"
+          ],
+          "id": "p34-5"
+        },
+        {
+          "type": "short",
+          "prompt": "She stands _____ of the board. (behind)",
+          "answers": [
+            "in front"
+          ],
+          "id": "p34-6"
+        },
+        {
+          "type": "short",
+          "prompt": "The picture is _____ the wall. (under)",
+          "answers": [
+            "on"
+          ],
+          "id": "p34-7"
+        },
+        {
+          "type": "short",
+          "prompt": "My shoes are _____ to the bed. (in)",
+          "answers": [
+            "next"
+          ],
+          "id": "p34-8"
+        },
+        {
+          "type": "write",
+          "prompt": "Do you like shopping? Why or why not?",
+          "target": 0,
+          "id": "p34-9"
+        }
+      ]
+    },
+    {
+      "page": 35,
+      "title": "Lesson 3 · Numbers and sounds",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "The source page uses a story heading, but its exercises practise numbers and /b/ and /p/ sounds.",
+          "id": "p35-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Warm-up: What comes next? 10, 100, 1,000, ...",
+          "target": 0,
+          "id": "p35-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "1,000 is one _____.",
+          "options": [
+            "thousand",
+            "million",
+            "hundred",
+            "billion"
+          ],
+          "answers": [
+            "thousand"
+          ],
+          "id": "p35-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "120,000 is one hundred and _____ thousand.",
+          "options": [
+            "billion",
+            "million",
+            "twenty",
+            "ten"
+          ],
+          "answers": [
+            "twenty"
+          ],
+          "id": "p35-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "2,500,000,000 is two _____ five hundred million.",
+          "options": [
+            "thousand",
+            "billion",
+            "hundred",
+            "million"
+          ],
+          "answers": [
+            "billion"
+          ],
+          "id": "p35-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "560,000 is five hundred and sixty _____.",
+          "options": [
+            "hundred",
+            "million",
+            "thousand",
+            "billion"
+          ],
+          "answers": [
+            "thousand"
+          ],
+          "id": "p35-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "In 5,000,000,500, the last 5 is in the _____ place.",
+          "options": [
+            "ones",
+            "hundreds",
+            "billions",
+            "millions"
+          ],
+          "answers": [
+            "hundreds"
+          ],
+          "id": "p35-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word starts with a different sound?",
+          "options": [
+            "bat",
+            "bear",
+            "bin",
+            "pan"
+          ],
+          "answers": [
+            "pan"
+          ],
+          "id": "p35-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word starts with a different sound?",
+          "options": [
+            "pear",
+            "bin",
+            "pin",
+            "pan"
+          ],
+          "answers": [
+            "bin"
+          ],
+          "id": "p35-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word starts with a different sound?",
+          "options": [
+            "page",
+            "pay",
+            "pan",
+            "bat"
+          ],
+          "answers": [
+            "bat"
+          ],
+          "id": "p35-10"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word starts with a different sound?",
+          "options": [
+            "box",
+            "bus",
+            "pen",
+            "bun"
+          ],
+          "answers": [
+            "pen"
+          ],
+          "id": "p35-11"
+        },
+        {
+          "type": "choice",
+          "prompt": "Which word starts with a different sound?",
+          "options": [
+            "boat",
+            "bag",
+            "bat",
+            "pot"
+          ],
+          "answers": [
+            "pot"
+          ],
+          "id": "p35-12"
+        },
+        {
+          "type": "write",
+          "prompt": "Write 6,900,567,423 in words. Use billion, million and thousand.",
+          "target": 0,
+          "id": "p35-13"
+        }
+      ]
+    },
+    {
+      "page": 36,
+      "title": "Weekly quiz · Pyramids and library",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "Group A: The Pyramids are one of the most famous places in Egypt. Many tourists visit them every year. They take pictures and enjoy camel rides near the Pyramids. People love learning about how the Pyramids were built using big stones. After seeing the Pyramids, visitors often go to the Egyptian Museum to see old treasures.",
+          "id": "p36-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "The Pyramids are very _____.",
+          "options": [
+            "short",
+            "famous",
+            "new",
+            "quiet"
+          ],
+          "answers": [
+            "famous"
+          ],
+          "id": "p36-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Many tourists take _____ near the Pyramids.",
+          "options": [
+            "books",
+            "food",
+            "pictures",
+            "tickets"
+          ],
+          "answers": [
+            "pictures"
+          ],
+          "id": "p36-3"
+        },
+        {
+          "type": "write",
+          "prompt": "Why do tourists like visiting the Pyramids?",
+          "target": 0,
+          "id": "p36-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Where do visitors usually go after seeing the Pyramids?",
+          "target": 0,
+          "id": "p36-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Punctuate and improve the source sentence: ali bought a gift john. The source is missing a linking word; add one to make the meaning clear.",
+          "target": 0,
+          "id": "p36-6"
+        },
+        {
+          "type": "reading",
+          "text": "Group B: The library is a quiet place in the city. We go there to read or borrow books. It has books about animals, science, and history. Some people go to study or do their homework. There are chairs and tables for reading. The library helps people learn more. It is usually open during the day. You must be quiet inside the library and keep it clean.",
+          "id": "p36-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "We go to the library to _____ books.",
+          "options": [
+            "eat",
+            "borrow",
+            "throw",
+            "sell"
+          ],
+          "answers": [
+            "borrow"
+          ],
+          "id": "p36-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "You must be quiet inside the _____.",
+          "options": [
+            "shop",
+            "school",
+            "library",
+            "street"
+          ],
+          "answers": [
+            "library"
+          ],
+          "id": "p36-9"
+        }
+      ]
+    },
+    {
+      "page": 37,
+      "title": "Weekly quiz · Library and Cairo Tower",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "Group B, continued: The library has books about animals, science and history. People go there to read, borrow books, study or do homework.",
+          "id": "p37-1"
+        },
+        {
+          "type": "write",
+          "prompt": "What can people do at the library?",
+          "target": 0,
+          "id": "p37-2"
+        },
+        {
+          "type": "write",
+          "prompt": "What kind of books does the library have?",
+          "target": 0,
+          "id": "p37-3"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "heba bought gifts from the bazaar",
+          "answers": [
+            "Heba bought gifts from the bazaar."
+          ],
+          "id": "p37-4"
+        },
+        {
+          "type": "reading",
+          "text": "Group C: Sami went to the Cairo Tower on Friday. He went with his brother. They saw the whole city from the top. It is a very tall and famous place. There were many tourists and visitors. They took many pictures. They ate lunch at a very nice restaurant. They had a great time together.",
+          "id": "p37-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sami went to the Cairo _____ on Friday.",
+          "options": [
+            "Tower",
+            "Museum",
+            "River",
+            "Hospital"
+          ],
+          "answers": [
+            "Tower"
+          ],
+          "id": "p37-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "They saw the whole _____ from the top.",
+          "options": [
+            "desert",
+            "bazaar",
+            "city",
+            "building"
+          ],
+          "answers": [
+            "city"
+          ],
+          "id": "p37-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Who did Sami go with?",
+          "target": 0,
+          "id": "p37-8"
+        },
+        {
+          "type": "write",
+          "prompt": "What did they do at the top of the tower?",
+          "target": 0,
+          "id": "p37-9"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "we went to Siwa Oasis",
+          "answers": [
+            "We went to Siwa Oasis."
+          ],
+          "id": "p37-10"
+        }
+      ]
+    },
+    {
+      "page": 38,
+      "title": "Lesson 4 · Writing a blog",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Is St. Catherine Mountain in Cairo? Do people wear warm clothes there?",
+          "target": 0,
+          "id": "p38-1"
+        },
+        {
+          "type": "passage",
+          "text": "St. Catherine Mountain is in South Sinai. It is a {{famous}} place. People come to {{climb}} the mountain. They see {{colorful}} rocks, green plants, and sometimes animals. When they reach the {{top}}, they visit the old {{monastery}}.",
+          "bank": [
+            "colorful",
+            "famous",
+            "monastery",
+            "top",
+            "climb"
+          ],
+          "answers": [
+            [
+              "famous"
+            ],
+            [
+              "climb"
+            ],
+            [
+              "colorful"
+            ],
+            [
+              "top"
+            ],
+            [
+              "monastery"
+            ]
+          ],
+          "id": "p38-2"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "The weather is cold in the morning."
+          ],
+          "tokens": [
+            "The",
+            "weather",
+            "is",
+            "cold",
+            "in",
+            "the",
+            "morning."
+          ],
+          "id": "p38-3"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "He takes photos of the museum."
+          ],
+          "tokens": [
+            "He",
+            "takes",
+            "photos",
+            "of",
+            "the",
+            "museum."
+          ],
+          "id": "p38-4"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "We went to the Pyramids last Friday."
+          ],
+          "tokens": [
+            "We",
+            "went",
+            "to",
+            "the",
+            "Pyramids",
+            "last",
+            "Friday."
+          ],
+          "id": "p38-5"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Tourists come to Cairo every year."
+          ],
+          "tokens": [
+            "Tourists",
+            "come",
+            "to",
+            "Cairo",
+            "every",
+            "year."
+          ],
+          "id": "p38-6"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "St. Catherine Mountain is in South Sinai."
+          ],
+          "tokens": [
+            "St.",
+            "Catherine",
+            "Mountain",
+            "is",
+            "in",
+            "South",
+            "Sinai."
+          ],
+          "id": "p38-7"
+        },
+        {
+          "type": "write",
+          "prompt": "A Natural Trip. Use: amazing place, tourists, take pictures.",
+          "target": 18,
+          "id": "p38-8"
+        }
+      ]
+    },
+    {
+      "page": 39,
+      "title": "Lesson 5 · Think and create: Siwa",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Describe the place pictured on the original page in three words.",
+          "target": 0,
+          "id": "p39-1"
+        },
+        {
+          "type": "reading",
+          "text": "Think about Siwa Oasis when answering the statements. For example, swimming refers to the water in an oasis, not swimming in sand.",
+          "id": "p39-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "You can swim in the desert at an oasis.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p39-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Dates grow on palm trees.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p39-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "You should wear a jacket during the day in Siwa.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p39-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Siwa Oasis has sweet dates and olive oil.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p39-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "You can see the sunset at the Salt Lake.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p39-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Tourists can swim and take photos at the Salt _____.",
+          "options": [
+            "Sea",
+            "Lake",
+            "Water",
+            "River"
+          ],
+          "answers": [
+            "Lake"
+          ],
+          "id": "p39-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sweet _____ are fresh from palm trees.",
+          "options": [
+            "apples",
+            "bananas",
+            "dates",
+            "lemons"
+          ],
+          "answers": [
+            "dates"
+          ],
+          "id": "p39-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "It is a good idea to bring a _____ at night in Siwa.",
+          "options": [
+            "hat",
+            "jacket",
+            "swimming suit",
+            "T-shirt"
+          ],
+          "answers": [
+            "jacket"
+          ],
+          "id": "p39-10"
+        },
+        {
+          "type": "choice",
+          "prompt": "People wear light _____ during the day in Siwa.",
+          "options": [
+            "clothes",
+            "shoes",
+            "bags",
+            "hats"
+          ],
+          "answers": [
+            "clothes"
+          ],
+          "id": "p39-11"
+        },
+        {
+          "type": "choice",
+          "prompt": "You can see palm _____ around the lake and desert.",
+          "options": [
+            "branches",
+            "leaves",
+            "trees",
+            "plants"
+          ],
+          "answers": [
+            "trees"
+          ],
+          "id": "p39-12"
+        },
+        {
+          "type": "write",
+          "prompt": "Make a leaflet about a place you visit. What is the place? What is it famous for? How is the weather?",
+          "target": 0,
+          "id": "p39-13"
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "title": "Weekly quiz · Travel writing",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Group A: A Trip to St. Catherine. Where is the place? What do people learn? Why do families go there?",
+          "target": 18,
+          "id": "p40-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Group B: Climbing the Mountain. Use: climb, cold air, amazing view.",
+          "target": 18,
+          "id": "p40-2"
+        },
+        {
+          "type": "write",
+          "prompt": "Group C: Siwa Oasis. Use: see sunset, good olive oil, cold.",
+          "target": 18,
+          "id": "p40-3"
+        }
+      ]
+    },
+    {
+      "page": 41,
+      "title": "Monthly review · My homeland",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Tourists can _____ a camel near the pyramids.",
+          "options": [
+            "drink",
+            "guide",
+            "see",
+            "ride"
+          ],
+          "answers": [
+            "ride",
+            "see"
+          ],
+          "id": "p41-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "A/An _____ is a place with water and trees in the desert.",
+          "options": [
+            "tower",
+            "bazaar",
+            "museum",
+            "oasis"
+          ],
+          "answers": [
+            "oasis"
+          ],
+          "id": "p41-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "The _____ is very tall. We can see Cairo from the top.",
+          "options": [
+            "pyramids",
+            "Tower",
+            "bazaar",
+            "oasis"
+          ],
+          "answers": [
+            "Tower"
+          ],
+          "id": "p41-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "People buy _____ from the bazaar.",
+          "options": [
+            "gifts",
+            "books",
+            "camels",
+            "Pyramids"
+          ],
+          "answers": [
+            "gifts",
+            "books"
+          ],
+          "id": "p41-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "The Nile _____ is the longest river in Egypt.",
+          "options": [
+            "pyramids",
+            "Museum",
+            "River",
+            "boat"
+          ],
+          "answers": [
+            "River"
+          ],
+          "id": "p41-5"
+        },
+        {
+          "type": "passage",
+          "text": "Ahmed is a tour {{guide}} in Egypt. He takes tourists to see the {{Pyramids}}. They stop to take {{pictures}} with their cameras. Many visitors want to {{ride}} a {{camel}} near the Pyramids.",
+          "bank": [
+            "pictures",
+            "guide",
+            "Pyramids",
+            "ride",
+            "camel"
+          ],
+          "answers": [
+            [
+              "guide"
+            ],
+            [
+              "Pyramids"
+            ],
+            [
+              "pictures"
+            ],
+            [
+              "ride"
+            ],
+            [
+              "camel"
+            ]
+          ],
+          "id": "p41-6"
+        },
+        {
+          "type": "reading",
+          "text": "Yesterday, I went to Khan Al-Khalili Bazaar. I went there with my family. It was a very busy and colorful market. There were many shops selling gifts and clothes. Many tourists go there to buy gifts. I bought a nice ring for my sister. We took photos. It was a very nice day.",
+          "id": "p41-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "We went to Khan Al-Khalili _____.",
+          "options": [
+            "river",
+            "school",
+            "Bazaar",
+            "museum"
+          ],
+          "answers": [
+            "Bazaar"
+          ],
+          "id": "p41-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "There were many shops selling _____ and clothes.",
+          "options": [
+            "gifts",
+            "boats",
+            "trees",
+            "tickets"
+          ],
+          "answers": [
+            "gifts"
+          ],
+          "id": "p41-9"
+        },
+        {
+          "type": "write",
+          "prompt": "What did the narrator buy?",
+          "target": 0,
+          "id": "p41-10"
+        },
+        {
+          "type": "write",
+          "prompt": "How was the day yesterday?",
+          "target": 0,
+          "id": "p41-11"
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "title": "Monthly review · Positions and writing",
+      "unit": 4,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "I took a photo _____ of the Cairo Tower. (in)",
+          "answers": [
+            "in front"
+          ],
+          "id": "p42-1"
+        },
+        {
+          "type": "short",
+          "prompt": "The chair is _____ the two beds. (next)",
+          "answers": [
+            "between"
+          ],
+          "id": "p42-2"
+        },
+        {
+          "type": "short",
+          "prompt": "The photo is _____ the wall. (under)",
+          "answers": [
+            "on"
+          ],
+          "id": "p42-3"
+        },
+        {
+          "type": "short",
+          "prompt": "The bag is _____ to the door. (behind)",
+          "answers": [
+            "next"
+          ],
+          "id": "p42-4"
+        },
+        {
+          "type": "short",
+          "prompt": "The boy hides _____ the bed. (on)",
+          "answers": [
+            "under"
+          ],
+          "id": "p42-5"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "the nile is very long river",
+          "answers": [
+            "The Nile is a very long river.",
+            "The Nile is very long river."
+          ],
+          "id": "p42-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "tourists ride camels near the pyramids",
+          "answers": [
+            "Tourists ride camels near the pyramids.",
+            "Tourists ride camels near the Pyramids."
+          ],
+          "id": "p42-7"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "St. Catherine Mountain is in egypt",
+          "answers": [
+            "St. Catherine Mountain is in Egypt."
+          ],
+          "id": "p42-8"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "where is the cat",
+          "answers": [
+            "Where is the cat?"
+          ],
+          "id": "p42-9"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "why do tourists go to Khan Al Khalili",
+          "answers": [
+            "Why do tourists go to Khan Al Khalili?",
+            "Why do tourists go to Khan Al-Khalili?"
+          ],
+          "id": "p42-10"
+        },
+        {
+          "type": "write",
+          "prompt": "The Nile River. Use: Egypt, longest, boats.",
+          "target": 18,
+          "id": "p42-11"
+        }
+      ]
+    },
+    {
+      "page": 43,
+      "title": "Lesson 1 · Different jobs",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: “I wear a white uniform and a cap. I keep people safe. Who am I?”",
+          "target": 0,
+          "id": "p43-1"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "The nurse is wearing a blue uniform."
+          ],
+          "tokens": [
+            "The",
+            "nurse",
+            "is",
+            "wearing",
+            "a",
+            "blue",
+            "uniform."
+          ],
+          "id": "p43-2"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "I want to be a police officer."
+          ],
+          "tokens": [
+            "I",
+            "want",
+            "to",
+            "be",
+            "a",
+            "police",
+            "officer."
+          ],
+          "id": "p43-3"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "Ali wears a yellow helmet."
+          ],
+          "tokens": [
+            "Ali",
+            "wears",
+            "a",
+            "yellow",
+            "helmet."
+          ],
+          "id": "p43-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Rearrange and correct the verbs: stop / The firefighter / fire / and / people / save.",
+          "target": 0,
+          "id": "p43-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Rearrange and correct the verb: design / He / new / a / building.",
+          "target": 0,
+          "id": "p43-6"
+        },
+        {
+          "type": "passage",
+          "text": "Amr works in a hospital. He is a {{doctor}} who wears a {{white}} coat. Every day he gives {{care}} to many sick children. He checks on the {{patients}} to make sure they feel better. He loves his job at the {{hospital}}.",
+          "bank": [
+            "hospital",
+            "doctor",
+            "patients",
+            "white",
+            "care"
+          ],
+          "answers": [
+            [
+              "doctor"
+            ],
+            [
+              "white"
+            ],
+            [
+              "care"
+            ],
+            [
+              "patients"
+            ],
+            [
+              "hospital"
+            ]
+          ],
+          "id": "p43-7"
+        },
+        {
+          "type": "write",
+          "prompt": "What do you want to be when you grow up?",
+          "target": 0,
+          "id": "p43-8"
+        }
+      ]
+    },
+    {
+      "page": 44,
+      "title": "Lesson 2 · Jobs I love",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Look at the pictures on the original page. Match each tool to wildlife photographer, voice-over actor or mentor.",
+          "target": 0,
+          "id": "p44-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sama loves _____ stories using her puppets.",
+          "options": [
+            "writing",
+            "watching",
+            "telling",
+            "shouting"
+          ],
+          "answers": [
+            "telling"
+          ],
+          "id": "p44-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Hana feels _____ when her students get good marks.",
+          "options": [
+            "cold",
+            "happy",
+            "tired",
+            "loud"
+          ],
+          "answers": [
+            "happy"
+          ],
+          "id": "p44-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Voice-over actors often make cartoons sound more _____.",
+          "options": [
+            "real",
+            "boring",
+            "quiet",
+            "far"
+          ],
+          "answers": [
+            "real"
+          ],
+          "id": "p44-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Safi does many puppet _____ for children.",
+          "options": [
+            "photos",
+            "plays",
+            "shows",
+            "dances"
+          ],
+          "answers": [
+            "shows"
+          ],
+          "id": "p44-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Amr is a wildlife _____ who loves taking pictures.",
+          "options": [
+            "actor",
+            "photographer",
+            "singer",
+            "mentor"
+          ],
+          "answers": [
+            "photographer"
+          ],
+          "id": "p44-6"
+        },
+        {
+          "type": "short",
+          "prompt": "This is the _____ tree in the garden. (tall)",
+          "answers": [
+            "tallest"
+          ],
+          "id": "p44-7"
+        },
+        {
+          "type": "short",
+          "prompt": "The elephant is the _____ animal. (big)",
+          "answers": [
+            "biggest"
+          ],
+          "id": "p44-8"
+        },
+        {
+          "type": "short",
+          "prompt": "It was the _____ day of the week. (funny)",
+          "answers": [
+            "funniest"
+          ],
+          "id": "p44-9"
+        },
+        {
+          "type": "short",
+          "prompt": "My room is the _____ in the house. (clean)",
+          "answers": [
+            "cleanest"
+          ],
+          "id": "p44-10"
+        },
+        {
+          "type": "short",
+          "prompt": "The Nile River is the _____ one. (longer)",
+          "answers": [
+            "longest"
+          ],
+          "id": "p44-11"
+        },
+        {
+          "type": "write",
+          "prompt": "Write five sentences about your favorite job.",
+          "target": 0,
+          "id": "p44-12"
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "title": "Lesson 3 · The last house",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Warm-up: Guess a title for the story.",
+          "target": 0,
+          "id": "p45-1"
+        },
+        {
+          "type": "reading",
+          "text": "Seleem was famous for building strong, beautiful houses. After many years, he wanted to rest. But the village king had one last request: “Please build one more house.” Seleem agreed, but he did not do his best. He used weak wood and did not check the doors or windows. When it was finished, the king smiled and gave him the house as a gift. Seleem was surprised. He had built it without care, and now he had to live in it.",
+          "id": "p45-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Seleem was famous for building _____ houses.",
+          "options": [
+            "tall",
+            "strong",
+            "old",
+            "glass"
+          ],
+          "answers": [
+            "strong"
+          ],
+          "id": "p45-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "The king gave the house as a _____.",
+          "options": [
+            "prize",
+            "gift",
+            "room",
+            "job"
+          ],
+          "answers": [
+            "gift"
+          ],
+          "id": "p45-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Why did Seleem build the house without care?",
+          "target": 0,
+          "id": "p45-5"
+        },
+        {
+          "type": "write",
+          "prompt": "What did the king give Seleem?",
+          "target": 0,
+          "id": "p45-6"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "sami was a skilled carpenter",
+          "answers": [
+            "Sami was a skilled carpenter."
+          ],
+          "id": "p45-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Retell The Last House in your own words. Include the carpenter, the king’s request, the mistake, the ending and the lesson learned. The source uses both Seleem and Sami for the carpenter.",
+          "target": 0,
+          "id": "p45-8"
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "title": "Weekly quiz · Comparatives and superlatives",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "Group A: This is the _____ puppet show. (nice)",
+          "answers": [
+            "nicest"
+          ],
+          "id": "p46-1"
+        },
+        {
+          "type": "short",
+          "prompt": "My bag is _____ than yours. (heavy)",
+          "answers": [
+            "heavier"
+          ],
+          "id": "p46-2"
+        },
+        {
+          "type": "short",
+          "prompt": "The giraffe is the _____ animal. (taller)",
+          "answers": [
+            "tallest"
+          ],
+          "id": "p46-3"
+        },
+        {
+          "type": "short",
+          "prompt": "It was the _____ day in the year. (hot)",
+          "answers": [
+            "hottest"
+          ],
+          "id": "p46-4"
+        },
+        {
+          "type": "short",
+          "prompt": "Khan Al-Khalili is the _____ market. (busy)",
+          "answers": [
+            "busiest"
+          ],
+          "id": "p46-5"
+        },
+        {
+          "type": "short",
+          "prompt": "Group B: The Cairo Tower is the _____ building. (tall)",
+          "answers": [
+            "tallest"
+          ],
+          "id": "p46-6"
+        },
+        {
+          "type": "short",
+          "prompt": "The lion is the _____ animal. (strong)",
+          "answers": [
+            "strongest"
+          ],
+          "id": "p46-7"
+        },
+        {
+          "type": "short",
+          "prompt": "My sister is the _____ one in my family. (happy)",
+          "answers": [
+            "happiest"
+          ],
+          "id": "p46-8"
+        },
+        {
+          "type": "short",
+          "prompt": "She is the _____ girl in the class. (fast)",
+          "answers": [
+            "fastest"
+          ],
+          "id": "p46-9"
+        },
+        {
+          "type": "short",
+          "prompt": "It is the _____ toy in the shop. (nice)",
+          "answers": [
+            "nicest"
+          ],
+          "id": "p46-10"
+        },
+        {
+          "type": "short",
+          "prompt": "Group C: My grandfather is the _____ one in my family. (older)",
+          "answers": [
+            "oldest"
+          ],
+          "id": "p46-11"
+        },
+        {
+          "type": "short",
+          "prompt": "The photographer took the _____ photos at the party. (great)",
+          "answers": [
+            "greatest"
+          ],
+          "id": "p46-12"
+        },
+        {
+          "type": "short",
+          "prompt": "Summer is _____ than winter. (hottest)",
+          "answers": [
+            "hotter"
+          ],
+          "id": "p46-13"
+        },
+        {
+          "type": "short",
+          "prompt": "The cheetah is the _____ animal. (fast)",
+          "answers": [
+            "fastest"
+          ],
+          "id": "p46-14"
+        },
+        {
+          "type": "short",
+          "prompt": "She watched the _____ show. (big)",
+          "answers": [
+            "biggest"
+          ],
+          "id": "p46-15"
+        }
+      ]
+    },
+    {
+      "page": 47,
+      "title": "Lesson 4 · Writing non-fiction",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "A firefighter helps someone escape from a fire. Is this heroic?",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p47-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Throwing trash on the ground is heroic.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p47-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "A nurse takes care of sick children. Is this heroic?",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p47-3"
+        },
+        {
+          "type": "passage",
+          "text": "Omar works at a fire station. Every morning, he checks the fire {{truck}} and his equipment. He wears a {{helmet}} and a thick {{protective}} uniform. When the {{alarm}} rings, he moves quickly to help people in {{danger}}.",
+          "bank": [
+            "protective",
+            "alarm",
+            "truck",
+            "danger",
+            "helmet"
+          ],
+          "answers": [
+            [
+              "truck"
+            ],
+            [
+              "helmet"
+            ],
+            [
+              "protective"
+            ],
+            [
+              "alarm"
+            ],
+            [
+              "danger"
+            ]
+          ],
+          "id": "p47-4"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "The weather is cold in the morning."
+          ],
+          "tokens": [
+            "The",
+            "weather",
+            "is",
+            "cold",
+            "in",
+            "the",
+            "morning."
+          ],
+          "id": "p47-5"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "They feel happy to help people."
+          ],
+          "tokens": [
+            "They",
+            "feel",
+            "happy",
+            "to",
+            "help",
+            "people."
+          ],
+          "id": "p47-6"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "The fire truck is always clean."
+          ],
+          "tokens": [
+            "The",
+            "fire",
+            "truck",
+            "is",
+            "always",
+            "clean."
+          ],
+          "id": "p47-7"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "He uses special tools to fight fire."
+          ],
+          "tokens": [
+            "He",
+            "uses",
+            "special",
+            "tools",
+            "to",
+            "fight",
+            "fire."
+          ],
+          "id": "p47-8"
+        },
+        {
+          "type": "order",
+          "prompt": "Put the words in order.",
+          "answers": [
+            "The firefighter works in a fire station."
+          ],
+          "tokens": [
+            "The",
+            "firefighter",
+            "works",
+            "in",
+            "a",
+            "fire",
+            "station."
+          ],
+          "id": "p47-9"
+        },
+        {
+          "type": "write",
+          "prompt": "Heroes Who Help People. Use: danger, saving lives, helping others.",
+          "target": 18,
+          "id": "p47-10"
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "title": "Lesson 5 · Think and create: Origami",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Look at the jobs pictured on the original page. What clothes or uniforms do they need?",
+          "target": 0,
+          "id": "p48-1"
+        },
+        {
+          "type": "reading",
+          "text": "The source instruction mentions Siwa by mistake. The questions below are multiple-choice questions about origami.",
+          "id": "p48-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Use a _____ to measure paper before cutting.",
+          "options": [
+            "marker",
+            "glue",
+            "ruler",
+            "jacket"
+          ],
+          "answers": [
+            "ruler"
+          ],
+          "id": "p48-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "You can make origami art that shows a _____.",
+          "options": [
+            "story",
+            "job",
+            "game",
+            "house"
+          ],
+          "answers": [
+            "story",
+            "job",
+            "house"
+          ],
+          "id": "p48-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "To make origami art, you need colored paper, scissors and _____.",
+          "options": [
+            "books",
+            "markers",
+            "bottles",
+            "folders"
+          ],
+          "answers": [
+            "markers"
+          ],
+          "id": "p48-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Origami can be used to make shapes, animals or _____.",
+          "options": [
+            "scissors",
+            "jobs",
+            "objects",
+            "glue"
+          ],
+          "answers": [
+            "objects"
+          ],
+          "id": "p48-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Use _____ to stick small pieces of paper.",
+          "options": [
+            "water",
+            "scissors",
+            "glue",
+            "tape"
+          ],
+          "answers": [
+            "glue",
+            "tape"
+          ],
+          "id": "p48-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Write five sentences about a job you would like to do when you grow up.",
+          "target": 0,
+          "id": "p48-8"
+        }
+      ]
+    },
+    {
+      "page": 49,
+      "title": "Weekly quiz · Heroes writing",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Group A: Firefighter’s Tools. Use: water hoses, ladders, red fire truck.",
+          "target": 18,
+          "id": "p49-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Group B: Someone You Think Is a Hero. Use: helping people, danger, save lives.",
+          "target": 18,
+          "id": "p49-2"
+        },
+        {
+          "type": "write",
+          "prompt": "Group C: Heroes Who Fight Fires. Use: fire station, alarm rings, save people.",
+          "target": 18,
+          "id": "p49-3"
+        }
+      ]
+    },
+    {
+      "page": 50,
+      "title": "Unit 5 review · Jobs and reading",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Sara is a doctor. She helps _____ people and checks their health.",
+          "options": [
+            "poor",
+            "sick",
+            "busy",
+            "old"
+          ],
+          "answers": [
+            "sick"
+          ],
+          "id": "p50-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Ali is an engineer. He _____ new buildings.",
+          "options": [
+            "builds",
+            "designs",
+            "cleans",
+            "paints"
+          ],
+          "answers": [
+            "designs",
+            "builds"
+          ],
+          "id": "p50-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "A/An _____ stops fires and saves people.",
+          "options": [
+            "police officer",
+            "firefighter",
+            "engineer",
+            "nurse"
+          ],
+          "answers": [
+            "firefighter"
+          ],
+          "id": "p50-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "The firefighter’s job is important because he _____ people.",
+          "options": [
+            "saves",
+            "sells",
+            "sends",
+            "sees"
+          ],
+          "answers": [
+            "saves"
+          ],
+          "id": "p50-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "The police officer wears a white _____ and a cap.",
+          "options": [
+            "coat",
+            "uniform",
+            "vest",
+            "helmet"
+          ],
+          "answers": [
+            "uniform"
+          ],
+          "id": "p50-5"
+        },
+        {
+          "type": "passage",
+          "text": "Sami decided to repair the house. He worked slowly, board by {{board}}. He made the house strong and {{beautiful}}. Sami promised to always give his {{best}}. With each nail he {{hammered}}, he felt proud.",
+          "bank": [
+            "hammered",
+            "best",
+            "beautiful",
+            "board",
+            "work"
+          ],
+          "answers": [
+            [
+              "board"
+            ],
+            [
+              "beautiful"
+            ],
+            [
+              "best"
+            ],
+            [
+              "hammered"
+            ]
+          ],
+          "id": "p50-6"
+        },
+        {
+          "type": "reading",
+          "text": "Dalia is a mentor who helps children learn. She works in a school with many students. Dalia listens to their problems and gives good advice. She also helps with reading and writing. Children trust her because she is kind and calm. Dalia feels proud when her students do well. She says teaching is a job that needs care and love.",
+          "id": "p50-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Dalia helps students as a _____.",
+          "options": [
+            "mentor",
+            "singer",
+            "nurse",
+            "driver"
+          ],
+          "answers": [
+            "mentor"
+          ],
+          "id": "p50-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Children trust Dalia because she is _____.",
+          "options": [
+            "loud",
+            "calm",
+            "funny",
+            "quiet"
+          ],
+          "answers": [
+            "calm"
+          ],
+          "id": "p50-9"
+        }
+      ]
+    },
+    {
+      "page": 51,
+      "title": "Unit 5 review · Grammar and writing",
+      "unit": 5,
+      "sections": [
+        {
+          "type": "reading",
+          "text": "Dalia helps children with reading and writing. She feels proud when her students do well. Refer to the reading passage on page 50.",
+          "id": "p51-1"
+        },
+        {
+          "type": "write",
+          "prompt": "What does Dalia help children with?",
+          "target": 0,
+          "id": "p51-2"
+        },
+        {
+          "type": "write",
+          "prompt": "Why does Dalia feel proud?",
+          "target": 0,
+          "id": "p51-3"
+        },
+        {
+          "type": "short",
+          "prompt": "The firefighter is the _____ hero in our town. (brave)",
+          "answers": [
+            "bravest"
+          ],
+          "id": "p51-4"
+        },
+        {
+          "type": "short",
+          "prompt": "The engineer designed the _____ bridge in the city. (strong)",
+          "answers": [
+            "strongest"
+          ],
+          "id": "p51-5"
+        },
+        {
+          "type": "short",
+          "prompt": "The police officer is the _____ at catching thieves. (fast)",
+          "answers": [
+            "fastest"
+          ],
+          "id": "p51-6"
+        },
+        {
+          "type": "short",
+          "prompt": "This tree is the _____ one in the park. (tall)",
+          "answers": [
+            "tallest"
+          ],
+          "id": "p51-7"
+        },
+        {
+          "type": "short",
+          "prompt": "The fire station is the _____ building in our area. (big)",
+          "answers": [
+            "biggest"
+          ],
+          "id": "p51-8"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "august is the hottest month of the year",
+          "answers": [
+            "August is the hottest month of the year."
+          ],
+          "id": "p51-9"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "why does Sama like her job",
+          "answers": [
+            "Why does Sama like her job?"
+          ],
+          "id": "p51-10"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "where is the fire station",
+          "answers": [
+            "Where is the fire station?"
+          ],
+          "id": "p51-11"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "sami repaired the house board by board",
+          "answers": [
+            "Sami repaired the house board by board."
+          ],
+          "id": "p51-12"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "my bag is very heavy",
+          "answers": [
+            "My bag is very heavy."
+          ],
+          "id": "p51-13"
+        },
+        {
+          "type": "write",
+          "prompt": "Wildlife Photographer. Use: camera, desert, lion.",
+          "target": 18,
+          "id": "p51-14"
+        }
+      ]
+    },
+    {
+      "page": 52,
+      "title": "Story · The beginning",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "Picture 1 on the original page: D_____ (something to wear)",
+          "answers": [
+            "dress"
+          ],
+          "id": "p52-1"
+        },
+        {
+          "type": "short",
+          "prompt": "Picture 2: P_____ (where children can play)",
+          "answers": [
+            "playground"
+          ],
+          "id": "p52-2"
+        },
+        {
+          "type": "short",
+          "prompt": "Picture 3: C_____ (where clothes are kept)",
+          "answers": [
+            "closet",
+            "cupboard"
+          ],
+          "id": "p52-3"
+        },
+        {
+          "type": "short",
+          "prompt": "Picture 4: Class_____ (where pupils learn)",
+          "answers": [
+            "classroom"
+          ],
+          "id": "p52-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda was a quiet girl and sat in the front of the class.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p52-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda wore the same dress every day.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p52-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Peggy and Maddie did not annoy Wanda.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p52-7"
+        },
+        {
+          "type": "write",
+          "prompt": "What color was Wanda’s dress?",
+          "target": 0,
+          "id": "p52-8"
+        },
+        {
+          "type": "write",
+          "prompt": "Where did Peggy and Maddie annoy Wanda?",
+          "target": 0,
+          "id": "p52-9"
+        },
+        {
+          "type": "write",
+          "prompt": "Do you agree with Peggy? Why or why not?",
+          "target": 0,
+          "id": "p52-10"
+        }
+      ]
+    },
+    {
+      "page": 53,
+      "title": "Story · The middle",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Wanda _____ to the big city.",
+          "options": [
+            "played",
+            "worked",
+            "moved",
+            "returned"
+          ],
+          "answers": [
+            "moved"
+          ],
+          "id": "p53-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Peggy and Maddie wrote a _____ to Wanda.",
+          "options": [
+            "story",
+            "letter",
+            "book",
+            "notebook"
+          ],
+          "answers": [
+            "letter"
+          ],
+          "id": "p53-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda won the _____ competition.",
+          "options": [
+            "drawing",
+            "writing",
+            "reading",
+            "cooking"
+          ],
+          "answers": [
+            "drawing"
+          ],
+          "id": "p53-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda always wore the same _____ dress.",
+          "options": [
+            "red",
+            "black",
+            "white",
+            "blue"
+          ],
+          "answers": [
+            "blue"
+          ],
+          "id": "p53-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Miss Mason chose _____ girl to win the competition.",
+          "options": [
+            "two",
+            "three",
+            "one",
+            "four"
+          ],
+          "answers": [
+            "one"
+          ],
+          "id": "p53-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda won the drawing competition.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p53-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda’s dad phoned Miss Mason.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p53-7"
+        },
+        {
+          "type": "write",
+          "prompt": "True or false: Wanda received the medal at this point in the story. Explain using the story text; review with your teacher.",
+          "target": 0,
+          "id": "p53-8"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “I will choose one boy and one girl as winners”?",
+          "target": 0,
+          "id": "p53-9"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “We need to write to Wanda and apologize”?",
+          "target": 0,
+          "id": "p53-10"
+        }
+      ]
+    },
+    {
+      "page": 54,
+      "title": "Weekly quiz · Story groups A & B",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Group A: Wanda _____ to the big city.",
+          "options": [
+            "played",
+            "worked",
+            "moved",
+            "returned"
+          ],
+          "answers": [
+            "moved"
+          ],
+          "id": "p54-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Peggy and Maddie _____ Wanda.",
+          "options": [
+            "annoyed",
+            "said",
+            "wrote",
+            "slept"
+          ],
+          "answers": [
+            "annoyed"
+          ],
+          "id": "p54-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda had _____ dress.",
+          "options": [
+            "three",
+            "five",
+            "one",
+            "two"
+          ],
+          "answers": [
+            "one"
+          ],
+          "id": "p54-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda’s _____ wrote to Miss Mason.",
+          "options": [
+            "brother",
+            "sister",
+            "father",
+            "baby"
+          ],
+          "answers": [
+            "father"
+          ],
+          "id": "p54-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Maddie was afraid of losing Peggy’s _____.",
+          "options": [
+            "phone",
+            "help",
+            "watch",
+            "friendship"
+          ],
+          "answers": [
+            "friendship"
+          ],
+          "id": "p54-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda sat in the front of the class.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p54-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Peggy was a popular girl at school.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p54-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Group B: Wanda’s dad wrote a _____ to Miss Mason.",
+          "options": [
+            "letter",
+            "book",
+            "phone",
+            "message"
+          ],
+          "answers": [
+            "letter"
+          ],
+          "id": "p54-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda had one _____ dress.",
+          "options": [
+            "green",
+            "blue",
+            "black",
+            "white"
+          ],
+          "answers": [
+            "blue"
+          ],
+          "id": "p54-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ annoyed Wanda.",
+          "options": [
+            "Miss Mason",
+            "Peggy",
+            "Wanda’s dad",
+            "Wanda’s mother"
+          ],
+          "answers": [
+            "Peggy"
+          ],
+          "id": "p54-10"
+        },
+        {
+          "type": "choice",
+          "prompt": "Miss Mason chose _____ girl to win the competition.",
+          "options": [
+            "two",
+            "three",
+            "one",
+            "four"
+          ],
+          "answers": [
+            "one"
+          ],
+          "id": "p54-11"
+        }
+      ]
+    },
+    {
+      "page": 55,
+      "title": "Weekly quiz · Story groups B & C",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Group B: Wanda _____ to the big city.",
+          "options": [
+            "played",
+            "worked",
+            "moved",
+            "returned"
+          ],
+          "answers": [
+            "moved"
+          ],
+          "id": "p55-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda was a quiet girl.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p55-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda always wore a red dress.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p55-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "Group C: Wanda’s dad wrote a _____ to Miss Mason.",
+          "options": [
+            "letter",
+            "book",
+            "phone",
+            "message"
+          ],
+          "answers": [
+            "letter"
+          ],
+          "id": "p55-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda had one blue _____.",
+          "options": [
+            "skirt",
+            "shirt",
+            "dress",
+            "blouse"
+          ],
+          "answers": [
+            "dress"
+          ],
+          "id": "p55-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Maddie was afraid of losing Peggy’s _____.",
+          "options": [
+            "phone",
+            "help",
+            "watch",
+            "friendship"
+          ],
+          "answers": [
+            "friendship"
+          ],
+          "id": "p55-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ annoyed Wanda.",
+          "options": [
+            "Miss Mason",
+            "Peggy",
+            "Wanda’s dad",
+            "Wanda’s mother"
+          ],
+          "answers": [
+            "Peggy"
+          ],
+          "id": "p55-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda was a _____ girl.",
+          "options": [
+            "busy",
+            "lazy",
+            "bad",
+            "quiet"
+          ],
+          "answers": [
+            "quiet"
+          ],
+          "id": "p55-8"
+        },
+        {
+          "type": "reading",
+          "text": "The source sentence about Wanda’s quiet nature also says she sat in front. That location is incorrect; she sat at the back. The corrected question above tests only the adjective.",
+          "id": "p55-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "Peggy and Maddie annoyed Wanda.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "True"
+          ],
+          "id": "p55-10"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda’s brother sent a letter to Miss Mason.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answers": [
+            "False"
+          ],
+          "id": "p55-11"
+        }
+      ]
+    },
+    {
+      "page": 56,
+      "title": "Story · The end",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "Who said: “I'm happy at my new school.”?",
+          "target": 0,
+          "id": "p56-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “We are sorry for our behavior.”?",
+          "target": 0,
+          "id": "p56-2"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “Thank you for your letter.”?",
+          "target": 0,
+          "id": "p56-3"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “We need to write to Wanda and apologize.”?",
+          "target": 0,
+          "id": "p56-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “I will choose one boy and one girl as winners.”?",
+          "target": 0,
+          "id": "p56-5"
+        },
+        {
+          "type": "write",
+          "prompt": "How did Wanda feel when she won the medal?",
+          "target": 0,
+          "id": "p56-6"
+        },
+        {
+          "type": "write",
+          "prompt": "What did you learn from the story?",
+          "target": 0,
+          "id": "p56-7"
+        }
+      ]
+    },
+    {
+      "page": 57,
+      "title": "Unit 6 review · The Hundred Dresses",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Peggy laughed at Wanda’s hundred _____.",
+          "options": [
+            "books",
+            "dresses",
+            "pens",
+            "coats"
+          ],
+          "answers": [
+            "dresses"
+          ],
+          "id": "p57-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Miss Mason received a letter from Wanda’s _____.",
+          "options": [
+            "mother",
+            "father",
+            "sister",
+            "friend"
+          ],
+          "answers": [
+            "father"
+          ],
+          "id": "p57-2"
+        },
+        {
+          "type": "choice",
+          "prompt": "Peggy wrote a/an _____ to Wanda.",
+          "options": [
+            "story",
+            "bag",
+            "e-mail",
+            "letter"
+          ],
+          "answers": [
+            "letter"
+          ],
+          "id": "p57-3"
+        },
+        {
+          "type": "choice",
+          "prompt": "_____ won the drawing competition.",
+          "options": [
+            "Peggy",
+            "Maddie",
+            "Wanda",
+            "Miss Mason"
+          ],
+          "answers": [
+            "Wanda"
+          ],
+          "id": "p57-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda _____ to the big city.",
+          "options": [
+            "moved",
+            "played",
+            "wrote",
+            "asked"
+          ],
+          "answers": [
+            "moved"
+          ],
+          "id": "p57-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda had one blue _____.",
+          "options": [
+            "skirt",
+            "shirt",
+            "dress",
+            "blouse"
+          ],
+          "answers": [
+            "dress"
+          ],
+          "id": "p57-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Maddie was afraid of losing Peggy’s _____.",
+          "options": [
+            "phone",
+            "help",
+            "watch",
+            "friendship"
+          ],
+          "answers": [
+            "friendship"
+          ],
+          "id": "p57-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda had one _____ dress.",
+          "options": [
+            "green",
+            "blue",
+            "black",
+            "white"
+          ],
+          "answers": [
+            "blue"
+          ],
+          "id": "p57-8"
+        },
+        {
+          "type": "choice",
+          "prompt": "Miss Mason chose _____ girl to win the competition.",
+          "options": [
+            "two",
+            "three",
+            "one",
+            "four"
+          ],
+          "answers": [
+            "one"
+          ],
+          "id": "p57-9"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda was _____ at her new school.",
+          "options": [
+            "happy",
+            "sad",
+            "angry",
+            "tired"
+          ],
+          "answers": [
+            "happy"
+          ],
+          "id": "p57-10"
+        },
+        {
+          "type": "choice",
+          "prompt": "Wanda sat at the _____ of the classroom.",
+          "options": [
+            "front",
+            "back",
+            "right",
+            "left"
+          ],
+          "answers": [
+            "back"
+          ],
+          "id": "p57-11"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “I will choose one boy and one girl as winners.”?",
+          "target": 0,
+          "id": "p57-12"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “We need to write to Wanda and apologize.”?",
+          "target": 0,
+          "id": "p57-13"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “I'm happy at my new school.”?",
+          "target": 0,
+          "id": "p57-14"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “We are sorry for our behavior.”?",
+          "target": 0,
+          "id": "p57-15"
+        },
+        {
+          "type": "write",
+          "prompt": "Who said: “Thank you for your letter.”?",
+          "target": 0,
+          "id": "p57-16"
+        }
+      ]
+    },
+    {
+      "page": 58,
+      "title": "Unit 6 review · Think and answer",
+      "unit": 6,
+      "sections": [
+        {
+          "type": "write",
+          "prompt": "How did Wanda feel when she won the medal?",
+          "target": 0,
+          "id": "p58-1"
+        },
+        {
+          "type": "write",
+          "prompt": "What did you learn from the story?",
+          "target": 0,
+          "id": "p58-2"
+        },
+        {
+          "type": "write",
+          "prompt": "What color was Wanda’s dress?",
+          "target": 0,
+          "id": "p58-3"
+        },
+        {
+          "type": "write",
+          "prompt": "Where did Peggy and Maddie annoy Wanda?",
+          "target": 0,
+          "id": "p58-4"
+        },
+        {
+          "type": "write",
+          "prompt": "Do you agree with Peggy? Why or why not?",
+          "target": 0,
+          "id": "p58-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Who drew the beautiful dresses?",
+          "target": 0,
+          "id": "p58-6"
+        },
+        {
+          "type": "write",
+          "prompt": "What competition did Miss Mason announce?",
+          "target": 0,
+          "id": "p58-7"
+        }
+      ]
+    },
+    {
+      "page": 59,
+      "title": "Model exam 1 · Reading and grammar",
+      "unit": 7,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "A/An _____ designs buildings.",
+          "options": [
+            "doctor",
+            "farmer",
+            "engineer",
+            "vet"
+          ],
+          "answers": [
+            "engineer"
+          ],
+          "id": "p59-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Is Ramy _____ than Heba?",
+          "options": [
+            "tall",
+            "tallest",
+            "taller",
+            "a tall"
+          ],
+          "answers": [
+            "taller"
+          ],
+          "id": "p59-2"
+        },
+        {
+          "type": "passage",
+          "text": "My father is a {{firefighter}}. He works in a {{fire}} station. He wears a thin {{protective}} uniform with bright yellow {{stripes}} and a heavy {{helmet}} to keep him safe.",
+          "bank": [
+            "stripes",
+            "firefighter",
+            "fire",
+            "protective",
+            "helmet"
+          ],
+          "answers": [
+            [
+              "firefighter"
+            ],
+            [
+              "fire"
+            ],
+            [
+              "protective"
+            ],
+            [
+              "stripes"
+            ],
+            [
+              "helmet"
+            ]
+          ],
+          "id": "p59-3"
+        },
+        {
+          "type": "reading",
+          "text": "Sara is a voice-over actor. She likes her job very much. She makes voices for cartoons. She can make high and low voices. She can also talk very fast or very slowly. She can make little voices for small characters and loud voices for large ones. I want to be like Sara in the future.",
+          "id": "p59-4"
+        },
+        {
+          "type": "write",
+          "prompt": "What is Sara’s job?",
+          "target": 0,
+          "id": "p59-5"
+        },
+        {
+          "type": "write",
+          "prompt": "Does Sara like her job?",
+          "target": 0,
+          "id": "p59-6"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sara is a/an _____.",
+          "options": [
+            "nurse",
+            "voice-over actor",
+            "engineer",
+            "vet"
+          ],
+          "answers": [
+            "voice-over actor"
+          ],
+          "id": "p59-7"
+        },
+        {
+          "type": "choice",
+          "prompt": "Sara makes voices for _____.",
+          "options": [
+            "books",
+            "stories",
+            "cartoons",
+            "cars"
+          ],
+          "answers": [
+            "cartoons"
+          ],
+          "id": "p59-8"
+        },
+        {
+          "type": "short",
+          "prompt": "Hany is _____ than Samy. (strong)",
+          "answers": [
+            "stronger"
+          ],
+          "id": "p59-9"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ they play football? (Does)",
+          "answers": [
+            "Do"
+          ],
+          "id": "p59-10"
+        },
+        {
+          "type": "short",
+          "prompt": "Ahmed is the _____ boy in his class. (tall)",
+          "answers": [
+            "tallest"
+          ],
+          "id": "p59-11"
+        },
+        {
+          "type": "short",
+          "prompt": "She doesn't _____ Arabic well. (reads)",
+          "answers": [
+            "read"
+          ],
+          "id": "p59-12"
+        }
+      ]
+    },
+    {
+      "page": 60,
+      "title": "Model exam 1 · Writing",
+      "unit": 7,
+      "sections": [
+        {
+          "type": "punctuate",
+          "prompt": "habiba is a good girl",
+          "answers": [
+            "Habiba is a good girl."
+          ],
+          "id": "p60-1"
+        },
+        {
+          "type": "write",
+          "prompt": "Our Senses. Use: touch, see, hear.",
+          "target": 18,
+          "id": "p60-2"
+        }
+      ]
+    },
+    {
+      "page": 61,
+      "title": "Model exam 2 · Clean air",
+      "unit": 7,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "My sister _____ English every day.",
+          "options": [
+            "speaks",
+            "speak",
+            "speaking",
+            "spoke"
+          ],
+          "answers": [
+            "speaks"
+          ],
+          "id": "p61-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "Orange juice gives Sarah _____ in the morning.",
+          "options": [
+            "color",
+            "sugar",
+            "energy",
+            "fun"
+          ],
+          "answers": [
+            "energy",
+            "sugar"
+          ],
+          "id": "p61-2"
+        },
+        {
+          "type": "passage",
+          "text": "We help our school and keep it clean. On Tuesday, we {{clean}} the school playground. We also {{recycle}} bottles and plastic to protect nature. Some students plant {{trees}} around the building. We all {{help}} each other to make our {{school}} better.",
+          "bank": [
+            "trees",
+            "clean",
+            "recycle",
+            "help",
+            "school"
+          ],
+          "answers": [
+            [
+              "clean"
+            ],
+            [
+              "recycle"
+            ],
+            [
+              "trees"
+            ],
+            [
+              "help"
+            ],
+            [
+              "school"
+            ]
+          ],
+          "id": "p61-3"
+        },
+        {
+          "type": "reading",
+          "text": "Our class worked on a project about clean air. We made posters, wrote facts, and spoke to other classes. Habiba drew a factory with smoke. Aya wrote about trees and how they give us oxygen. We put our work on the wall. Our teacher liked the project very much. It was fun and helpful.",
+          "id": "p61-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Habiba drew a _____ with smoke.",
+          "options": [
+            "house",
+            "factory",
+            "book",
+            "park"
+          ],
+          "answers": [
+            "factory"
+          ],
+          "id": "p61-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "Our teacher _____ the project.",
+          "options": [
+            "ate",
+            "wrote",
+            "liked",
+            "read"
+          ],
+          "answers": [
+            "liked"
+          ],
+          "id": "p61-6"
+        },
+        {
+          "type": "write",
+          "prompt": "What was the class project about?",
+          "target": 0,
+          "id": "p61-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Who wrote about trees?",
+          "target": 0,
+          "id": "p61-8"
+        },
+        {
+          "type": "short",
+          "prompt": "This dog is _____ than the other one. (fast)",
+          "answers": [
+            "faster"
+          ],
+          "id": "p61-9"
+        }
+      ]
+    },
+    {
+      "page": 62,
+      "title": "Model exam 2 · Grammar and writing",
+      "unit": 7,
+      "sections": [
+        {
+          "type": "short",
+          "prompt": "The table is _____ to the TV. (under)",
+          "answers": [
+            "next"
+          ],
+          "id": "p62-1"
+        },
+        {
+          "type": "short",
+          "prompt": "The giraffe is the _____ animal in the zoo. (tall)",
+          "answers": [
+            "tallest"
+          ],
+          "id": "p62-2"
+        },
+        {
+          "type": "short",
+          "prompt": "Yasin _____ the museum last week. (visit)",
+          "answers": [
+            "visited"
+          ],
+          "id": "p62-3"
+        },
+        {
+          "type": "punctuate",
+          "prompt": "hamza is clever and funny",
+          "answers": [
+            "Hamza is clever and funny."
+          ],
+          "id": "p62-4"
+        },
+        {
+          "type": "write",
+          "prompt": "My Trip to Siwa Oasis. Use: desert, water, Salt Lake.",
+          "target": 18,
+          "id": "p62-5"
+        }
+      ]
+    },
+    {
+      "page": 63,
+      "title": "Model exam 3 · Reading and grammar",
+      "unit": 7,
+      "sections": [
+        {
+          "type": "choice",
+          "prompt": "Farida is the _____ girl in my class.",
+          "options": [
+            "tall",
+            "taller",
+            "tallest",
+            "a tall"
+          ],
+          "answers": [
+            "tallest"
+          ],
+          "id": "p63-1"
+        },
+        {
+          "type": "choice",
+          "prompt": "I _____ play football on the weekend.",
+          "options": [
+            "am",
+            "are",
+            "do",
+            "don’t"
+          ],
+          "answers": [
+            "do",
+            "don’t"
+          ],
+          "id": "p63-2"
+        },
+        {
+          "type": "passage",
+          "text": "My name is Hany. I am a {{wildlife}} photographer. I {{take}} pictures of {{animals}}, birds and plants in nature. I have lots of pictures. My favorite animals are {{monkeys}}. They climb trees and they are funny.",
+          "bank": [
+            "animals",
+            "monkeys",
+            "wildlife",
+            "market",
+            "take"
+          ],
+          "answers": [
+            [
+              "wildlife"
+            ],
+            [
+              "take"
+            ],
+            [
+              "animals"
+            ],
+            [
+              "monkeys"
+            ]
+          ],
+          "id": "p63-3"
+        },
+        {
+          "type": "reading",
+          "text": "My name is Heba. I went to the Egyptian Museum last Friday with my family. We went by bus. The Egyptian Museum has many treasures and statues. It is one of the world’s most important museums of history. We enjoyed our visit and took lots of photos. We were very happy.",
+          "id": "p63-4"
+        },
+        {
+          "type": "choice",
+          "prompt": "Heba went to the _____.",
+          "options": [
+            "Pyramids",
+            "Cairo Tower",
+            "Egyptian Museum",
+            "zoo"
+          ],
+          "answers": [
+            "Egyptian Museum"
+          ],
+          "id": "p63-5"
+        },
+        {
+          "type": "choice",
+          "prompt": "They were very _____.",
+          "options": [
+            "angry",
+            "happy",
+            "sad",
+            "lazy"
+          ],
+          "answers": [
+            "happy"
+          ],
+          "id": "p63-6"
+        },
+        {
+          "type": "write",
+          "prompt": "What did they see there?",
+          "target": 0,
+          "id": "p63-7"
+        },
+        {
+          "type": "write",
+          "prompt": "Is the Egyptian Museum important?",
+          "target": 0,
+          "id": "p63-8"
+        },
+        {
+          "type": "short",
+          "prompt": "Hany is the _____ one in the class. (strong)",
+          "answers": [
+            "strongest"
+          ],
+          "id": "p63-9"
+        },
+        {
+          "type": "short",
+          "prompt": "_____ Ahmed study French? (Does)",
+          "answers": [
+            "Does"
+          ],
+          "id": "p63-10"
+        },
+        {
+          "type": "short",
+          "prompt": "Ahmed is _____ than Samir. (short)",
+          "answers": [
+            "shorter"
+          ],
+          "id": "p63-11"
+        },
+        {
+          "type": "short",
+          "prompt": "She _____ read Arabic well. (don’t)",
+          "answers": [
+            "doesn't",
+            "does not"
+          ],
+          "id": "p63-12"
+        }
+      ]
+    },
+    {
+      "page": 64,
+      "title": "Model exam 3 · Writing",
+      "unit": 7,
+      "sections": [
+        {
+          "type": "punctuate",
+          "prompt": "rana is a beautiful girl",
+          "answers": [
+            "Rana is a beautiful girl."
+          ],
+          "id": "p64-1"
+        },
+        {
+          "type": "write",
+          "prompt": "A Day at the Forest Park. Use: animals, forest guide, visitors.",
+          "target": 18,
+          "id": "p64-2"
+        }
+      ]
+    }
+  ]
+}
