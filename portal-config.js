@@ -1,6 +1,6 @@
 window.ENGLISH_PORTAL_CONFIG = {
-  connectPlus4Url: './connect-plus-4/',
-  english4Url: './english-4/',
+  connectPlus4Url: './connect-plus-4/?v=20261101-personal-access',
+  english4Url: './english-4/?v=20261101-personal-access',
   workbook4Url: './interactive-workbook/',
   heroOfWeek: {
     weekNumber: '___',

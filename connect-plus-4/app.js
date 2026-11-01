@@ -700,14 +700,16 @@
   function activityId(lessonId){return "lesson:"+lessonId}
   function bossId(moduleId){return "boss:"+moduleId}
   function activityDone(id,passing=false){const a=state.activities[id];return !!(a&&a.questionSetVersion===QUESTION_SYSTEM_VERSION&&a.completed&&(!passing||a.percent>=70))}
-  function lessonAccessStatus(lessonId){const access=cloudUI.lessonAccess||{},student=access.student||{},classAccess=access.class||{};return student[lessonId]||classAccess[lessonId]||'visible'}
+  // Only teacher-managed personal access rows can grant course-wide free navigation.
+  function hasFullCourseAccess(){return cloudUI.lessonAccess?.student?.alllessons==='visible'}
+  function lessonAccessStatus(lessonId){if(hasFullCourseAccess())return 'visible';const access=cloudUI.lessonAccess||{},student=access.student||{},classAccess=access.class||{};return student[lessonId]||classAccess[lessonId]||'visible'}
   function visibleLessons(m){return m?m.lessons.filter(l=>lessonAccessStatus(l.id)!=='hidden'):[]}
   function firstVisibleLessonIndex(m){return m?m.lessons.findIndex(l=>lessonAccessStatus(l.id)!=='hidden'):-1}
   function firstAvailableLessonIndex(m,start=0){if(!m)return -1;for(let i=Math.max(0,start);i<m.lessons.length;i++)if(lessonAccessStatus(m.lessons[i].id)==='visible')return i;return -1}
   function moduleComplete(id){const m=moduleById(id);if(!m)return false;const shown=visibleLessons(m);if(!shown.length)return true;if(!m.special)return activityDone(bossId(id),true);return shown.every(l=>activityDone(activityId(l.id)))}
-  function moduleUnlocked(id){if(id==="u1")return true;const m=moduleById(id);if(m.special)return moduleComplete(m.unlockAfter);const units=unitModules();const i=units.findIndex(x=>x.id===id);return i<=0||moduleComplete(units[i-1].id)}
+  function moduleUnlocked(id){const m=moduleById(id);if(!m)return false;if(hasFullCourseAccess()||id==="u1")return true;if(m.special)return moduleComplete(m.unlockAfter);const units=unitModules();const i=units.findIndex(x=>x.id===id);return i<=0||moduleComplete(units[i-1].id)}
   function lessonUnlocked(m,index){return !!(m&&m.lessons[index]&&lessonAccessStatus(m.lessons[index].id)==='visible'&&moduleUnlocked(m.id))}
-  function bossUnlocked(m){return !m.special&&visibleLessons(m).every(l=>activityDone(activityId(l.id)))}
+  function bossUnlocked(m){return !!m&&!m.special&&(hasFullCourseAccess()||visibleLessons(m).every(l=>activityDone(activityId(l.id))))}
   function completedCount(){return BOOK_DATA.reduce((count,m)=>count+visibleLessons(m).filter(l=>activityDone(activityId(l.id))).length,0)}
   function totalLessonCount(){return BOOK_DATA.reduce((n,m)=>n+visibleLessons(m).length,0)}
   function answeredQuestionCount(){return Object.values(state.activities).reduce((n,a)=>n+Object.keys(a.answers||{}).length,0)}
